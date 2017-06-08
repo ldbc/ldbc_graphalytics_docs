@@ -1,0 +1,33 @@
+\chapter{Introduction}
+\label{chap:introduction}
+In this work we introduce the LDBC Graphalytics benchmark, explaining the motivation for creating this benchmark suite for graph analytics platforms, its relevance to industry and academia, the overview of the benchmark process, and the participation of industry and academia in developing this benchmark. A scientific companion to this technical specification has been published in 2016~\cite{DBLP:journals/pvldb/IosupHNHPMCCSATXNB16}.
+
+\section{Motivation for the Benchmark}
+Responding to increasingly larger and more diverse graphs, and the need to analyze them, both industry and academia are developing and tuning graph analysis software platforms. Already tens of such platforms exist,	but their performance is often difficult to compare. Moreover, the random, skewed, and correlated access patterns of graph analysis, caused by the complex interaction between input datasets and applications processing them, expose new bottlenecks on the hardware level, as hinted at by the large differences between Top500 and Graph500 rankings (See Appendix~\ref{chap:related-work} for the related work). Therefore, addressing the need for fair, comprehensive, standardized comparison of graph analysis platforms, in this work we propose the LDBC Graphalytics benchmark.
+
+\section{Relevance to Industry and Academia}
+A standardized, comprehensive benchmark for graph analytics platforms is beneficial to both industry and academia. Graphalytics allows a comprehensive, fair comparison across graph analysis platforms. The benchmark results provids insightful knowledge to users and developer on performance tuning of graph processing, and increases understanding of the advantage and disadvantages of design and implementation, therefore stimulating academic research in graph data storage, indexing, and analysis. By supporting platform variety, it reduces the learning curve of new users to graph processing systems.
+
+\section{General Benchmark Overview}
+This benchmark suite evaluates the performance of graph analysis platforms that facilitate complex and holistic graph computations. This benchmark must suffice to the requiriments of (1)~targeting platforms and systems, (2)~incoporating diverse, representative benchmark elements, (3)~using a diverse, representative process, (4)~including a renewal process, and (5)~developed under modern software engineering.
+
+In the benchmark (See Chapter~\ref{chap:definition} for the formal definition), we carefully motivate the choice of our algorithms and datasets to conduct our benchmark experiments. Graphalytics consists of six core algorithms: breadth-first search, PageRank, weakly connected components, community detection using label propagation, local clustering coefficient, and single-source shortest paths. The workload includes real and synthetic datasets, which are classified into intuitive ``T-shirt'' sizes (e.g., S, M, L, XL). The benchmarking process is made future-proof, through a {\it renewal process}. 
+
+Each system under test undergoes a standard benchmark (See Chapter~\ref{chap:benchmark_process}) per target-scale, which executes in total 90 graph-processing jobs (six core algorithms, five different datasets, and three repetitions per job).
+\futureinversion{2.0}{For full benchmark, additional experiments on scalabiltiy and robustness will also be included. Our test harness characterizes performance and {\it scalability} with deep metrics (strong vs. weak scaling), and also characterizes {\it robustness} by measuring SLA compliance, performance variability, and crash points.}
+
+
+\section{Participation of Industry and Academia}
+The Linked Data Benchmark Council ({\footnotesize\tt ldbcouncil.org}, LDBC), is an industry council formed to 
+establish standard benchmark specifications, practices and results for {\em graph data management systems}. The list of institutions that take part in the definition and development of LDBC-Graphalytics is formed by relevant actors from both the industry and academia in the field of large-scale graph processing. As of February 2017, the list of participants is as follows:
+
+\begin{itemize}
+	\item \MakeUppercase{Centrum Wiskunde \& Informatica}, the Netherlands (CWI)
+	\item \MakeUppercase{Delft University of Technology}, the Netherlands (TUD)
+	\item \newthisversion{0.2.12}{\MakeUppercase{Vrije Univrsiteit Amsterdam}, the Netherlands (VU)}
+	\item \MakeUppercase{Georgia Institute of Technology}, USA (GT)
+	\item \MakeUppercase{Huawei Research America}, USA (HAUWEI)
+	\item \MakeUppercase{Intel Labs}, USA (INTEL)
+	\item \MakeUppercase{Oracle Labs}, USA (ORACLE)
+	\item \MakeUppercase{Polytechnic University of Catalonia}, Spain (UPC)
+\end{itemize}

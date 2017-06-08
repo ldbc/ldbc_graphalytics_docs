@@ -1,0 +1,45 @@
+\begin{tabular}[!tb]{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{2}{|c|}{Reference} & \multicolumn{2}{c|}{Target System} & \multicolumn{5}{c|}{Design} & \multicolumn{2}{c|}{Includes tests for...} & Other Distinguishing \\ 
+\hline
+Type & Name [Publication] & \multicolumn{1}{c|}{Structure} & \multicolumn{1}{c|}{Programming} & \multicolumn{1}{c|}{Input} & \multicolumn{1}{c|}{Data.} & \multicolumn{1}{c|}{Algo.} & \multicolumn{1}{c|}{Scalable?} & \multicolumn{1}{c|}{Renewal} & \multicolumn{1}{c|}{Scalability} & \multicolumn{1}{c|}{Robustness} & Features \\ 
+\hline
+B & \pbox{5cm}{CloudSuite~\cite{DBLP:conf/asplos/FerdmanAKVAJKPAF12 }, \\latest graph elements} & \multicolumn{1}{c|}{D/MC} & \multicolumn{1}{c|}{1 class (PowerGraph)} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Rnd(3)} & \multicolumn{1}{c|}{Exp(1)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & Micro-architecture \\ 
+\hline
+S & Montresor et al.~\cite{DBLP:conf/bigdataconf/ElserM13} & \multicolumn{1}{c|}{D/MC} & \multicolumn{1}{c|}{3 classes} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{Rnd(7)} & \multicolumn{1}{c|}{Exp(1)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & Distribution model \\ 
+\hline
+B & HPC-SGAB~\cite{DBLP:conf/hipc/BaderM05} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp(RMAT)} & \multicolumn{1}{c|}{Exp(1+)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & HPC architecture \\ 
+\hline
+B & Graph500\footnote{http://www.graph500.org} & \multicolumn{1}{c|}{P/MC/GPU} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp(RMAT)} & \multicolumn{1}{c|}{Exp(1)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & HPC architecture, industry support \\ 
+\hline
+B & GreenGraph500\footnote{http://green.graph500.org/greengraph500rules.pdf} & \multicolumn{1}{c|}{P/MC/GPU} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp(RMAT)} & \multicolumn{1}{c|}{Exp(1)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & Graph500 plus energy \\ 
+\hline
+B & WGB~\cite{DBLP:conf/wbdb/AmmarO13} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{SE+} & \multicolumn{1}{c|}{Exp(RTG)} & \multicolumn{1}{c|}{Exp(several)} & \multicolumn{1}{c|}{1B Edges} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & Query type \\ 
+\hline
+S & {\bf Own work, prior to Graphalytics}~\cite{DBLP:conf/ipps/GuoBVIMW14,DBLP:conf/ccgrid/GuoVIE15,DBLP:conf/sigmod/CapotaHIPEB14} & \multicolumn{1}{c|}{D/MC/GPU} & \multicolumn{1}{c|}{10 classes} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp(6,RMAT)} & \multicolumn{1}{c|}{1-stage(5 classes)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{W/S/V/H} & \multicolumn{1}{c|}{No} & Distributed and other platforms, Scalability \\ 
+\hline
+S & \"Ozsu et al.~\cite{DBLP:journals/pvldb/HanDAOWJ14} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{1 class(Pregel)} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{Exp(5)+Rnd(1)} & \multicolumn{1}{c|}{Exp(4)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{W/S/V/H} & \multicolumn{1}{c|}{No} & Pregel-like features \\ 
+\hline
+B & \pbox{5cm}{BigDataBench~\cite{DBLP:conf/wbdb/MingLGHYWZ13,DBLP:conf/hpca/WangZLZYHGJSZZLZLQ14}, \\only graph elements} & \multicolumn{1}{c|}{D/MC} & \multicolumn{1}{c|}{1 class (Hadoop)} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Rnd(7)} & \multicolumn{1}{c|}{Rnd(2)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{Strong} & \multicolumn{1}{c|}{No} & --- \\ 
+\hline
+S & Satish et al.~\cite{DBLP:conf/sigmod/SatishSPSPHSYD14} & \multicolumn{1}{c|}{D/MC} & \multicolumn{1}{c|}{6 classes} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp(6)+Rnd(1)} & \multicolumn{1}{c|}{Exp(4)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{Weak} & \multicolumn{1}{c|}{No} & Optimized code, classes of distributed platforms \\ 
+\hline
+S & Lu et al.~\cite{DBLP:journals/pvldb/LuCYW14} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{4 classes} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp(5c/7)+Rnd(1)} & \multicolumn{1}{c|}{Exp(5c/7)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{Strong} & \multicolumn{1}{c|}{No} & Effects of individual techniques \\ 
+\hline
+B & GraphBIG~\cite{DBLP:conf/sc/NaiXTKL15} & \multicolumn{1}{c|}{P/MC/GPU} & \multicolumn{1}{c|}{1 class (System G)} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp(5)} & \multicolumn{1}{c|}{Exp(10)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & Memory sub-system, System G-like features \\ 
+\hline
+S & Cherkasova et al.~\cite{conf/icpe/EisenmanCMCFK16} & \multicolumn{1}{c|}{MC} & \multicolumn{1}{c|}{1 class(Galois)} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{Rnd(2)} & \multicolumn{1}{c|}{Exp(5)} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & Memory sub-system, Galois-like features \\ 
+\hline
+B & {\bf LDBC Graphalytics (this work)} & \multicolumn{1}{c|}{D/MC/GPU} & \multicolumn{1}{c|}{10+ classes} & \multicolumn{1}{c|}{SE+} & \multicolumn{1}{c|}{2-stage(10,RMAT,LDBC)} & \multicolumn{1}{c|}{2-stage(6 classes)} & \multicolumn{1}{c|}{1B Edges} & \multicolumn{1}{c|}{Yes} & \multicolumn{1}{c|}{W/S/V/H} & \multicolumn{1}{c|}{Yes} & Distributed and other platforms, industry support \\ 
+\hline
+\multicolumn{12}{|c|}{Legend: S - Study, B - Benchmark; D - distributed system, P - parallel system, MC - single-node multi-core system, GPU - using GPUs.} \\ 
+\hline
+\multicolumn{12}{|c|}{Input: {\bf 0} - no parameters; {\bf S} - parameters to define scale; {\bf E} - parameters to define edge properties; {\bf +} - parameters to define other graph properties, e.g., clustering coefficient.} \\ 
+\hline
+\multicolumn{12}{|c|}{Data[sets]/Algo[rithms]: {\bf Rnd} - reason for selection not explained; {\bf Exp} - selection seems guided by personal expertise; {\bf 1-stage} - data-driven selection; {\bf 2-stage} - 2-stage data-driven and expertise-driven process.} \\ 
+\hline
+\multicolumn{12}{|c|}{Can test scalability? Weak/Strong/Vertical/Horizontal.} \\ 
+\hline
+\multicolumn{12}{|c|}{\"---\" - feature not available or unclear from publication(s).} \\ 
+\hline
+\end{tabular}

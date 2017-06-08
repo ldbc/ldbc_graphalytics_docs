@@ -1,0 +1,18 @@
+# LaTeX ignores
+*.aux
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.bbl
+*.blg
+*.tcp
+*.dvi
+*.tps
+*.synctex.gz
+article.pdf
+graphalytics_spec.pdf
+figures/example_evlp-eps-converted-to.pdf

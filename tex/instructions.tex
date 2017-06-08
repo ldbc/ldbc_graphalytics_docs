@@ -1,0 +1,77 @@
+\chapter{Implementation Instructions}
+\label{chap:instructions}
+Graphalytics provides a set of benchmark software and resources which are open-source and publicly available. This chapter explains how to work with Graphalytics softwares and enumerates the available benchmark resources which are necessary for the benchmark.
+
+
+
+\section{Graphalytics Softwares and Documentation}\label{sec:instructions:core}
+The Graphalytics team develops and maintains the core Graphalytics softwares, which facilitates the benchmark process and is extendable for benchmarking and analysing the performance of various graph processing platforms.
+
+\textbf{Graphalytics Core}: The Graphalytics Core contains the core implementation for the Graphalytics benchmark, provides an programmable interface for platform drivers.
+
+\-\ Link: \url{https://github.com/ldbc/ldbc_graphalytics}
+
+
+\textbf{Graphalytics Wiki}: The Graphalytics wiki provides detailed instructions on how to install and run the Graphalytics benchmark.
+
+\-\ Link: \url{https://github.com/ldbc/ldbc_graphalytics/wiki}
+
+
+\futureinversion{1.0}{
+\textbf{Graphalytics Website}: The Graphalytics website presents the newest updates of the project, provides links to benchmark resources, and organizes periodically global competitions.
+
+\-\ Link: (working in progress)
+}
+
+
+\textbf{Reference Implementation}: The Graphalytics reference platform driver provides an simple but correct implementation of all core algorithms defined in \sref{sec:definition_algorithms}, which serves as a guideline for correct implementation of more sophisticated graph processing platforms.
+
+\-\ Link: \url{https://github.com/ldbc/ldbc_graphalytics_platforms_reference}
+
+
+\futureinversion{1.0}{
+\textbf{Driver Prototype}: The Graphalytics benchmark suite can be easily extended by developing a platform driver for your own platform, built upon the platform driver template. Follow the detailed instructions in the manual on implementing driver. 
+
+\-\ Link: \url{https://github.com/ldbc/ldbc_graphalytics/graphalytics-platforms-archetype}
+}
+
+
+
+
+
+
+
+\section{Graphalytics-related Softwares}\label{sec:instructions:related}
+To enhance the depth and comprehensiveness of the benchmark process, the following software tools are integrated into Graphalytics. Usage of these tools is optional, but highly recommended.
+
+
+\textbf{Datagen} The LDBC-SNB Data Generator is the responsible of providing the data sets used by all the LDBC benchmarks. This data generator is designed to produce directed labeled graphs that mimic the characteristics of those graphs of real data. 
+
+\-\ Link: \url{https://github.com/ldbc/ldbc_snb_datagen}
+
+
+
+\textbf{Granula}:  Granula is a fine-grained performance analysis system consists of four main modules: the modeller, the monitor, the archiver, and the visualizer. 
+By using Granula, enriched performance results can be obtained for each benchmark run, which helps in facilitating in-depth performance analysis, e.g. failure analysis, performance regression testing.
+
+\-\ Link: \url{https://github.com/atlarge-research/granula}
+
+
+
+
+
+
+
+\section{Graphalytics Platform Driver}\label{sec:instructions:drivers}
+A list of platform drivers already built into LDBC Graphalytics are available at:
+
+\begin{itemize}
+  \item Giraph (no vendor optimization): \\\url{https://github.com/atlarge-research/graphalytics-platforms-giraph}
+	%\item GraphLab (no vendor optimization): \\\url{https://github.com/atlarge-research/graphalytics-platforms-graphlab}
+	\item Graphmat: \\\url{https://github.com/atlarge-research/graphalytics-platforms-graphmat}
+	\item GraphX (no vendor optimization): \\\url{https://github.com/atlarge-research/graphalytics-platforms-graphx}
+	%\item Hadoop/YARN (no vendor optimization): \\\url{https://github.com/atlarge-research/graphalytics-platforms-mapreducev2}
+	\item OpenG: \\\url{https://github.com/atlarge-research/graphalytics-platforms-openg}
+	\item PowerGraph (no vendor optimization): \\\url{https://github.com/atlarge-research/graphalytics-platforms-powergraph}
+\end{itemize}
+

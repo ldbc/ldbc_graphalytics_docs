@@ -1,0 +1,48 @@
+\begin{tabular}[!tb]{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{2}{|c|}{Reference (chronological order)} & \multicolumn{2}{c|}{Target System (R1)} & \multicolumn{4}{c|}{Design (R2)} & \multicolumn{2}{c|}{Tests (R3)} & \multicolumn{1}{c|}{(R4)}\\ 
+\hline
+ & Name [Publication] & \multicolumn{1}{c|}{Structure} & \multicolumn{1}{c|}{Programming} & \multicolumn{1}{c|}{Input} & \multicolumn{1}{c|}{Datasets} & \multicolumn{1}{c|}{Algo.} & \multicolumn{1}{c|}{Scalable?} & \multicolumn{1}{c|}{Scalability} & \multicolumn{1}{c|}{Robustness} & \multicolumn{1}{c|}{Renewal}\\ 
+\hline
+B & \pbox{5cm}{CloudSuite~\cite{DBLP:conf/asplos/FerdmanAKVAJKPAF12}, \\only graph elements} & \multicolumn{1}{c|}{D/MC} & \multicolumn{1}{c|}{PowerGraph} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Rnd} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+S & Montresor et al.~\cite{DBLP:conf/bigdataconf/ElserM13} & \multicolumn{1}{c|}{D/MC} & \multicolumn{1}{c|}{3 classes} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{Rnd} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+B & HPC-SGAB~\cite{DBLP:conf/hipc/BaderM05} & \multicolumn{1}{c|}{P} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+B & Graph500 & \multicolumn{1}{c|}{P/MC/GPU} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+B & GreenGraph500 & \multicolumn{1}{c|}{P/MC/GPU} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+B & WGB~\cite{DBLP:conf/wbdb/AmmarO13} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{SE+} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{1B Edges} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+\hline
+S & {\bf Own prior work}~\cite{DBLP:conf/ipps/GuoBVIMW14,DBLP:conf/ccgrid/GuoVIE15,DBLP:conf/sigmod/CapotaHIPEB14} & \multicolumn{1}{c|}{{\bf D/MC/GPU}} & \multicolumn{1}{c|}{{\bf 10 classes}} & \multicolumn{1}{c|}{{\bf S}} & \multicolumn{1}{c|}{{\bf Exp}} & \multicolumn{1}{c|}{{\bf 1-stage}} & \multicolumn{1}{c|}{{\bf 1B Edges}} & \multicolumn{1}{c|}{{\bf W/S/V/H}} & \multicolumn{1}{c|}{{\bf No}} & \multicolumn{1}{c|}{{\bf No}}\\ 
+\hline
+\hline
+S & \"Ozsu et al.~\cite{DBLP:journals/pvldb/HanDAOWJ14} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{Pregel} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{Exp,Rnd} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{W/S/V/H} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+B & \pbox{5cm}{BigDataBench~\cite{DBLP:conf/wbdb/MingLGHYWZ13,DBLP:conf/hpca/WangZLZYHGJSZZLZLQ14}, \\only graph elements} & \multicolumn{1}{c|}{D/MC} & \multicolumn{1}{c|}{Hadoop} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Rnd} & \multicolumn{1}{c|}{Rnd} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+S & Satish et al.~\cite{DBLP:conf/sigmod/SatishSPSPHSYD14} & \multicolumn{1}{c|}{D/MC} & \multicolumn{1}{c|}{6 classes} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp,Rnd} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{W} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No}\\ 
+\hline
+S & Lu et al.~\cite{DBLP:journals/pvldb/LuCYW14} & \multicolumn{1}{c|}{D} & \multicolumn{1}{c|}{4 classes} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp,Rnd} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+B & GraphBIG~\cite{DBLP:conf/sc/NaiXTKL15} & \multicolumn{1}{c|}{P/MC/GPU} & \multicolumn{1}{c|}{System G} & \multicolumn{1}{c|}{S} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+S & Cherkasova et al.~\cite{conf/icpe/EisenmanCMCFK16} & \multicolumn{1}{c|}{MC} & \multicolumn{1}{c|}{Galois} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{Rnd} & \multicolumn{1}{c|}{Exp} & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} & \multicolumn{1}{c|}{No} \\ 
+\hline
+\hline
+{\bf B} & {\bf LDBC Graphalytics} (this work) & \multicolumn{1}{c|}{{\bf D/MC/GPU}} & \multicolumn{1}{c|}{{\bf 10+ classes}} & \multicolumn{1}{c|}{{\bf SE+}} & \multicolumn{1}{c|}{{\bf 2-stage}} & \multicolumn{1}{c|}{{\bf 2-stage}} & \multicolumn{1}{c|}{{\bf Process}} & \multicolumn{1}{c|}{{\bf W/S/V/H}} & \multicolumn{1}{c|}{{\bf Yes}} & \multicolumn{1}{c|}{{\bf Yes}} \\ 
+\hline
+%\multicolumn{11}{|c|}{Legend: S - Study, B - Benchmark; D - distributed system, P - parallel system, MC - single-node multi-core system, GPU - using GPUs.} \\ 
+%\hline
+%\multicolumn{11}{|c|}{Input: {\bf 0} - no parameters; {\bf S} - parameters to define scale; {\bf E} - parameters to define edge properties; {\bf +} - parameters to define other graph properties, e.g., clustering coefficient.} \\ 
+%\hline
+%\multicolumn{11}{|c|}{Data[sets]/Algo[rithms]: {\bf Rnd} - reason for selection not explained; {\bf Exp} - selection seems guided by personal expertise; {\bf 1-stage} - data-driven selection; {\bf 2-stage} - 2-stage data-driven and expertise-driven process.} \\ 
+%\hline
+%\multicolumn{11}{|c|}{Can test scalability? Weak/Strong/Vertical/Horizontal.} \\ 
+%\hline
+%\multicolumn{11}{|c|}{\"---\" - feature not available or unclear from publication(s).} \\ 
+%\hline
+\end{tabular}

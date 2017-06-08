@@ -1,0 +1,176 @@
+\documentclass{ldbc}
+
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{bbding}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{pifont} 
+\usepackage{rotating}
+\usepackage{amsmath}
+\usepackage{lscape}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pbox}
+\usepackage{listings}
+\usepackage{parskip} % remove intents from paragraphs
+
+
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, frame=single, showspaces=false, 
+basicstyle=\small,
+commentstyle=\color{gray},
+language=Python}
+
+
+\newcommand{\GTournament}{Tournament}%
+\newcommand{\GCompetition}{Competition}%
+
+\newcommand{\toolname}{Graphalytics}%
+
+
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\yes}{\color{green}\ding{51}\color{black}}
+\newcommand{\no}{\color{red}\ding{55}\color{black}}
+
+\newif\ifrelease % reveal versionized information for the current and future releases.
+
+\releasefalse
+
+\ifrelease
+  \newcommand{\newthisversion}[2]{{#2}}
+  \newcommand{\futureinversion}[2]{{}}
+\else
+  \newcommand{\newthisversion}[2]{{\color{blue}#2 (New in v.#1)}}
+  \newcommand{\futureinversion}[2]{{\color{red}#2 (Future in v.#1)}}
+\fi
+
+
+\newcommand{\cref}[1]{Chapter~\ref{#1}}
+\newcommand{\sref}[1]{Section~\ref{#1}}
+\newcommand{\tref}[1]{Table~\ref{#1}}
+\newcommand{\fref}[1]{Figure~\ref{#1}}
+\newcommand{\eref}[1]{Equation~\ref{#1}}
+\newcommand{\aref}[1]{Appendix~\ref{#1}}
+
+% Alex Averbuch: used internally only, to make missing/erroneous sections stand out
+\newcommand{\alert}[1]{\textit{\textbf{{\color{red}#1}}}}
+
+% TODO: change the following information as appropriate
+%\WP{N/A}
+\renewcommand{\wpIDText}{N/A}
+\WPTitle{Graphalytics team}
+
+%\delID{}
+\renewcommand{\delIDText}{}
+\delName{LDBC Graphalytics Benchmark \\ v\lastVersionText{} - Draft Release}
+
+% TODO: Change dates, dissemination level, and nature
+\dueDate{M12}
+\submissionDate{M13}
+
+% Footer
+\newcommand{\mainmatterheadingr}{\relscale{.92}}
+\newcommand{\mainmatterheadingl}{\relscale{.92} LDBC Graphalytics Benchmark (v\lastVersionText - Draft Release)}
+
+%dissemination level
+\dissPU % Public
+%\dissRE % Restricted to group
+%\dissPP % Restricted to programme
+%\dissCO % Consortium-only
+
+%nature
+\natR % Report
+%\natP % Prototype
+%\natD % Demonstrator
+%\natO % Other
+
+% TODO: Complete author information
+\author{Alexandru Iosup (Vrije Universiteit Amsterdam (VU) and Delft University of Technology (TUD))}
+\authorPartner{Alexandru Iosup (VU/TUD)}
+\responsibleAuthor{Alexandru Iosup}
+\responsiblePartner{VUA/TUD}
+\responsiblePhone{}
+\responsibleEmail{a.iosup@vu.nl}
+
+% comment the following out if there are no contributors beside the main authors
+% TODO: Add contributors
+%\contributor{[Peter Boncz (VUA), Josep Llu\'is Larriba (UPC), Renzo
+%Angles (TALCA), Alex Averbuch (NEO), Orri Erling (OGL), Andrey
+%Gubichev (TUM), Mirko Spasi\'c (OGL)], Minh-Duc Pham (VUA), Norbert Mart\'inez (SPARSITY)}
+\contributor{Tim Hegeman (TUD), Wing Lung Ngai (VU, formerly TUD), Stijn Heldens (UTwente, formerly TUD), 
+Arnau Prat P\'{e}rez (UPC),
+Thomas Manhardt (Oracle), Siegfried Depner (formerly Oracle), Hassan Chafi (Oracle),
+Mihai Capot\u{a} (Intel), Narayanan Sundaram (Intel), Michael Anderson (Intel),
+Ilie Gabriel T\u{a}nase (IBM),
+Yinglong Xia (Huawei),
+Lifeng Nai (GT),
+Peter Boncz (CWI).
+}
+
+
+\reviewerOne{\alert{???}}
+\reviewerTwo{\alert{???}}
+
+% TODO: Add keywords
+\keywords{Graphalytics, graph analytics, benchmark}
+%\keywords{benchmark, choke points, dataset generator, graph database, query set, RDF, workload, auditing rules, publication rules, scale factors}
+
+\input{tex/version}
+
+
+% uncomment the following for final version
+%\final
+
+% TODO: Add document URL
+\documentUrl{}
+
+%\documentUrl{\url{https://svn.sti2.at/ldbc/trunk/sib_spec/sib_spec.tex/}}
+
+% TODO: Rewrite abstract from VLDB article
+
+
+
+% ABSTRACT
+\input{tex/abstract}
+
+
+% TODO: Rewrite summary
+\input{tex/summary}
+
+\begin{document}
+
+\maketitle
+%\include{glossary}
+
+
+\listoffigures
+\listoftables
+% TODO: Add definitions if needed
+%\chapter*{Definitions}
+
+%\input{defs}
+
+\input{tex/introduction}
+\input{tex/definition}
+\input{tex/process}
+\input{tex/competitions}
+\input{tex/auditing}
+\input{tex/instructions}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\appendix
+\input{tex/appendix_algorithms}
+\input{tex/appendix_data_format}
+\input{tex/appendix_related_work}
+
+\end{document}
