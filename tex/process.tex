@@ -247,38 +247,40 @@ The benchmark execution of Graphalytics benchmark suite is illustrated in \fref{
 After a benchmark is loaded, the benchmark suite analyzes the exact composition of the benchmark. Each benchmark consists of a number of benchmark runs, which will be grouped by the graph dataset used by that benchmark run. For each graph dataset, the input data of that dataset will be loaded only once, and be reused for all corresponding benchmarks runs, before finally being removed.
 
 \begin{itemize}
-    \item \textbf{[A] Format-graph}: The benchmark suite minimizes the ``input data" into ``formatted dataset" (See more in \sref{sec:process:execution:run_flow}) by removing unused vertex and edge properties.
+    \item \textbf{[A] Verify-setup}: The benchmark suite verifies that the platform and the environment are properly set up based on the prerequisites defined in the platform driver.
     
-    \item \textbf{[B] Load-graph}: The platform converts the ``formatted data" into any platform-specific data format and loads a graph dataset into a storage system, which can be either a local file system, a share file system or a distributed file system. This step corresponds to the ``Loading" step of a graph processing job described in \ref{sec:def:job:operation}.
+    \item \textbf{[B] Format-graph}: The benchmark suite minimizes the ``input data" into ``formatted dataset" (See more in \sref{sec:process:execution:run_flow}) by removing unused vertex and edge properties.
     
-    \item \textbf{[C] Execute-run}: The platform executes a benchmark run with a specific algorithm and dataset (See more details in \sref{sec:process:execution:run_flow}). All benchmark runs using the same input dataset can use the prepared graph dataset during the ``load-graph` step. 
+    \item \textbf{[C] Load-graph}: The platform converts the ``formatted data" into any platform-specific data format and loads a graph dataset into a storage system, which can be either a local file system, a share file system or a distributed file system. This step corresponds to the ``Loading" step of a graph processing job described in \ref{sec:def:job:operation}.
     
-    \item \textbf{[D] Delete-graph}: The platform unloads a graph dataset from the storage system, as part of the cleaning up process after all benchmark runs on that graph dataset have been completed.
+    \item \textbf{[D] Execute-run}: The platform executes a benchmark run with a specific algorithm and dataset (See more details in \sref{sec:process:execution:run_flow}). All benchmark runs using the same input dataset can use the prepared graph dataset during the ``load-graph` step. 
+    
+    \item \textbf{[E] Delete-graph}: The platform unloads a graph dataset from the storage system, as part of the cleaning up process after all benchmark runs on that graph dataset have been completed.
 \end{itemize}
 
 Note that ``load-graph" and ``delete-graph" are platform-specific API, which can be implemented in the platform driver via the ``Platform" interface, whereas  ``execute-run" is a uniform step for all platforms.
 
 \subsection{Run Flow}
 \label{sec:process:execution:run_flow}
-The execution of each benchmark run consists of seven steps in total, i.e., ``prepare", ``setup", ``run", ``cleanup", ``validate", ``terminate", and  ``report". To ensure the stability, the benchmark suite only prepares for the benchmark, and terminates the benchmark run. Each benchmark run is partially executed in an isolated operating-system process, such that a timed-out job can be terminated properly.
+The execution of each benchmark run consists of seven steps in total, i.e., ``prepare", ``startup", ``run", ``validate", ``finalize", ``terminate", and  ``archive". To ensure the stability, the benchmark suite only prepares for the benchmark, and terminates the benchmark run. Each benchmark run is partially executed in an isolated operating-system process, such that a timed-out job can be terminated properly.
 
 \begin{itemize}
     \item \textbf{Prepare}: The platform requests computation resources from the cluster environment and makes the background applications ready.
     
-    \item \textbf{Setup}: The platform configures the benchmark run, with regard to real-time cluster deployment information, e.g., input directory, output directory, and log directory.
+    \item \textbf{Startup}: The platform configures the benchmark run, with regard to real-time cluster deployment information, e.g., input directory, output directory, and log directory.
     
     \item \textbf{Run}: The platform runs a graph-processing job as defined in the benchmark run. The graph-processing job must complete within the time-out duration, or the benchmark run will fail. This step corresponds to the ``Running" step of a graph processing job described in \ref{sec:def:job:operation}.
     
-    \item \textbf{Report}: The platform gathers the benchmark information, and make the environment ready again for the next benchmark run.
-    
     \item \textbf{Validate}: The benchmark suite validates the platform output with the validation data. The system-under-test must succeed in this step, or the benchmark run will fail.
+    
+    \item \textbf{Finalize}: The platform reports the benchmark information, and make the environment ready again for the next benchmark run.
     
     \item \textbf{Terminate}: The platform forcibly stops the benchmark job and clean up the environment, given that the time-out has been reached. 
     
     \item \textbf{Archive}: The benchmark suite archives the benchmark results, gathering information regarding performance metrics and failure indications.
 \end{itemize}
 
-Note that ``prepare", ``setup", ``run", ``cleanup", ``terminate", and ``report" are platform-specific API, which can be implemented in the platform driver via the ``Platform" interface, whereas ``archive" is a uniform step for all platforms. 
+Note that ``prepare", ``startup", ``run", ``finalize", ``terminate", and ``archive" are platform-specific API, which can be implemented in the platform driver via the ``Platform" interface, whereas ``archive" is a uniform step for all platforms. 
 
 
 \subsection{Data Flow}
@@ -304,19 +306,21 @@ The input dataset can be converted into the following format during the benchmar
 
 \subsection{Failure Indication}
 \label{sec:process:execution:failure}
-Failures can occur during the benchmark for many reasons. The benchmark suite logs the benchmark execution and identifies the type of failures.
+Failures can occur during the benchmark for many reasons. The benchmark suite logs the benchmark execution and classifies the type of failures.
 
 
 \begin{itemize}
-    \item \textbf{DAT}: ``Data failure" occurs when the ``load-graph" step fails to produce ``formatted-graph". For example, ``Input graph" can be missing or simply be misplaced, or alternatively the conversion from ``input-graph" to ``formatted-graph" could be prematurely interrupted, which leads to data corruption.
+    \item \textbf{DAT}: ``Data failure" occurs when the ``format-graph`` step fails to generate ``formatted-graph``, or the ``load-graph" step fails to complete correctly. For example, ``input graph" can be missing or simply be misplaced, or alternatively the conversion from ``input-graph" to ``formatted-graph" could be prematurely interrupted, which leads to data corruption.
     
-    \item \textbf{INI}: ``Initialization failure" occurs when the platform fails to properly make the environment ready for the benchmark during the ``prepare" or ``setup" step. For example, the deployment system may fail to allocate the cluster resources needed.
+    \item \textbf{INI}: ``Initialization failure" occurs when the platform fails to properly make the environment ready for the benchmark during the ``prepare" or ``startup" step. For example, the deployment system may fail to allocate the cluster resources needed.
     
-    \item \textbf{TIM}: ``Time-out failure" occurs when the time-out is reached during the ``process" step.
+    \item \textbf{EXE}: ``Execution failure" occurs when the execution of the benchmark run fails to complete during the ``run" step.
     
-    \item \textbf{EXE}: ``Execution failure" occurs when the execution of the benchmark run fails during the ``process" step, which leads to non-existing or incomplete output results.
+    \item \textbf{TIM}: ``Time-out failure" occurs when the pre-defined time-out duration is reached during the ``run" step.
+
+    \item \textbf{COM}: ``Completion failure" occurs when output results are incomplete or cannot be found at all. For example, outputs from some compute nodes can be fetched incorrectly.
     
-    \item \textbf{VAL}: ``Validation failure" occurs when the ``output data" is returned by the system, but fails the validation during the ``validation step".
+    \item \textbf{VAL}: ``Validation failure" occurs when the ``output data" is returned by the system, but fails the validation during the ``validate" step.
     
     \item \textbf{MET}: ``Metric failure" occurs when the compulsory performance metrics are missing during the ``archive" step. For example, the log files containing the information can be non-existing or corrupted.
 \end{itemize}
