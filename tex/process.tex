@@ -32,9 +32,9 @@ The Graphalytics benchmark suite supports four types of benchmark: $test$, $stan
 
 \subsection{Test Benchmark}
 \label{sec:process:type:test}
-Running the entire benchmark is very time-consuming. To verify that the cluster environment and all underlying software and hardware stacks are configured properly, user can choose to first run the test benchmark before starting the actual benchmark. In addition, this can be used to debug a platform driver which is under development.
+Running the entire benchmark is very time-consuming. To verify that the cluster environment and all underlying software and hardware stacks are configured properly, the user can choose to first run the test benchmark before starting the actual benchmark. In addition, this can be used to debug a platform driver which is under development.
 
-The test benchmark consists of two experiments which run all six core algorithms on two tiny graphs ``example-directed" and ``example-undirected", with only one repetition. In total, there are $6 \times 2 \times 1 =  12$ benchmark runs.
+The test benchmark consists of two experiments which run all six core algorithms on two tiny graphs: ``example-directed" and ``example-undirected", with only one repetition. In total, there are $6 \times 2 \times 1 =  12$ benchmark runs.
 
 
 \begin{table}[H]
@@ -65,7 +65,7 @@ directed ($d$), undirected ($u$) & \\ \hline
 
 \subsection{Standard Benchmark}
 \label{sec:process:type:standard}
-Participating in the Graphalytics global competition requires benchmark to be executed in a standardized format, which is defined as the standard benchmark. The job composition of the standard benchmark should be representative, covering the variability in algorithm complexity and dataset properties that have several impact on the performance of graph processing systems.
+Participating in the Graphalytics global competition requires the benchmark to be executed in a standardized format, which is defined as the standard benchmark. The job composition of the standard benchmark should be representative, covering the variability in algorithm complexity and dataset properties that have several impact on the performance of graph processing systems.
 
 The standard benchmark evaluates the system performance with six core algorithms, BFS, WCC, PR, CDLP, LCC, SSSP (See \sref{sec:definition_algorithms}). For each algorithm, five datasets with various of sizes and densities are selected within a target-scale(See \sref{sec:definition_datasets}). Whenever possible, two real-world datasets, two Datagen datasets, and one Graph500 dataset will be included in the dataset selection. If such selection is not possible, e.g., there is a lack of real-world datasets in certain target-scale, or an algorithm requires datasets to be accompanied with edge properties, then additional Datagen datasets will be used to make sure that at least five datasets are available per target-scale.
 
