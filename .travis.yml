@@ -7,7 +7,7 @@ install:
 script:
 - make
 - mkdir out/
-- cp ms.pdf out/
+- cp *.pdf out/
 notifications:
   slack: bme-db-lab:wZ9TAMLcuxHrOusyBLV2bPRW
   email: false
