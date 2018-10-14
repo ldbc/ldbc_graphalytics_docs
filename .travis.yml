@@ -1,0 +1,22 @@
+dist: trusty
+sudo: required
+install:
+- sudo apt-get install -y texlive-base texlive-science texlive-fonts-recommended texlive-fonts-extra
+  texlive-generic-extra texlive-latex-extra texlive-math-extra texlive-xetex latexmk
+  lmodern pgf
+script:
+- make
+- mkdir out/
+- cp ms.pdf out/
+notifications:
+  slack: bme-db-lab:wZ9TAMLcuxHrOusyBLV2bPRW
+  email: false
+  on_success: change
+  on_failure: always
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: out
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: master
