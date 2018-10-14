@@ -1,7 +1,11 @@
 LDBC Graphalytics Specification
 ===============================
 
-This repository contains a history of all public (draft) releases of the LDBC Graphalytics specification. [Click here](https://github.com/ldbc/ldbc_graphalytics_docs/raw/master/doc/LDBC-Graphalytics_tech-specs_v0.2.12.2.pdf) for the latest version.
+[![Build Status](https://travis-ci.com/ldbc/ldbc_graphalytics_docs.svg?branch=master)](https://travis-ci.com/ldbc/ldbc_graphalytics_docs)
+
+This repository contains a history of all public (draft) releases of the LDBC Graphalytics specification:
+* [Stable version](https://github.com/ldbc/ldbc_graphalytics_docs/raw/master/doc/LDBC-Graphalytics_tech-specs_v0.2.12.2.pdf)
+* [Snapshot version](http://ldbc.github.io/ldbc_graphalytics_docs/graphalytics_spec.pdf)
 
 | Version | Date | Document | 
 |-------------|:-------------:|:-------------:|

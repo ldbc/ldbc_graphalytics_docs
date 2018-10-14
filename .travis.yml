@@ -9,7 +9,7 @@ script:
 - mkdir out/
 - cp *.pdf out/
 notifications:
-  slack: bme-db-lab:wZ9TAMLcuxHrOusyBLV2bPRW
+  slack: ldbcouncil:XUhwaix1WP50OGHxQufJBaKE
   email: false
   on_success: change
   on_failure: always
