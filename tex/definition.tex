@@ -290,7 +290,7 @@ LCC(v) = \begin{cases}
 Note that the second case can also be written using the sum over the neighbors of $v$.
 
 \begin{equation}
-LCC(v) = \frac{\sum_{u \in N(v)} |N(v) \cup N_{in}(u)|}{|N(v)| \big( |N(v)| - 1 \big)} 
+LCC(v) = \frac{\sum_{u \in N(v)} |N(v) \cap N_{in}(u)|}{|N(v)| \big( |N(v)| - 1 \big)} 
 \end{equation}
 
 
