@@ -232,10 +232,10 @@ The Graphalytics benchmark consists of six algorithms which need to be executed 
 Each workload of Graphalytics consists of executing a single algorithm on a single dataset. Below, abstract descriptions are provided for the six algorithms; pseudo-code is given in Appendix~\ref{chap:algorithms}. Furthermore, a link to the reference implementation is presented in \sref{sec:instructions:drivers}. However, Graphalytics does not impose any constraint on the implementation of algorithms. Any implementation is allowed, as long as its correctness can be validated by comparing its output to correct reference output (Section~\ref{sec:definitions_validation}). 
 
 In the following sections, a graph $G$ consists of a set of vertices $V$ and a set of edges $E$. For undirected graphs, each edge is bidirectional, so if $(u,v)\in E$ then $(v,u)\in E$. Each vertex $v$ has a set of outgoing neighbors
-$N_{out}(v) = \{u \in V | (v, u) \}$, a set of incoming neighbors
-$N_{in}(v)  = \{u \in V | (u, v) \}$, and a set of all neighbors
-$N(v) = N_{in}(v) \cup N_{out}(u)$.
-Note that for undirected graphs, each edge is bidirectional so we have $N_{in}(v) = N_{out}(v) = N(v)$.
+$N_\mathrm{out}(v) = \{u \in V | (v, u) \}$, a set of incoming neighbors
+$N_\mathrm{in}(v)  = \{u \in V | (u, v) \}$, and a set of all neighbors
+$N(v) = N_\mathrm{in}(v) \cup N_\mathrm{out}(u)$.
+Note that for undirected graphs, each edge is bidirectional so we have $N_\mathrm{in}(v) = N_\mathrm{out}(v) = N(v)$.
 
 
 \subsection{Breadth-First Search (BFS)}
@@ -252,10 +252,10 @@ PR_0(v) = \frac{1}{|V|}
 After iteration $i$, each vertex pushes its PageRank over its outgoing edges to its neighbors. The PageRank for each vertex is updated according to the following rule:
 
 \begin{equation}
-PR_i(v) = \frac{1-d}{|V|} + d \sum_{u \in N_{in}(v)} \frac{PR_{i - 1}(u)}{|N_{out}(u)|} + d \sum_{u \in D} \frac{PR_{i - 1}(u)}{|V|}
+PR_i(v) = \frac{1-d}{|V|} + d \sum_{u \in N_\mathrm{in}(v)} \frac{PR_{i - 1}(u)}{|N_\mathrm{out}(u)|} + d \sum_{u \in D} \frac{PR_{i - 1}(u)}{|V|}
 \end{equation}
 
-Where $d \in [0,1]$ is called the \emph{damping factor} and $D=\{v \in V |~|N_{out}(v)| = 0\}$ is the set of \emph{dangling vertices}, i.e., vertices having no outgoing edges. Dangling vertices have nowhere to push their PageRank to, so the total sum of the PageRanks for the dangling vertices is evenly distributed over all vertices. 
+Where $d \in [0,1]$ is called the \emph{damping factor} and $D=\{v \in V |~|N_\mathrm{out}(v)| = 0\}$ is the set of \emph{dangling vertices}, i.e., vertices having no outgoing edges. Dangling vertices have nowhere to push their PageRank to, so the total sum of the PageRanks for the dangling vertices is evenly distributed over all vertices. 
 
 The PageRank algorithm should continue for a fixed number of iterations. The floating-point values must be handled as 64-bit double precision IEEE 754 floating-point numbers. 
 
@@ -276,7 +276,7 @@ L_0(v) = v
 In iteration $i$, each vertex $v$ determines the frequency of the labels of its incoming and outgoing neighbors and selects the label which is most common.  If the graph is directed and a neighbor is reachable via both an incoming and outgoing edge, its label will be counted twice. In case there are multiple labels with the maximum frequency, the smallest label is chosen. In case a vertex has no neighbors, it retains its current label. This rule can be written as follows:
 
 \begin{equation}
-L_i(v) = \underset{l}{arg\,max} \Big[ |\{ u \in N_{in}(v)~|~L_{i-1}(v) = l \}| + |\{ u \in N_{out}(v)~|~L_{i-1}(v) = l \}| \Big]
+L_i(v) = \underset{l}{\mathrm{arg\,max}} \Big[ |\{ u \in N_\mathrm{in}(v)~|~L_{i-1}(v) = l \}| + |\{ u \in N_\mathrm{out}(v)~|~L_{i-1}(v) = l \}| \Big]
 \end{equation}
 
 
@@ -294,7 +294,7 @@ LCC(v) = \begin{cases}
 Note that the second case can also be written using the sum over the neighbors of $v$.
 
 \begin{equation}
-LCC(v) = \frac{\sum_{u \in N(v)} |N(v) \cap N_{in}(u)|}{|N(v)| \big( |N(v)| - 1 \big)} 
+LCC(v) = \frac{\sum_{u \in N(v)} |N(v) \cap N_\mathrm{in}(u)|}{|N(v)| \big( |N(v)| - 1 \big)} 
 \end{equation}
 
 
