@@ -297,6 +297,13 @@ Note that the second case can also be written using the sum over the neighbors o
 LCC(v) = \frac{\sum_{u \in N(v)} |N(v) \cap N_\mathrm{out}(u)|}{|N(v)| \big( |N(v)| - 1 \big)}
 \end{equation}
 
+For \emph{directed graphs}, the set of neighbors $N(v)$ is determined without taking directions into account, but each neighbor is only counted once (a neighbor with both an incoming and an outgoing edge from node $v$ does not count twice).
+However, directions are enforced when determining $N_\mathrm{out}(v)$ between neighbors. Note that calculating the intersection using the \emph{incoming} edges to $u$ would return the same result, i.e.\
+$$
+	\sum_{u \in N(v)} |N(v) \cap N_\mathrm{out}(u)| = 
+	\sum_{u \in N(v)} |N(v) \cap N_\mathrm{in}(u)|
+$$
+
 
 \subsection{Single-Source Shortest Paths (SSSP)}
 The \emph{Single-Source Shortest Paths} algorithm marks each vertex with the length of the shortest path from a given \emph{root} vertex to every other vertex in the graph. The length of a path is defined as the sum of the weights on the edges of the path. The edge weights are floating-point numbers which must be handled as 64-bit double precision IEEE-754 floating-point numbers. The edge weights are never negative, infinity, or invalid (i.e., \emph{NaN}), but are allowed to be zero. Unreachable vertices should be given the value infinity.
