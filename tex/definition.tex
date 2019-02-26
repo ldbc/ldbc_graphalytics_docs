@@ -231,7 +231,11 @@ The Graphalytics benchmark consists of six algorithms which need to be executed 
 
 Each workload of Graphalytics consists of executing a single algorithm on a single dataset. Below, abstract descriptions are provided for the six algorithms; pseudo-code is given in Appendix~\ref{chap:algorithms}. Furthermore, a link to the reference implementation is presented in \sref{sec:instructions:drivers}. However, Graphalytics does not impose any constraint on the implementation of algorithms. Any implementation is allowed, as long as its correctness can be validated by comparing its output to correct reference output (Section~\ref{sec:definitions_validation}). 
 
-In the following sections, a graph $G$ consists of a set of vertices $V$ and a set of edges $E$. For undirected graphs, each edge is bidirectional, so if $(u,v)\in E$ then $(v,u)\in E$. Each vertex $v$ has a set of outgoing neighbors $N_{out} = \{u \in V | (v, u) \}$, a set of incoming neighbors $N_{in} = \{u \in V | (u, v) \}$, and a set of all neighbors $N(v)=N_{in}(v)  \cup  N_{out}(u)$. Note that for undirected graphs, each edge is bidirectional so we have $N_{in}(v) = N_{out}(v) = N(v)$.
+In the following sections, a graph $G$ consists of a set of vertices $V$ and a set of edges $E$. For undirected graphs, each edge is bidirectional, so if $(u,v)\in E$ then $(v,u)\in E$. Each vertex $v$ has a set of outgoing neighbors
+$N_{out}(v) = \{u \in V | (v, u) \}$, a set of incoming neighbors
+$N_{in}(v)  = \{u \in V | (u, v) \}$, and a set of all neighbors
+$N(v) = N_{in}(v) \cup N_{out}(u)$.
+Note that for undirected graphs, each edge is bidirectional so we have $N_{in}(v) = N_{out}(v) = N(v)$.
 
 
 \subsection{Breadth-First Search (BFS)}
