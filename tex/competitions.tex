@@ -72,7 +72,7 @@ Different competition methods have been developed to performance comparison in m
 The former requires metrics to be easy to compare and compose, that is, to be normalized, to be similarly distributed, to have the same meaning of better (e.g., lower values), to be of importance universally recognized across the field of practice so that weights can be easily ascribed. The latter requires a good tournament format, which does not favor any of the participants, and which does not make participation cumbersome through a large set of rules.
 
 
-\subsection{Single value-of-merit Approach} \label{sec:competitions:single_value}
+\subsection{Single Value-of-merit Approach} \label{sec:competitions:single_value}
 Where metrics (See \sref{sec:def:metrics}) are collected repeatedly e.g., each combination of algorithm and dataset, a single value-of-merit can be summarized following the typical processes of benchmarking HPC systems~\cite{DBLP:conf/sc/HoeflerB15}:
 
 \begin{itemize}
@@ -90,7 +90,7 @@ Where metrics (See \sref{sec:def:metrics}) are collected repeatedly e.g., each c
 
 
 
-\subsection{Tournament-based approach} \label{sec:competitions:tournament}
+\subsection{Tournament-based Approach} \label{sec:competitions:tournament}
 In a tournament-based approach, the system performance is ranked by means of competitive tournaments~\cite{Thurstone1927}.  Generally, a Round-Robin pair-wise tournament~\cite{David1960} (from hereon, {\it tournament}) of $p$ participants involves a balanced set of (pair-wise) comparisons between the results of each pair of participants; if there are $c$ criteria to compare the participants, there will be $\frac{1}{2} \times c \times p (p - 1)$ pair-wise comparisons. In a pair-wise comparison, a pre-defined amount of points (often, 1 or 3) is given to the better ({\it winner}) participant, from the pair. It is also common to give zero points to the worse ({\it loser}) participant, from the pair, and to split the points between participants with equal performance. Similar tournaments have been used for decades in chess competitions, in professional sports leagues such as (European and American) football, etc.
 
 We do not consider here other pair-wise tournaments, such as replicated tournaments~\cite{David1960} and unbalanced comparisons~\cite{david1987ranking}, which have been used especially in settings where comparisons are made by human referees and are typically discretized on 5-point Likert scales, and thus are quantitatively less accurate than the \toolname{} measurements.
