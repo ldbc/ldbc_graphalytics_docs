@@ -17,7 +17,7 @@ A benchmark is a standardized process to quantify the performance of the system-
 \begin{itemize}
     \item A \textbf{benchmark experiment} addresses a specific performance characteristic of the system-under-test, e.g., the performance of an algorithm, or the weak scalability of a system. Each experiment gathers benchmark results from multiple benchmark jobs to quantify a specific performance characteristic.
     
-    \item A \textbf{benchmark job} describes, uniformly across all system-under-tests, the exact job specification of a graph-processing job (See \sref{sec:def:job}). The job specification contains information, e.g., the system-under-test (platform and the environment), the type of algorithm and dataset, and how much resources is used. These information instructs how the system should be configured during the benchmark execution.
+    \item A \textbf{benchmark job} describes, uniformly across all system-under-tests, the exact job specification of a graph-processing job (see \sref{sec:def:job}). The job specification contains information, e.g., the system-under-test (platform and the environment), the type of algorithm and dataset, and how much resources is used. These information instructs how the system should be configured during the benchmark execution.
     
     \item A \textbf{benchmark run} is a real-world execution of a benchmark job. To gather statistically reliable benchmark results, each benchmark job is repeated multiple times in the form of a benchmark run to mitigate the performance variability during the benchmark execution. 
 \end{itemize}
@@ -67,7 +67,7 @@ directed ($d$), undirected ($u$) & \\ \hline
 \label{sec:process:type:standard}
 Participating in the Graphalytics global competition requires the benchmark to be executed in a standardized format, which is defined as the standard benchmark. The job composition of the standard benchmark should be representative, covering the variability in algorithm complexity and dataset properties that have several impact on the performance of graph processing systems.
 
-The standard benchmark evaluates the system performance with six core algorithms, BFS, WCC, PR, CDLP, LCC, SSSP (See \sref{sec:definition_algorithms}). For each algorithm, five datasets with various of sizes and densities are selected within a target-scale(See \sref{sec:definition_datasets}). Whenever possible, two real-world datasets, two Datagen datasets, and one Graph500 dataset will be included in the dataset selection. If such selection is not possible, e.g., there is a lack of real-world datasets in certain target-scale, or an algorithm requires datasets to be accompanied with edge properties, then additional Datagen datasets will be used to make sure that at least five datasets are available per target-scale.
+The standard benchmark evaluates the system performance with six core algorithms, BFS, WCC, PR, CDLP, LCC, SSSP (see \sref{sec:definition_algorithms}). For each algorithm, five datasets with various of sizes and densities are selected within a target-scale(see \sref{sec:definition_datasets}). Whenever possible, two real-world datasets, two Datagen datasets, and one Graph500 dataset will be included in the dataset selection. If such selection is not possible, e.g., there is a lack of real-world datasets in certain target-scale, or an algorithm requires datasets to be accompanied with edge properties, then additional Datagen datasets will be used to make sure that at least five datasets are available per target-scale.
 
 A standard benchmark can fall into one of the four target-scales, S, M, L, and XL. Each target-scale focuses on processing graphs within certain range of data size, and therefore a corresponding time-out duration has been imposed.  
 
@@ -249,11 +249,11 @@ After a benchmark is loaded, the benchmark suite analyzes the exact composition 
 \begin{itemize}
     \item \textbf{[A] Verify-setup}: The benchmark suite verifies that the platform and the environment are properly set up based on the prerequisites defined in the platform driver.
     
-    \item \textbf{[B] Format-graph}: The benchmark suite minimizes the ``input data" into ``formatted dataset" (See more in \sref{sec:process:execution:run_flow}) by removing unused vertex and edge properties.
+    \item \textbf{[B] Format-graph}: The benchmark suite minimizes the ``input data" into ``formatted dataset" (see more in \sref{sec:process:execution:run_flow}) by removing unused vertex and edge properties.
     
     \item \textbf{[C] Load-graph}: The platform converts the ``formatted data" into any platform-specific data format and loads a graph dataset into a storage system, which can be either a local file system, a share file system or a distributed file system. This step corresponds to the ``Loading" step of a graph processing job described in \ref{sec:def:job:operation}.
     
-    \item \textbf{[D] Execute-run}: The platform executes a benchmark run with a specific algorithm and dataset (See more details in \sref{sec:process:execution:run_flow}). All benchmark runs using the same input dataset can use the prepared graph dataset during the ``load-graph` step. 
+    \item \textbf{[D] Execute-run}: The platform executes a benchmark run with a specific algorithm and dataset (see more details in \sref{sec:process:execution:run_flow}). All benchmark runs using the same input dataset can use the prepared graph dataset during the ``load-graph` step. 
     
     \item \textbf{[E] Delete-graph}: The platform unloads a graph dataset from the storage system, as part of the cleaning up process after all benchmark runs on that graph dataset have been completed.
 \end{itemize}
