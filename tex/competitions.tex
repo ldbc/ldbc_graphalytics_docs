@@ -77,7 +77,7 @@ Where metrics (See \sref{sec:def:metrics}) are collected repeatedly e.g., each c
 
 \begin{itemize}
 	\item For Performance metrics, the arithmetic mean across all data.
-	\item For Throughput metrics, because they are rate metrics, in two consecutive steps: (i) let $a$ be the arithmetic mean of the performance metric (e.g., processing time) and $w$ be the (constant, total) workload (e.g., count of edges plus vertices), (ii) report as throughput metric the ratio between $w$ and $a$. In other words, instead of averaging the rate per sample, that is, $EVPS_i$ for sample i, \toolname{} first averages the performance metric and then reports the rate.
+	\item For Throughput metrics, because they are rate metrics, in two consecutive steps: (i) let $a$ be the arithmetic mean of the performance metric (e.g., processing time) and $w$ be the (constant, total) workload (e.g., count of edges plus vertices), (ii) report as throughput metric the ratio between $w$ and $a$. In other words, instead of averaging the rate per sample, that is, $\textit{EVPS}_i$ for sample i, \toolname{} first averages the performance metric and then reports the rate.
 	\item For Cost metrics, the harmonic mean across all data. This is because the denominator (e.g., EVPS for PPP) gives meaning to the ratio (TCO is constant across experiments with the same System Under Test), which indicates that the arithmetic mean would be misleading~\cite[S.3.1.1]{DBLP:conf/sc/HoeflerB15}.
 	\item For Speedup and other ratio metrics, the geometric mean across all data.
 \end{itemize}

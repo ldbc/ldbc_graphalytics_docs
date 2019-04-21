@@ -1,24 +1,24 @@
 \chapter{Pseudo-code for Algorithms}
 \label{chap:algorithms}
-This chapter contains pseudo-code for the algorithms described in Section~\ref{sec:definition_algorithms}. In the following sections, a graph $G$ consists of a set of vertices $V$ and a set of edges $E$. For undirected graphs, each edge is bidirectional, so if $(u, v) \in E$ then $(v, u) \in E$. Each vertex has a set of outgoing neighbors $N_{out}(v) = \{u \in V | (v, u) \in E\}$ and a set of incoming neighbors $N_{in}(v) = \{u \in V | (u, v) \in E\}$.
+This chapter contains pseudo-code for the algorithms described in Section~\ref{sec:definition_algorithms}. In the following sections, a graph $G$ consists of a set of vertices $V$ and a set of edges $E$. For undirected graphs, each edge is bidirectional, so if $(u, v) \in E$ then $(v, u) \in E$. Each vertex has a set of outgoing neighbors $N_\mathrm{out}(v) = \{u \in V | (v, u) \in E\}$ and a set of incoming neighbors $N_{in}(v) = \{u \in V | (u, v) \in E\}$.
 
 \section{Breadth-First Search (BFS)}
 
 \begin{algorithm}[h!]
 \begin{algorithmic}[1]
-\Statex \textbf{input:} graph $G=(V,E)$, vertex $root$
-\Statex \textbf{output:} array $depth$ storing vertex depths
+\Statex \textbf{input:} graph $G=(V,E)$, vertex $\textit{root}$
+\Statex \textbf{output:} array $\textit{depth}$ storing vertex depths
 \ForAll{$v \in V$}
-  \State $depth[v] \gets \infty$  
+  \State $\textit{depth}[v] \gets \infty$
 \EndFor
 \State Q $\gets$  \textsc{create\_queue()}
-\State \Call{Q.push}{$root$}
-\State $depth[root] \gets 0$
+\State \Call{Q.push}{$\textit{root}$}
+\State $\textit{depth}[\textit{root}] \gets 0$
 \While{\Call{Q.size}{} > 0}
   \State $v \gets $ \Call{Q.pop-front}{ }
-  \ForAll{$u \in N_{out}(v)$}
-    \If{$depth[u] = \infty$}
-      \State $depth[u] \gets depth[v] + 1$
+  \ForAll{$u \in N_\mathrm{out}(v)$}
+    \If{$\textit{depth}[u] = \infty$}
+      \State $\textit{depth}[u] \gets \textit{depth}[v] + 1$
       \State \Call{Q.push-back}{$u$}
     \EndIf
   \EndFor
@@ -30,22 +30,22 @@ This chapter contains pseudo-code for the algorithms described in Section~\ref{s
 
 \begin{algorithm}[h!]
 \begin{algorithmic}[1]
-\Statex \textbf{input:} graph $G=(V,E)$, integer $max\_iterations$
-\Statex \textbf{output:} array $rank$ storing PageRank values
+\Statex \textbf{input:} graph $G=(V,E)$, integer $\textit{max\_iterations}$
+\Statex \textbf{output:} array $\textit{rank}$ storing PageRank values
 \ForAll{$v \in V$}
-  \State $rank[v] \gets \frac{1}{|V|}$  
+  \State $\textit{rank}[v] \gets \frac{1}{|V|}$
 \EndFor
-\For{$i=1,\ldots,max\_iterations$}
-\State $dangling\_sum \gets 0$
+\For{$i=1,\ldots,\textit{max\_iterations}$}
+\State $\textit{dangling\_sum} \gets 0$
 \ForAll{$v \in V$}
-  \If{$|N_{out}(v)| = 0$}
-    \State $dangling\_sum \gets dangling\_sum + rank[v]$
+  \If{$|N_\mathrm{out}(v)| = 0$}
+    \State $\textit{dangling\_sum} \gets \textit{dangling\_sum} + \textit{rank}[v]$
   \EndIf
 \EndFor
 \ForAll{$v \in V$}
-  \State $new\_rank[v] \gets (1-d)\frac{1}{|V|} + d \Big( \sum_{u \in N_{in}(v)} \frac{rank[u]}{|N_{out}(u)|} +  \frac{dangling\_sum}{|V|} \Big)$
+  \State $\textit{new\_rank}[v] \gets (1-d)\frac{1}{|V|} + d \Big( \sum_{u \in N_{in}(v)} \frac{\textit{rank}[u]}{|N_\mathrm{out}(u)|} +  \frac{\textit{dangling\_sum}}{|V|} \Big)$
 \EndFor
-\State $rank \gets new\_rank$
+\State $\textit{rank} \gets new\_rank$
 \EndFor
 \end{algorithmic}
 \end{algorithm}
@@ -57,21 +57,21 @@ This chapter contains pseudo-code for the algorithms described in Section~\ref{s
 \begin{algorithm}[h!]
 \begin{algorithmic}[1]
 \Statex \textbf{input:} graph $G=(V,E)$
-\Statex \textbf{output:} array $comp$ storing component labels
+\Statex \textbf{output:} array $\textit{comp}$ storing component labels
 \ForAll{$v \in V$}
-  \State $\text{comp}[v] \gets v$  
+  \State $\textit{comp}[v] \gets v$
 \EndFor
 \Repeat
-\State $converged \gets \text{true}$
+\State $\textit{converged} \gets \text{true}$
 \ForAll{$v \in V$}
-  \ForAll{$u \in N_{in}(v) \cup N_{out}(v)$}
-    \If{$\text{comp}[v] > \text{comp}[u]$}
-      \State $\text{comp}[v] \gets \text{comp}[u]$
-      \State $converged \gets \text{false}$
+  \ForAll{$u \in N_{in}(v) \cup N_\mathrm{out}(v)$}
+    \If{$\textit{comp}[v] > \textit{comp}[u]$}
+      \State $\textit{comp}[v] \gets \textit{comp}[u]$
+      \State $\textit{converged} \gets \text{false}$
      \EndIf
   \EndFor
 \EndFor
-\Until{$converged$}
+\Until{$\textit{converged}$}
 \end{algorithmic}
 \end{algorithm}
 
@@ -81,13 +81,13 @@ This chapter contains pseudo-code for the algorithms described in Section~\ref{s
 \begin{algorithm}[h!]
 \begin{algorithmic}[1]
 \Statex \textbf{input:} graph $G=(V,E)$
-\Statex \textbf{output:} array $lcc$ storing LCC values
+\Statex \textbf{output:} array $\textit{lcc}$ storing LCC values
 \ForAll{$v \in V$}
-   \State $d \gets |N_{in}(v) \cup N_{out}(v)|$
+   \State $d \gets |N_{in}(v) \cup N_\mathrm{out}(v)|$
   \If {$d \geq 2$}
   \State $t \gets 0$
-  \ForAll{$u \in N_{in}(v) \cup N_{out}(v)$}
-    \ForAll{$w \in N_{in}(v) \cup N_{out}(v)$}
+  \ForAll{$u \in N_{in}(v) \cup N_\mathrm{out}(v)$}
+    \ForAll{$w \in N_{in}(v) \cup N_\mathrm{out}(v)$}
      \If{$(u, w) \in E$}
       \Comment{Check if edge $(u, w)$ exists}
       \State $t  \gets t + 1$
@@ -95,9 +95,9 @@ This chapter contains pseudo-code for the algorithms described in Section~\ref{s
      \EndIf
     \EndFor
   \EndFor
-    \State $\text{lcc}[v] \gets \frac{t}{d(d-1)} $
+    \State $\textit{lcc}[v] \gets \frac{t}{d(d-1)} $
   \Else
-    \State $\text{lcc}[v] \gets 0$
+    \State $\textit{lcc}[v] \gets 0$
     \Comment{No triangles possible}
   \EndIf
 \EndFor
@@ -110,29 +110,29 @@ This chapter contains pseudo-code for the algorithms described in Section~\ref{s
 
 \begin{algorithm}[h!]
 \begin{algorithmic}[1]
-\Statex \textbf{input:} graph $G=(V,E)$, integer $max\_iterations$
-\Statex \textbf{output:} array $labels$ storing vertex communities
+\Statex \textbf{input:} graph $G=(V,E)$, integer $\textit{max\_iterations}$
+\Statex \textbf{output:} array $\textit{labels}$ storing vertex communities
 \ForAll{$v \in V$}
-  \State $labels[v] \gets v$  
+  \State $\textit{labels}[v] \gets v$
 \EndFor
-\For{$i=1,\ldots,{max\_iterations}$}
+\For{$i=1, \ldots, \textit{max\_iterations}$}
  \ForAll{$v \in V$}
   \State C $\gets$ \textsc{create\_histogram()}
 
   \ForAll{$u \in N_{in}(v)$}
-    \State \Call{C.add}{$(labels[u])$}
+    \State \Call{C.add}{$\textit{labels}[u]$}
   \EndFor
-  \ForAll{$u \in N_{out}(v)$}
-    \State \Call{C.add}{$(labels[u])$}
+  \ForAll{$u \in N_\mathrm{out}(v)$}
+    \State \Call{C.add}{$\textit{labels}[u]$}
   \EndFor
-  \State $freq \gets $ \Call{C.get\_maximum\_frequency}{ }
+  \State $\textit{freq} \gets $ \Call{C.get\_maximum\_frequency}{ }
   \Comment{Find maximum frequency of labels.}
-  \State $candidates \gets$ \Call{C.get\_labels\_for\_frequency}{$freq$}
+  \State $\textit{candidates} \gets$ \Call{C.get\_labels\_for\_frequency}{$\textit{freq}$}
   \Comment{Find labels with max. frequency.}
-  \State $new\_labels[v] \gets$ \Call{min}{$candidates$}
+  \State $\textit{new\_labels}[v] \gets$ \Call{min}{$\textit{candidates}$}
   \Comment{Select smallest label}
  \EndFor
- \State ${labels} \gets {new\_labels}$
+ \State $\textit{labels} \gets \textit{new\_labels}$
 \EndFor
 \end{algorithmic}
 \end{algorithm}
@@ -143,22 +143,22 @@ This chapter contains pseudo-code for the algorithms described in Section~\ref{s
 
 \begin{algorithm}[h!]
 \begin{algorithmic}[1]
-\Statex \textbf{input:} graph $G=(V,E)$, vertex $root$, edge weights $weight$.
-\Statex \textbf{output:} array $dist$ storing distances
+\Statex \textbf{input:} graph $G=(V,E)$, vertex $\textit{root}$, edge weights $\textit{weight}$.
+\Statex \textbf{output:} array $\textit{dist}$ storing distances
 \ForAll{$v \in V$}
-  \State ${dist}[v] \gets \infty$
+  \State $\textit{dist}[v] \gets \infty$
 \EndFor
 
 \State H $\gets \Call{create\_heap}{ }$
 \State \Call{H.insert}{root, 0}
-\State ${dist}[root] \gets 0$
+\State $\textit{dist}[\textit{root}] \gets 0$
 \While{$\Call{H.size}{} > 0$}
   \State $v \gets$ \Call{H.delete\_minimum}{ }
-  \Comment{Find vertex $v$ in H such that $dist[v]$ is minimal.}
-  \ForAll{$w \in N_{out}(v)$}
-    \If{${dist}[w] > {dist}[v] + {weight}[v,w]$}
-      \State ${dist}[w] \gets {dist}[v] + {weight}[v,w]$
-      \State \Call{H.insert}{$w$, ${dist}[w]$}
+  \Comment{Find vertex $v$ in H such that $\textit{dist}[v]$ is minimal.}
+  \ForAll{$w \in N_\mathrm{out}(v)$}
+    \If{$\textit{dist}[w] > \textit{dist}[v] + \textit{weight}[v,w]$}
+      \State $\textit{dist}[w] \gets \textit{dist}[v] + \textit{weight}[v,w]$
+      \State \Call{H.insert}{$w$, $\textit{dist}[w]$}
     \EndIf
   \EndFor
 \EndWhile

@@ -27,7 +27,7 @@ A benchmark is a standardized process to quantify the performance of the system-
 
 \section{Benchmark Type}
 \label{sec:process:type}
-The Graphalytics benchmark suite supports four types of benchmark: $test$, $standard$, $full$, and $custom$. This section describes the differences and the composition of these four benchmark types.
+The Graphalytics benchmark suite supports four types of benchmark: $\textit{test}$, $\textit{standard}$, $\textit{full}$, and $\textit{custom}$. This section describes the differences and the composition of these four benchmark types.
 
 
 \subsection{Test Benchmark}
@@ -80,7 +80,7 @@ The standard benchmark (per target-scale) consists of six experiments executing 
 \begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
 \hline
 {\bf Experiments}  & \\ \hline
-BFS ($bfs$), WCC ($wcc$), PR ($pr$), CDLP ($cdlp$), LCC ($lcc$), SSSP ($sssp$) & \\ \hline
+BFS ($\textit{bfs}$), WCC ($\textit{wcc}$), PR ($\textit{pr}$), CDLP ($\textit{cdlp}$), LCC ($\textit{lcc}$), SSSP ($\textit{sssp}$) & \\ \hline
 \end{tabular*}
 \quad 
 \begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
@@ -93,12 +93,12 @@ BFS ($bfs$), WCC ($wcc$), PR ($pr$), CDLP ($cdlp$), LCC ($lcc$), SSSP ($sssp$) &
 \hline
 {\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
 \hline
-DOTA & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$   \\ \hline
-D7.6 &  &  &  &  &  & $sssp$   \\ \hline
-D7.7 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$   \\ \hline
-D7.8 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$   \\ \hline
-D7.9 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$    \\ \hline
-G22 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &    \\ \hline
+DOTA & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
+D7.6 &  &  &  &  &  & $\textit{sssp}$   \\ \hline
+D7.7 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
+D7.8 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
+D7.9 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
+G22 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &    \\ \hline
 \end{tabular*}
 \caption{The benchmark composition of the Standard benchmark on target-scale S.}
 \label{tab:standard_benchmark_S}
@@ -110,7 +110,7 @@ G22 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &    \\ \hline
 \begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
 \hline
 {\bf Experiments}  & \\ \hline
-BFS ($bfs$), WCC ($wcc$), PR ($pr$), CDLP ($cdlp$), LCC ($lcc$), SSSP ($sssp$) & \\ \hline
+BFS ($\textit{bfs}$), WCC ($\textit{wcc}$), PR ($\textit{pr}$), CDLP ($\textit{cdlp}$), LCC ($\textit{lcc}$), SSSP ($\textit{sssp}$) & \\ \hline
 \end{tabular*}
 \quad 
 \begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
@@ -123,12 +123,12 @@ BFS ($bfs$), WCC ($wcc$), PR ($pr$), CDLP ($cdlp$), LCC ($lcc$), SSSP ($sssp$) &
 \hline
 {\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
 \hline
-D8.0 &  &  &  &  &  & $sssp$  \\ \hline
-D8.1 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$  \\ \hline
-D8.2 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$  \\ \hline
-D8.3 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$   \\ \hline
-D8.4 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$   \\ \hline
-G24 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &    \\ \hline
+D8.0 &  &  &  &  &  & $\textit{sssp}$  \\ \hline
+D8.1 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$  \\ \hline
+D8.2 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$  \\ \hline
+D8.3 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
+D8.4 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
+G24 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &    \\ \hline
 \end{tabular*}
 \caption{The benchmark composition of the Standard benchmark on target-scale M.}
 \label{tab:standard_benchmark_M}
@@ -144,7 +144,7 @@ G24 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &    \\ \hline
 \begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
 \hline
 {\bf Experiments}  & \\ \hline
-BFS ($bfs$), WCC ($wcc$), PR ($pr$), CDLP ($cdlp$), LCC ($lcc$), SSSP ($sssp$) & \\ \hline
+BFS ($\textit{bfs}$), WCC ($\textit{wcc}$), PR ($\textit{pr}$), CDLP ($\textit{cdlp}$), LCC ($\textit{lcc}$), SSSP ($\textit{sssp}$) & \\ \hline
 \end{tabular*}
 \quad 
 \begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
@@ -157,12 +157,12 @@ BFS ($bfs$), WCC ($wcc$), PR ($pr$), CDLP ($cdlp$), LCC ($lcc$), SSSP ($sssp$) &
 \hline
 {\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
 \hline
-D8.5 &  &  &  &  &  & $sssp$    \\ \hline
-D8.6 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$    \\ \hline
-D8.7 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$    \\ \hline
-D8.8 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$    \\ \hline
-D8.9 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$    \\ \hline
-G25 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &     \\ \hline
+D8.5 &  &  &  &  &  & $\textit{sssp}$    \\ \hline
+D8.6 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
+D8.7 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
+D8.8 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
+D8.9 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
+G25 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &     \\ \hline
 \end{tabular*}
 \caption{The benchmark composition of the Standard benchmark on target-scale L.}
 \label{tab:standard_benchmark_L}
@@ -174,7 +174,7 @@ G25 & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &     \\ \hline
 \begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
 \hline
 {\bf Experiments}  & \\ \hline
-BFS ($bfs$), WCC ($wcc$), PR ($pr$), CDLP ($cdlp$), LCC ($lcc$), SSSP ($sssp$) & \\ \hline
+BFS ($\textit{bfs}$), WCC ($\textit{wcc}$), PR ($\textit{pr}$), CDLP ($\textit{cdlp}$), LCC ($\textit{lcc}$), SSSP ($\textit{sssp}$) & \\ \hline
 \end{tabular*}
 \quad 
 \begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
@@ -187,14 +187,14 @@ BFS ($bfs$), WCC ($wcc$), PR ($pr$), CDLP ($cdlp$), LCC ($lcc$), SSSP ($sssp$) &
 \hline
 {\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
 \hline
-FSTER  & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &     \\ \hline
-TWIT & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &     \\\hline
-D9.0  &  &  &  &  &  & $sssp$   \\ \hline
-D9.1  &  &  &  &  &  & $sssp$   \\ \hline
-D9.2  & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$  \\ \hline
-D9.3 &  &  &  &  &  & $sssp$  \\ \hline
-D9.4  & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ & $sssp$   \\ \hline
-G26  & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &    \\ \hline
+FSTER  & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &     \\ \hline
+TWIT & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &     \\\hline
+D9.0  &  &  &  &  &  & $\textit{sssp}$   \\ \hline
+D9.1  &  &  &  &  &  & $\textit{sssp}$   \\ \hline
+D9.2  & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$  \\ \hline
+D9.3 &  &  &  &  &  & $\textit{sssp}$  \\ \hline
+D9.4  & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
+G26  & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &    \\ \hline
 \end{tabular*}
 \caption{The benchmark composition of the Standard benchmark on target-scale XL.}
 \label{tab:standard_benchmark_XL}

@@ -243,10 +243,10 @@ Note that for undirected graphs, each edge is bidirectional so we have $N_\mathr
 
 
 \subsection{PageRank (PR)}
-\emph{PageRank} is an iterative algorithm that assigns to each vertex a ranking value. The algorithm was originally used by Google Search to rank websites in their search results~\cite{page1999pagerank}. Let $PR_i(v)$ be the PageRank value of vertex $v$ after iteration $i$. Initially, each vertex $v$ is assigned the same value $1/|V|$ such that the sum of all vertex values is $1$.
+\emph{PageRank} is an iterative algorithm that assigns to each vertex a ranking value. The algorithm was originally used by Google Search to rank websites in their search results~\cite{page1999pagerank}. Let $\textit{PR}_i(v)$ be the PageRank value of vertex $v$ after iteration $i$. Initially, each vertex $v$ is assigned the same value $1/|V|$ such that the sum of all vertex values is $1$.
 
 \begin{equation}
-PR_0(v) = \frac{1}{|V|}
+\textit{PR}_0(v) = \frac{1}{|V|}
 \end{equation}
 
 After iteration $i$, each vertex pushes its PageRank over its outgoing edges to its neighbors. The PageRank for each vertex is updated according to the following rule:
@@ -513,30 +513,30 @@ This section describes the metrics used in Graphalytics. The Graphalytics benchm
 The {\bf Performance metrics} report the execution time of various platform operations.
 
 \begin{itemize}
-	\item {\bf Load time} ($T_l$), in $seconds$:  The time spent loading a particular graph into the system under test, including any preprocessing to convert the input graph to a format suitable for the system. This phase is executed once per graph before any commands are issued to execute specific algorithms.
-	\item {\bf Makespan:} ($T_m$), in $seconds$: The time between the Graphalytics driver issuing the command to execute an algorithm on a (previously uploaded) graph and the output of the algorithm being made available to the driver. The makespan can be further divided into processing time and overhead. The makespan metric corresponds to the operation of a {\it cold graph-processing system}, which depicts the situation where the system is started up, processes a single dataset using a single algorithm, and then is shut down.
-	\item {\bf Processing time} ($T_p$), in $seconds$: Time required to execute an actual algorithm. This does not include platform-specific overhead, such as allocating resources, loading the graph from the file system, or graph partitioning. The processing time metric corresponds to the operation of an in-production, {\it warmed-up graph-processing system}, where especially loading of the graph from the file system and graph partitioning, both of which are typically done only once and are algorithm-independent, are not considered.
+	\item {\bf Load time} ($T_l$), in $\textit{seconds}$:  The time spent loading a particular graph into the system under test, including any preprocessing to convert the input graph to a format suitable for the system. This phase is executed once per graph before any commands are issued to execute specific algorithms.
+	\item {\bf Makespan:} ($T_m$), in $\textit{seconds}$: The time between the Graphalytics driver issuing the command to execute an algorithm on a (previously uploaded) graph and the output of the algorithm being made available to the driver. The makespan can be further divided into processing time and overhead. The makespan metric corresponds to the operation of a {\it cold graph-processing system}, which depicts the situation where the system is started up, processes a single dataset using a single algorithm, and then is shut down.
+	\item {\bf Processing time} ($T_p$), in $\textit{seconds}$: Time required to execute an actual algorithm. This does not include platform-specific overhead, such as allocating resources, loading the graph from the file system, or graph partitioning. The processing time metric corresponds to the operation of an in-production, {\it warmed-up graph-processing system}, where especially loading of the graph from the file system and graph partitioning, both of which are typically done only once and are algorithm-independent, are not considered.
 \end{itemize}
 
 The execution time is capped by the time-out duration configured in each benchmark. Once the time-out is reached, the graph-processing job is terminated, and the time-out duration is reported as the performance metrics instead.
 
 The {\bf Throughput metrics} focus on the processing rate of the system under test. They use a notion of workload intensity, expressed in the graph-specific number of processed edges and vertices:
 \begin{itemize}
-	\item {\bf Edges Per Second} ($EPS$), in $units / second$: The ratio between the number of edges processed (edge size) and the processing time ($T_p$) is used by other benchmarks (Graph500 in Table~\ref{tab:SummaryOfRelatedWorkAcronyms}) to quantify the rate of operation of the system under test. This is fine for edge-dominated algorithms, such as the BFS used in the same benchmarks, but does not explain the performance of vertex-dominated algorithms or of algorithms whose performance is a complex function of the structural properties of the dataset.
+	\item {\bf Edges Per Second} ($\textit{EPS}$), in $\textit{units} / \textit{second}$: The ratio between the number of edges processed (edge size) and the processing time ($T_p$) is used by other benchmarks (Graph500 in Table~\ref{tab:SummaryOfRelatedWorkAcronyms}) to quantify the rate of operation of the system under test. This is fine for edge-dominated algorithms, such as the BFS used in the same benchmarks, but does not explain the performance of vertex-dominated algorithms or of algorithms whose performance is a complex function of the structural properties of the dataset.
 	
-	\item {\bf Edges and Vertices per Second} ($EVPS$), in $units / second$: Graphalytics uses the ratio between the sum of the number of edges and the number of vertices (graph size) processed by the system, and the processing time ($T_p$). EVPS is closely related to the scale of a graph, as defined by Graphalytics (see \sref{sec:definition_scale}).
+	\item {\bf Edges and Vertices per Second} ($\textit{EVPS}$), in $\textit{units} / \textit{second}$: Graphalytics uses the ratio between the sum of the number of edges and the number of vertices (graph size) processed by the system, and the processing time ($T_p$). EVPS is closely related to the scale of a graph, as defined by Graphalytics (see \sref{sec:definition_scale}).
 \end{itemize}
 
 Graphalytics also reports {\bf Cost Metrics}:
 
 \begin{itemize}
-	\item {\bf Three-year Total Cost of Ownership} ($TCO$), in $dollars$: reported in compliance with the LDBC rules~\cite{ldbc_byelaws}, so {\it not} computed by Graphalytics. In particular, LDBC currently adapts the TPC standard pricing model v2.0.0~\cite{tpc_pricing}.
+	\item {\bf Three-year Total Cost of Ownership} ($\textit{TCO}$), in $\textit{dollars}$: reported in compliance with the LDBC rules~\cite{ldbc_byelaws}, so {\it not} computed by Graphalytics. In particular, LDBC currently adapts the TPC standard pricing model v2.0.0~\cite{tpc_pricing}.
 	
-	\item {\bf Price-per-performance} ($PPP$), in $dollars / unit$: as the ratio between TCO and EVPS. This is a metric included for compliance with the LDBC charter~\cite{ldbc_byelaws}.
+	\item {\bf Price-per-performance} ($\textit{PPP}$), in $\textit{dollars} / \textit{unit}$: as the ratio between TCO and EVPS. This is a metric included for compliance with the LDBC charter~\cite{ldbc_byelaws}.
 
-	\futureinversion{2.0}{\item {\bf Three-year Total Energy Costs} ($TEC$), in $watts$: reported in compliance with the SPEC Power, so {\it not} computed by Graphalytics and {\it not} relying only on the metrics provided by the operating system software and hardware performance counters of current processors/systems.}
+	\futureinversion{2.0}{\item {\bf Three-year Total Energy Costs} ($\textit{TEC}$), in $\textit{watts}$: reported in compliance with the SPEC Power, so {\it not} computed by Graphalytics and {\it not} relying only on the metrics provided by the operating system software and hardware performance counters of current processors/systems.}
 	
-	\futureinversion{2.0}{\item {\bf Energy-per-performance} ($EPP$), in $watts / dollar$: as the ratio between TEC and EVPS. This is a metric included for compliance with the LDBC charter~\cite{ldbc_byelaws}.}
+	\futureinversion{2.0}{\item {\bf Energy-per-performance} ($\textit{EPP}$), in $\textit{watts} / \textit{dollar}$: as the ratio between TEC and EVPS. This is a metric included for compliance with the LDBC charter~\cite{ldbc_byelaws}.}
 
 \end{itemize}
 
