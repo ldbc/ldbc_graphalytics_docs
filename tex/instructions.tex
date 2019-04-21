@@ -45,13 +45,13 @@ The Graphalytics team develops and maintains the core Graphalytics software, whi
 To enhance the depth and comprehensiveness of the benchmark process, the following software tools are integrated into Graphalytics. Usage of these tools is optional, but highly recommended.
 
 
-\paragraph{Datagen} The LDBC SNB Data Generator (Datagen) is responsible for providing the data sets used by all the LDBC benchmarks. This data generator is designed to produce directed labeled graphs that mimic the characteristics of those graphs of real data. 
+\paragraph{Datagen} The LDBC SNB Data Generator (Datagen)~\cite{DBLP:conf/sigmod/ErlingALCGPPB15} is responsible for providing the data sets used by all the LDBC benchmarks. This data generator is designed to produce directed labeled graphs that mimic the characteristics of those graphs of real data. 
 
 \qquad Link: \url{https://github.com/ldbc/ldbc_snb_datagen}
 
 
 
-\paragraph{Granula} Granula is a fine-grained performance analysis system consists of four main modules: the modeler, the monitor, the archiver, and the visualizer. 
+\paragraph{Granula} Granula~\cite{DBLP:conf/grades/NgaiHHI17} is a fine-grained performance analysis system consists of four main modules: the modeler, the monitor, the archiver, and the visualizer. 
 By using Granula, enriched performance results can be obtained for each benchmark run, which helps in facilitating in-depth performance analysis, e.g., failure analysis, performance regression testing.
 
 \qquad Link: \url{https://github.com/atlarge-research/granula}
@@ -66,16 +66,16 @@ By using Granula, enriched performance results can be obtained for each benchmar
 A list of platform drivers already built into LDBC Graphalytics are available at:
 
 \begin{itemize}
-	\item Apache Giraph (no vendor optimization)\footnote{\url{https://giraph.apache.org/}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-giraph}
-	%\item GraphLab (no vendor optimization): \\\url{https://github.com/atlarge-research/graphalytics-platforms-graphlab}
-	\item GraphMat\footnote{\url{https://github.com/narayanan2004/GraphMat}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-graphmat}
-	\item Apache Spark GraphX (no vendor optimization)\footnote{\url{https://spark.apache.org/graphx/}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-graphx}
-	%\item Hadoop/YARN (no vendor optimization): \\\url{https://github.com/atlarge-research/graphalytics-platforms-mapreducev2}
+	\item Apache Giraph (no vendor optimization)\footnote{\url{https://giraph.apache.org/}}~\cite{DBLP:books/sp/SOAK2016}: \\ \url{https://github.com/atlarge-research/graphalytics-platforms-giraph}
+	%\item GraphLab (no vendor optimization): \\ \url{https://github.com/atlarge-research/graphalytics-platforms-graphlab}
+	\item GraphMat\footnote{\url{https://github.com/narayanan2004/GraphMat}}~\cite{sundaram2015graphmat}: \\ \url{https://github.com/atlarge-research/graphalytics-platforms-graphmat}
+	\item Apache Spark GraphX (no vendor optimization)\footnote{\url{https://spark.apache.org/graphx/}}~\cite{xin2013graphx}: \\ \url{https://github.com/atlarge-research/graphalytics-platforms-graphx}
+	%\item Hadoop/YARN (no vendor optimization): \\ \url{https://github.com/atlarge-research/graphalytics-platforms-mapreducev2}
 	\item Neo4j (no vendor optimization) --
 	embedded Java API\footnote{\url{https://neo4j.com/docs/java-reference/3.5/}}~\cite{GraphDatabases} and
-	Graph Algorithms library\footnote{\url{https://neo4j.com/docs/graph-algorithms/3.5/}}~\cite{	graph_algorithms_book}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-neo4j}
-	\item OpenG\footnote{\url{https://github.com/graphbig/graphBIG}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-openg}
-	\item PowerGraph (no vendor optimization)\footnote{\url{https://github.com/jegonzal/PowerGraph}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-powergraph}
-	\item SuiteSparse:GraphBLAS\footnote{\url{http://faculty.cse.tamu.edu/davis/GraphBLAS.html}}: work-in-progress
+	Graph Algorithms library\footnote{\url{https://neo4j.com/docs/graph-algorithms/3.5/}}~\cite{	graph_algorithms_book}: \\ \url{https://github.com/atlarge-research/graphalytics-platforms-neo4j}
+	\item OpenG\footnote{\url{https://github.com/graphbig/graphBIG}}~\cite{DBLP:conf/sc/NaiXTKL15}: \\ \url{https://github.com/atlarge-research/graphalytics-platforms-openg}
+	\item PowerGraph (no vendor optimization)\footnote{\url{https://github.com/jegonzal/PowerGraph}}~\cite{gonzalez2012powergraph}: \\ \url{https://github.com/atlarge-research/graphalytics-platforms-powergraph}
+	\item SuiteSparse:GraphBLAS\footnote{\url{http://faculty.cse.tamu.edu/davis/GraphBLAS.html}}~\cite{DBLP:conf/hpec/Davis18}: work-in-progress
 \end{itemize}
 

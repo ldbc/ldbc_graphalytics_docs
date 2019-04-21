@@ -208,7 +208,7 @@ G26  & $bfs$ & $wcc$ & $pr$ & $cdlp$ & $lcc$ &    \\ \hline
 Full benchmark, including new experiment design on quantifying the scalability and robustness of the system-under-test, will be made available in Graphalytics 2.0.
 
 \futureinversion{2.0}{
-\textbf{Scalability Experiments}
+\paragraph{Scalability Experiments}
 For scalable systems, Graphalytics defines two experiments to evaluate the scalability of the system under test. Both experiments must be run with increasing amounts of hardware resources. Which resources are scaled depends on the architecture of the system under test and must be chosen and reported by the benchmark user. Typical examples include scaling the number of machines in a distributed system, scaling the number of processor cores in a parallel machine, or adding GPUs in a heterogeneous system. The system under test as used for the standard experiments is considered the baseline for the scalability experiments. This system is assumed to have N resources for the definition of the scalability experiments.
 
 The strong scalability experiment consists of running BFS and PR on the largest Datagen dataset no larger than the target scale using N, 2N, 4N, 8N, and 16N resources. The weak scalability experiment consists of running BFS and PR on Graph500 datasets of increasing sizes using N, 2N, 4N, 8N, and 16N resources. The largest Graph500 dataset no larger than the target scale must be used for all weak scalability benchmark jobs using N resources, while a Graph500 dataset x times larger is used for a system with xN resources. For example, target scale L requires G25(L) to be run on N resources, G26(XL) on 2N resource, G27(XL) on 4N resources, etc.
@@ -218,7 +218,7 @@ For both scalability experiments, all benchmark jobs must be run three times, th
 
 
 \futureinversion{2.0}{
-\textbf{Robustness Experiments}
+\paragraph{Robustness Experiments}
 The robustness of the system under test is evaluated using two experiments targeted at the system's limits through stress testing and at its variability in performance. The workload of the stress test experiments consists of running BFS on all datasets in increasing order of size. The smallest dataset for which the system under test fails the SLA must be reported. If the system under test successfully completes BFS on two synthetic graphs of consecutive scales for a particular dataset generator, successful execution on all smaller graphs for the same generator may be assumed to reduce the number of jobs required to find the system's limit. The workload of the variability experiment consists of running BFS on the largest Datagen dataset no larger than the target scale, which must be repeated ten times. The makespan and processing time must be reported for every run. The variability score of the system under test is the coefficient of variation of the processing times. If any run fails the SLA, no variability score is assigned.
 }
 
