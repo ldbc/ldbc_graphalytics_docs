@@ -1,20 +1,20 @@
 \execSummary{
 
-Processing graphs, especially at large scale, is an increasingly important activity in a variety of business, engineering, and scientific domains. Tens of very different graph-processing platforms, such as Giraph, GraphLab, and even the generic Hadoop, can already be used for this purpose. For graph-processing platforms to be adopted and to continue their evolution, users must be able to select with ease the best-performing graph-processing platform, and developers and system integrators have to find it easy to quantify the non-functional aspects of the system, from performance to scalability. Compared to traditional benchmarking, benchmarking graph-processing platforms must provide a diverse set of kernels (algorithms), provide recipes for generating diverse yet controlled datasets at large scale, and be portable to diverse and evolving platforms. 
+Processing graphs, especially at large scale, is an increasingly important activity in a variety of business, engineering, and scientific domains. Tens of very different graph processing platforms, such as Giraph, GraphLab, and even generic data processing frameworks such as Hadoop and Spark, can be used for this purpose. For graph processing platforms to be adopted and to continue their evolution, users must be able to select with ease the best-performing graph processing platform, and developers and system integrators have to find it easy to quantify the non-functional aspects of the system, from performance to scalability. Compared to traditional benchmarking, benchmarking graph processing platforms must provide a diverse set of kernels (algorithms), provide recipes for generating diverse yet controlled datasets at large scale, and be portable to diverse and evolving platforms. 
 
-LDBC's Graphalytics is a combined industry and academia initiative, formed by 
+The Linked Data Benchmark Council's Graphalytics is a combined industry and academia initiative, formed by 
 principal actors in the field of graph-like data management. 
 The main goal of LDBC Graphalytics is to define a benchmarking framework, and the associated 
-open-source software tools, where different graph-processing platforms and core graph data management
+open-source software tools, where different graph processing platforms and core graph data management
 technologies can be fairly tested and compared.
 The key feature of Graphalytics is the understanding of the irregular and deep impact that dataset and algorithm diversity can have on performance, leading to bottlenecks and performance issues.
 For this feature, Graphalytics proposes a set of selected deterministic algorithms for full-graph analysis, standard graph datasets, synthetic dataset generators, and reference output for validation purposes. 
-Furthermore, the Graphalytics test harness can be used to conducts diverse experiments and produce deep metrics that quantify multiple kinds of systems scalability, weak and strong, and robustness, such as failures and performance variability. 
+Furthermore, the Graphalytics test harness can be used to conduct diverse experiments and produce deep metrics that quantify multiple kinds of systems scalability, weak and strong, and robustness, such as failures and performance variability. 
 The benchmark also balances comprehensiveness with runtime necessary to obtain the deep metrics. 
 Because issues change over time, LDBC Graphalytics also proposes a renewal process. 
 
 Overall, Graphalytics aims to drive not only the selection of adequate graph processing platforms, but also help with system tuning by providing data for system-bottleneck identification, and with feature and even system \mbox{(re-)design} by providing quantitative evidence of the presence of sub-optimal designs.
-To this end, the development of the benchmark follows and extends the guidelines set by previous LDBC benchmarks, such as LDBC SNB. 
+To this end, the development of the benchmark follows and extends the guidelines set by other LDBC benchmarks, such as the LDBC Social Network Benchmark's Interactive and Business Intelligence workloads. 
 
 To increase adoption by industry and research organizations, 
 LDBC Graphalytics provides all the necessary software to run its comprehensive benchmark process.
@@ -27,7 +27,7 @@ with low technical debt, high quality of code, and deep testing and validation p
 This preliminary version of the LDBC Graphalytics specification contains 
 a formal definition of the benchmarking framework and of its components, 
 a description of the benchmarking process,
-links to the open-source software including a working benchmarking harness and drivers for several vendor- and community-driven graph-processing platforms,
+links to the open-source software including a working benchmarking harness and drivers for several vendor- and community-driven graph processing platforms,
 pseudo-code for all algorithms included in the benchmark,
 and a comparison with related tools, products, and concepts in the benchmarking space.
 
