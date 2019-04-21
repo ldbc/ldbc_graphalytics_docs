@@ -7,30 +7,30 @@ Graphalytics provides a set of benchmark software and resources which are open-s
 \section{Graphalytics Software and Documentation}\label{sec:instructions:core}
 The Graphalytics team develops and maintains the core Graphalytics software, which facilitates the benchmark process and is extendable for benchmarking and analysing the performance of various graph processing platforms.
 
-\textbf{Graphalytics Core}: The Graphalytics Core contains the core implementation for the Graphalytics benchmark, provides a programmable interface for platform drivers.
+\paragraph{Graphalytics Core} The Graphalytics Core contains the core implementation for the Graphalytics benchmark, provides a programmable interface for platform drivers.
 
 \qquad Link: \url{https://github.com/ldbc/ldbc_graphalytics}
 
 
-\textbf{Graphalytics Wiki}: The Graphalytics wiki provides detailed instructions on how to install and run the Graphalytics benchmark.
+\paragraph{Graphalytics Wiki} The Graphalytics wiki provides detailed instructions on how to install and run the Graphalytics benchmark.
 
 \qquad Link: \url{https://github.com/ldbc/ldbc_graphalytics/wiki}
 
 
 \futureinversion{1.0}{
-\textbf{Graphalytics Website}: The Graphalytics website presents the newest updates of the project, provides links to benchmark resources, and organizes periodically global competitions.
+\paragraph{Graphalytics Website} The Graphalytics website presents the newest updates of the project, provides links to benchmark resources, and organizes periodically global competitions.
 
 \qquad Link: (working in progress)
 }
 
 
-\textbf{Reference Implementation}: The Graphalytics reference platform driver provides a simple but correct implementation of all core algorithms defined in \sref{sec:definition_algorithms}, which serves as a guideline for correct implementation of more sophisticated graph processing platforms.
+\paragraph{Reference Implementation} The Graphalytics reference platform driver provides a simple but correct implementation of all core algorithms defined in \sref{sec:definition_algorithms}, which serves as a guideline for correct implementation of more sophisticated graph processing platforms.
 
 \qquad Link: \url{https://github.com/ldbc/ldbc_graphalytics_platforms_reference}
 
 
 \futureinversion{1.0}{
-\textbf{Driver Prototype}: The Graphalytics benchmark suite can be easily extended by developing a platform driver for your own platform, built upon the platform driver template. Follow the detailed instructions in the manual on implementing driver. 
+\paragraph{Driver Prototype} The Graphalytics benchmark suite can be easily extended by developing a platform driver for your own platform, built upon the platform driver template. Follow the detailed instructions in the manual on implementing driver. 
 
 \qquad Link: \url{https://github.com/ldbc/ldbc_graphalytics/graphalytics-platforms-archetype}
 }
@@ -45,13 +45,13 @@ The Graphalytics team develops and maintains the core Graphalytics software, whi
 To enhance the depth and comprehensiveness of the benchmark process, the following software tools are integrated into Graphalytics. Usage of these tools is optional, but highly recommended.
 
 
-\textbf{Datagen} The LDBC-SNB Data Generator is responsible for providing the data sets used by all the LDBC benchmarks. This data generator is designed to produce directed labeled graphs that mimic the characteristics of those graphs of real data. 
+\paragraph{Datagen} The LDBC SNB Data Generator (Datagen) is responsible for providing the data sets used by all the LDBC benchmarks. This data generator is designed to produce directed labeled graphs that mimic the characteristics of those graphs of real data. 
 
 \qquad Link: \url{https://github.com/ldbc/ldbc_snb_datagen}
 
 
 
-\textbf{Granula}:  Granula is a fine-grained performance analysis system consists of four main modules: the modeler, the monitor, the archiver, and the visualizer. 
+\paragraph{Granula} Granula is a fine-grained performance analysis system consists of four main modules: the modeler, the monitor, the archiver, and the visualizer. 
 By using Granula, enriched performance results can be obtained for each benchmark run, which helps in facilitating in-depth performance analysis, e.g., failure analysis, performance regression testing.
 
 \qquad Link: \url{https://github.com/atlarge-research/granula}
@@ -72,8 +72,8 @@ A list of platform drivers already built into LDBC Graphalytics are available at
 	\item Apache Spark GraphX (no vendor optimization)\footnote{\url{https://spark.apache.org/graphx/}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-graphx}
 	%\item Hadoop/YARN (no vendor optimization): \\\url{https://github.com/atlarge-research/graphalytics-platforms-mapreducev2}
 	\item Neo4j (no vendor optimization) --
-	embedded Java API\footnote{\url{https://neo4j.com/docs/java-reference/3.5/}} and
-	Graph Algorithms library\footnote{\url{https://neo4j.com/docs/graph-algorithms/3.5/}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-neo4j}
+	embedded Java API\footnote{\url{https://neo4j.com/docs/java-reference/3.5/}}~\cite{GraphDatabases} and
+	Graph Algorithms library\footnote{\url{https://neo4j.com/docs/graph-algorithms/3.5/}}~\cite{	graph_algorithms_book}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-neo4j}
 	\item OpenG\footnote{\url{https://github.com/graphbig/graphBIG}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-openg}
 	\item PowerGraph (no vendor optimization)\footnote{\url{https://github.com/jegonzal/PowerGraph}}: \\\url{https://github.com/atlarge-research/graphalytics-platforms-powergraph}
 	\item SuiteSparse:GraphBLAS\footnote{\url{http://faculty.cse.tamu.edu/davis/GraphBLAS.html}}: work-in-progress
