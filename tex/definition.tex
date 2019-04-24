@@ -17,7 +17,7 @@ Without R1, a benchmark could not service a diverse industrial following.
 
 \item[\textbf{(R4)}] \textbf{Include renewal process:} unlike many other benchmarks, benchmarks in the area of graph processing must include a renewal process, that is, not only a mechanism to scale up or otherwise change the workload to keep up with increasing more powerful systems, but also a process to automatically configure the mechanism, and a way to characterize the reasonable characteristics of the workload for an average platform running on an average system. Without R4, a benchmark could become less relevant for the systems of the future.
 
-\item[\textbf{(R5)}] \textbf{Modern software engineering:} benchmarks must include a modern software architecture and run a modern software-engineering process. The Graphalytics benchmark is provided with a extensive benchmarking suite that allows users to easily add new platforms and systems to test. This makes it possible for practitioners to easily access the benchmarks and compare their platforms and systems against those of others. Without R5, a benchmark could easily become unmaintainable or unusable.
+\item[\textbf{(R5)}] \textbf{Modern software engineering:} benchmarks must include a modern software architecture and run a modern software-engineering process. The Graphalytics benchmark is provided with an extensive benchmarking suite that allows users to easily add new platforms and systems to test. This makes it possible for practitioners to easily access the benchmarks and compare their platforms and systems against those of others. Without R5, a benchmark could easily become unmaintainable or unusable.
 \end{itemize}
 
 
@@ -25,9 +25,9 @@ Without R1, a benchmark could not service a diverse industrial following.
 The Graphalytics benchmark operates on a single type of dataset: graphs. This section provides the definition of a graph, the definition of the representation used by Graphalytics for its input and output data, and the datasets used for the benchmarks.
 
 \subsection{Definition}
-Graphalytics does not impose any requirements on the semantics of the graph. The benchmark uses a typical data model for graphs. A graph consists of a collection of \emph{vertices} which are linked by \emph{edges}.  Each vertex is assigned a unique identifier represented as a signed 64-bit integer, i.e., between $-2^{63}$ and $2^{63}-1$. Vertex identifiers do not necessarily start at zero, nor are the identifiers necessarily consecutive. Edges are represented as pairs of vertex identifiers. Graphalytics supports both \emph{directed} graphs (i.e., edges are unidirectional) and \emph{undirected} graphs (i.e., edges are bidirectional). Every edge is unique and connects two distinct vertices. This implies self-loops (i.e., vertices having edges to themselves) and multi-edges (i.e., multiple edges between a pair of vertices) are not allowed. For undirected graphs, every pair of vertices $u$ and $v$, the edges $(u,v)$ and $(v,u)$ are considered to be identical.
+Graphalytics does not impose any requirements on the semantics of the graph. The benchmark uses a typical data model for graphs. A graph consists of a collection of \emph{vertices} (nodes) which are linked by \emph{edges} (relationships).  Each vertex is assigned a unique identifier represented as a signed 64-bit integer, i.e., between $-2^{63}$ and $2^{63}-1$. Vertex identifiers do not necessarily start at zero, nor are the identifiers necessarily consecutive. Edges are represented as pairs of vertex identifiers. Graphalytics supports both \emph{directed} graphs (i.e., edges are unidirectional) and \emph{undirected} graphs (i.e., edges are bidirectional). Every edge is unique and connects two distinct vertices. This implies that self-loops (i.e., vertices having edges to themselves) and multi-edges (i.e., multiple edges between a pair of vertices) are not allowed. In the case of undirected graphs, for every pair of vertices $u$ and $v$, the edges $(u,v)$ and $(v,u)$ are considered to be identical.
 
-Vertices and edges can have properties which can be used to store meta-data such as weights, timestamps, labels, costs, or durations. Currently, Graphalytics supports three types of properties: \emph{integers}, \emph{floating-point numbers}, and \emph{booleans}. All floating-point numbers must be internally stored and handled in 64-bit double precision IEEE-754 format. We explicitly do not allow the single precision format, as this can speedup computation and presents an unfair advantage. Integers can be stored and processed in any format which seems suitable by the system.
+Vertices and edges can have properties which can be used to store meta-data such as weights, timestamps, labels, costs, or durations. Currently, Graphalytics supports three types of properties: \emph{integers}, \emph{floating-point numbers}, and \emph{booleans}. All floating-point numbers must be internally stored and handled in 64-bit double-precision IEEE 754 format. We explicitly do not allow the single precision format, as this can speedup computation and presents an unfair advantage. Integers can be stored and processed in any format which seems suitable by the system.
 
 
 \subsection{Representation}\label{sec:data:representation}
@@ -88,12 +88,12 @@ Figure~\ref{fig:definition_example_evlp} shows an example of the EVLP format for
 \subsection{Size and Scale}
 \label{sec:definition_scale}
 
-Graphalytics includes both graphs from real-world applications and synthetic graphs which are created using graph generators. Graphalytics uses a broad range of graphs with a large variety in domain, size, densities, and characteristics. To facilitate performance comparison across datasets, the \emph{scale} of a graph is derived from the number of vertices ($n$) and the number of edges ($m$). Formally, the scale of a graph is defined by calculating the sum $n + m$, taking the logarithm of this value in base 10, and truncating the result to one decimal place. Formally, this can be written as follows:
-
+Graphalytics includes both graphs from real-world applications and synthetic graphs which are created using graph generators. Graphalytics uses a broad range of graphs with a large variety in domain, size, density, and other characteristics. To facilitate performance comparison across datasets, the \emph{scale} of a graph is derived from the number of vertices ($n$) and the number of edges ($m$). Formally, the scale of a graph is defined by calculating the sum $n + m$, taking the logarithm of this value in base 10, and truncating the result to one decimal place. Formally, this can be written as follows:
+%
 \begin{equation}
-Scale(n, m) = \lfloor 10 \log_{10}(n + m)) \rfloor / 10
+\textit{Scale}(n, m) = \lfloor 10 \log_{10}(n + m) \rfloor / 10
 \end{equation}
-
+%
 The scale of a graph gives users an intuition of what the size of graph means in practice. Scales are grouped into classes spanning 0.5 \emph{scale units} and these classes are labeled using familiar system of ``T-shirt sizes'': small (S), medium (M), and large (L), with extra (X) prepended for extremes scales. The reference point is class L, which is defined by the Graphalytics team as the largest class such that the BFS algorithm completes within an hour on any graph from that scale using a state-of-the-art graph analysis platform and a single commodity machine. Table~\ref{tab:definition_scales} summarizes the classes used in Graphalytics.
 
 
@@ -102,11 +102,11 @@ The scale of a graph gives users an intuition of what the size of graph means in
 \label{tab:definition_scales}
 
 \centering
-\begin{tabular}{|l||l|l|}
+\begin{tabular}{|l||c|}
 \hline
 \textbf{Label} & \textbf{Scales} \\ %& \textbf{Number of vertices and edges} \\
 \hline \hline
-XXS & $6.5 - 6.9$ %& $3.2 \times 10^{6} - 10^{7} $ 
+2XS & $6.5 - 6.9$ %& $3.2 \times 10^{6} - 10^{7} $ 
 \\ \hline
 XS & $7.0 - 7.4$ %& $10^{7} - 3.2  \times 10^{7}$ 
 \\ \hline
@@ -118,7 +118,9 @@ L & $8.5 - 8.9$ %& $3.2 \times 10^{8} - 10^{9} $
 \\ \hline
 XL & $9.0 - 9.4$ %& $ 10^{9} - 3.2 \times 10^{9}$
  \\ \hline
-XXL & $9.5 - 10.0$ %& $3.2 \times 10^{9} - 10^{10}$  
+2XL & $9.5 - 9.9$ %& $3.2 \times 10^{9} - 10^{10}$  
+\\ \hline
+3XL & $10.0 - 10.4$ %& 10^{10} - 3.2 \times 10^{10}$
 \\ \hline
 \end{tabular}
 \end{table}
@@ -127,7 +129,7 @@ XXL & $9.5 - 10.0$ %& $3.2 \times 10^{9} - 10^{10}$
 \subsection{Datasets}\label{sec:definition_datasets}
 Graphalytics uses both graphs from real-world applications and synthetic graphs which are generated using data generators, the selection of which spans a variety of sizes and densities.
 
-\textbf{Real-world Datasets}: By including real-world graphs from a variety of domains, Graphalytics covers users from different communities, including graphs from the knowledge, gaming, and social network domains.  Table~\ref{tab:real-datasets} lists the real-world datasets used by the Graphalytics benchmark.
+\paragraph{Real-world Datasets} By including real-world graphs from a variety of domains, Graphalytics covers users from different communities, including graphs from the knowledge, gaming, and social network domains.  Table~\ref{tab:real-datasets} lists the real-world datasets used by the Graphalytics benchmark.
 
 \begin{table}[h]
 \caption{Real-world datasets used by Graphalytics.}
@@ -157,7 +159,7 @@ R6(XL) & twitter\_mpi~\cite{icwsm10cha} & 52.6\,M & 1.97\,B & 9.3 & Social \\
 
 
 
-\textbf{Synthetic Datasets}: Besides real-world datasets, Graphalytics adopts two commonly used generators that generate two types of graphs: power-law graphs from the \textbf{Graph500} generator~\cite{chakrabarti2004, murphy2010} and social network graphs from \textbf{LDBC Datagen}~\cite{DBLP:conf/sigmod/ErlingALCGPPB15}. Table~\ref{tab:graph500-datasets} and \ref{tab:datagen-datasets} lists the graph500 datasets and the Datagen datasets.
+\paragraph{Synthetic Datasets} Besides real-world datasets, Graphalytics adopts two commonly used generators that generate two types of graphs: power-law graphs from the \textbf{Graph500} generator~\cite{chakrabarti2004, murphy2010} and social network graphs from \textbf{LDBC Datagen}~\cite{DBLP:conf/sigmod/ErlingALCGPPB15}. Tables~\ref{tab:graph500-datasets} and \ref{tab:datagen-datasets} list the Graph500 datasets and the Datagen datasets.
 
 
 
@@ -227,37 +229,37 @@ D9.4(XL) & Datagen-9.4-fb & 29.3M & 2.6B & 9.4 \\ \hline
 \section{Algorithms}
 \label{sec:definition_algorithms}
 
-The Graphalytics benchmark consists of six algorithms which need to be executed on the different datasets: five algorithms for unweighted graphs and one algorithm for weighted graphs. These algorithms have been selected based on the results of multiple surveys and expert advice from LDBC TUC.
+The Graphalytics benchmark consists of six algorithms (also known as \emph{kernels}~\cite{DBLP:conf/hipc/BaderM05}) which need to be executed on the different datasets: five algorithms for unweighted graphs and one algorithm for weighted graphs. These algorithms have been selected based on the results of multiple surveys and expert advice from the participants of the LDBC Technical User Community (TUC) meeting.
 
 Each workload of Graphalytics consists of executing a single algorithm on a single dataset. Below, abstract descriptions are provided for the six algorithms; pseudo-code is given in Appendix~\ref{chap:algorithms}. Furthermore, a link to the reference implementation is presented in \sref{sec:instructions:drivers}. However, Graphalytics does not impose any constraint on the implementation of algorithms. Any implementation is allowed, as long as its correctness can be validated by comparing its output to correct reference output (Section~\ref{sec:definitions_validation}). 
 
 In the following sections, a graph $G$ consists of a set of vertices $V$ and a set of edges $E$. For undirected graphs, each edge is bidirectional, so if $(u,v)\in E$ then $(v,u)\in E$. Each vertex $v$ has a set of outgoing neighbors
-$N_\mathrm{out}(v) = \{u \in V | (v, u) \}$, a set of incoming neighbors
-$N_\mathrm{in}(v)  = \{u \in V | (u, v) \}$, and a set of all neighbors
+$N_\mathrm{out}(v) = \{u \in V | (v, u) \in E \}$, a set of incoming neighbors
+$N_\mathrm{in}(v)  = \{u \in V | (u, v) \in E \}$, and a set of all neighbors
 $N(v) = N_\mathrm{in}(v) \cup N_\mathrm{out}(u)$.
 Note that for undirected graphs, each edge is bidirectional so we have $N_\mathrm{in}(v) = N_\mathrm{out}(v) = N(v)$.
 
 
 \subsection{Breadth-First Search (BFS)}
-\emph{Breadth-First Search} is a traversal algorithm that labels each vertex of a graph with the length (or \emph{depth}) of the shortest path from a given source vertex (\emph{root}) to this vertex. The root has depth 0, its outgoing neighbors have depth 1, their outgoing neighbors have depth 2, etc. Unreachable vertices should be given the special value of $-1$.
+\emph{Breadth-First Search} is a traversal algorithm that labels each vertex of a graph with the length (or \emph{depth}) of the shortest path from a given source vertex (\emph{root}) to this vertex. The root has depth $0$, its outgoing neighbors have depth $1$, their outgoing neighbors have depth $2$, etc. Unreachable vertices should be given the special value of $-1$.
 
 
 \subsection{PageRank (PR)}
 \emph{PageRank} is an iterative algorithm that assigns to each vertex a ranking value. The algorithm was originally used by Google Search to rank websites in their search results~\cite{page1999pagerank}. Let $\textit{PR}_i(v)$ be the PageRank value of vertex $v$ after iteration $i$. Initially, each vertex $v$ is assigned the same value $1/|V|$ such that the sum of all vertex values is $1$.
-
+%
 \begin{equation}
 \textit{PR}_0(v) = \frac{1}{|V|}
 \end{equation}
-
+%
 After iteration $i$, each vertex pushes its PageRank over its outgoing edges to its neighbors. The PageRank for each vertex is updated according to the following rule:
-
+%
 \begin{equation}
-PR_i(v) = \frac{1-d}{|V|} + d \sum_{u \in N_\mathrm{in}(v)} \frac{PR_{i - 1}(u)}{|N_\mathrm{out}(u)|} + d \sum_{u \in D} \frac{PR_{i - 1}(u)}{|V|}
+\textit{PR}_i(v) = \frac{1-d}{|V|} + d \sum_{u \in N_\mathrm{in}(v)} \frac{\textit{PR}_{i - 1}(u)}{|N_\mathrm{out}(u)|} + d \sum_{u \in D} \frac{\textit{PR}_{i - 1}(u)}{|V|}
 \end{equation}
+%
+Where $d \in [0,1]$ is called the \emph{damping factor} and $D = \big\{v \in V \ \big| \ |N_\mathrm{out}(v)| = 0 \big\}$ is the set of \emph{dangling vertices}, i.e., vertices having no outgoing edges. Dangling vertices have nowhere to push their PageRank to, so the total sum of the PageRanks for the dangling vertices is evenly distributed over all vertices. 
 
-Where $d \in [0,1]$ is called the \emph{damping factor} and $D=\{v \in V |~|N_\mathrm{out}(v)| = 0\}$ is the set of \emph{dangling vertices}, i.e., vertices having no outgoing edges. Dangling vertices have nowhere to push their PageRank to, so the total sum of the PageRanks for the dangling vertices is evenly distributed over all vertices. 
-
-The PageRank algorithm should continue for a fixed number of iterations. The floating-point values must be handled as 64-bit double precision IEEE 754 floating-point numbers. 
+The PageRank algorithm should continue for a fixed number of iterations. The floating-point values must be handled as 64-bit double-precision IEEE 754 floating-point numbers. 
 
 
 \subsection{Weakly Connected Components (WCC)}
@@ -268,21 +270,20 @@ This algorithm finds the \emph{Weakly Connected Components} of a graph and assig
 The \emph{community detection} algorithm in Graphalytics uses \emph{label propagation} (CDLP) and is based on the algorithm proposed by Raghavan et al.~\cite{raghavan2007near}. The algorithm assigns each vertex a label, indicating its community, and these labels are iteratively updated where each vertex is assigned a new label based on the frequency of the labels of its neighbors. The original algorithm has been adapted to be both deterministic and parallel, thus enabling output validation and parallel execution.
 
 Let $L_i(v)$ be the label of vertex $v$ after iteration $i$. Initially, each vertex $v$ is assigned a unique label which matches its identifier.
-
+%
 \begin{equation}
 L_0(v) = v
 \end{equation}
-
+%
 In iteration $i$, each vertex $v$ determines the frequency of the labels of its incoming and outgoing neighbors and selects the label which is most common.  If the graph is directed and a neighbor is reachable via both an incoming and outgoing edge, its label will be counted twice. In case there are multiple labels with the maximum frequency, the smallest label is chosen. In case a vertex has no neighbors, it retains its current label. This rule can be written as follows:
-
+%
 \begin{equation}
-L_i(v) = \underset{l}{\mathrm{arg\,max}} \Big[ |\{ u \in N_\mathrm{in}(v)~|~L_{i-1}(v) = l \}| + |\{ u \in N_\mathrm{out}(v)~|~L_{i-1}(v) = l \}| \Big]
+L_i(v) = \underset{l}{\mathrm{arg\,max}} \Bigg[ \Big|\{ u \in N_\mathrm{in}(v)~|~L_{i-1}(v) = l \}\Big| + \Big|\{ u \in N_\mathrm{out}(v)~|~L_{i-1}(v) = l \}\Big| \Bigg]
 \end{equation}
-
 
 \subsection{Local Clustering Coefficient (LCC)}
 The \emph{Local Clustering Coefficient} algorithm determines the local clustering coefficient for each vertex. This coefficient indicates the ratio between the number of edges between the neighbors of a vertex and the maximum number of possible edges between the neighbors of this vertex. If the number of neighbors of a vertex is less than two, its coefficient is defined as zero. The definition of LCC can be written as follows:
-
+%
 \begin{equation}
 LCC(v) = \begin{cases}
 0 & \text{If } |N(v)| \leq 1 \\
@@ -290,23 +291,23 @@ LCC(v) = \begin{cases}
 {|{(u,w) | u, w \in N(v)}|} & \text{Otherwise} \\
 \end{cases}
 \end{equation}
-
+%
 Note that the second case can also be written using the sum over the neighbors of $v$.
-
+%
 \begin{equation}
 LCC(v) = \frac{\sum_{u \in N(v)} |N(v) \cap N_\mathrm{out}(u)|}{|N(v)| \big( |N(v)| - 1 \big)}
 \end{equation}
-
-For \emph{directed graphs}, the set of neighbors $N(v)$ is determined without taking directions into account, but each neighbor is only counted once (a neighbor with both an incoming and an outgoing edge from node $v$ does not count twice).
-However, directions are enforced when determining $N_\mathrm{out}(v)$ between neighbors. Note that calculating the intersection using the \emph{incoming} edges to $u$ would return the same result, i.e.\
-$$
+%
+For \emph{directed graphs}, the set of neighbors $N(v)$ is determined without taking directions into account, but each neighbor is only counted once (a neighbor with both an incoming and an outgoing edge from vertex $v$ does not count twice).
+However, directions are enforced when determining $N_\mathrm{out}(v)$ between neighbors. Note that calculating the intersection using the \emph{incoming} edges to $u$ yields the same result, i.e.\
+\begin{equation}
 	\sum_{u \in N(v)} |N(v) \cap N_\mathrm{out}(u)| = 
 	\sum_{u \in N(v)} |N(v) \cap N_\mathrm{in}(u)|
-$$
+\end{equation}
 
 
 \subsection{Single-Source Shortest Paths (SSSP)}
-The \emph{Single-Source Shortest Paths} algorithm marks each vertex with the length of the shortest path from a given \emph{root} vertex to every other vertex in the graph. The length of a path is defined as the sum of the weights on the edges of the path. The edge weights are floating-point numbers which must be handled as 64-bit double precision IEEE-754 floating-point numbers. The edge weights are never negative, infinity, or invalid (i.e., \emph{NaN}), but are allowed to be zero. Unreachable vertices should be given the value infinity.
+The \emph{Single-Source Shortest Paths} algorithm marks each vertex with the length of the shortest path from a given \emph{root} vertex to every other vertex in the graph. The length of a path is defined as the sum of the weights on the edges of the path. The edge weights are floating-point numbers which must be handled as 64-bit double-precision IEEE 754 floating-point numbers. The edge weights are never negative, infinity, or invalid (i.e., \emph{NaN}), but are allowed to be zero. Unreachable vertices should be given the value infinity.
 
 
 
@@ -316,11 +317,12 @@ The \emph{Single-Source Shortest Paths} algorithm marks each vertex with the len
 \section{Output Validation}
 \label{sec:definitions_validation}
 
-The output of every execution of an algorithm on a dataset must be validated for the result to be admissible. All algorithms in the Graphalytics benchmark are deterministic and can therefore be validated by comparing to reference output for correctness. The reference output is typically generated by a specifically chosen reference platform, the implementation of which is cross-validated with at least two other platforms up to target-scale L. At the moment, the chosen reference platform for Graphalytics is OpenG (see \sref{sec:instructions:drivers}).
+The output of every execution of an algorithm on a dataset must be validated for the result to be admissible. All algorithms in the Graphalytics benchmark are deterministic and can therefore be validated by comparing to reference output for correctness. The reference output is typically generated by a specifically chosen reference platform, the implementation of which is cross-validated with at least two other platforms up to target scale~L \futureinversion{2.0}{Define target scale in this chapter [Gabor]}. At the moment, the chosen reference platform for Graphalytics is OpenG (see \sref{sec:instructions:drivers}).
 
-The validation output presents numbers either as integers or floating-point numbers, depending on the algorithm definition. Note that these numbers are stored in the file system as decimal values in plain text (ASCII). For integers, any number between $-2^{63}-1$ and $2^{63}-2$ represents its actual value, whereas the numbers \mbox{-9223372036854775808 ($-2^{63}$)} and \mbox{9223372036854775807} ($2^{63}-1$) represents negative and positive infinity. For floating-point numbers, a scientific notation with 15 significant digits (e.g., 2.476533217845853e-08) is presented.
+The validation output presents numbers either as integers or floating-point numbers, depending on the algorithm definition. Note that these numbers are stored in the file system as decimal values in plain text (ASCII). For integers, any number between $-2^{63}-1$ and $2^{63}-2$ represents its actual value, whereas the numbers ${-9\,223\,372\,036\,854\,775\,808}$ ($-2^{63}$) and $9\,223\,372\,036\,854\,775\,807$ ($2^{63}-1$) represent negative and positive infinity, respectively.
+For floating-point numbers, a scientific notation with 15~significant digits (e.g., $2.476\,533\,217\,845\,853\mathrm{e-}08$) is presented.
 
-The system's output generated during the benchmark must be stored as decimal values in plain text ASCII files, grouped into a single file directory. The formatting rules for integers must be exactly the same as the validation output. Positive infinity can be represented by either $``inf"$, $``+inf"$, $``infinity"$, or $`"+infinity"$; negative infinity can be represented by either $``-inf"$ or $``-infinity"$. 
+The system's output generated during the benchmark must be stored as decimal values in plain text ASCII files, grouped into a single file directory. The formatting rules for integers must be exactly the same as the validation output. Positive infinity can be represented by either $``\textit{inf}\ "$, $``+\textit{inf}\ "$, $``\textit{infinity}"$, or $``+\textit{infinity}"$; negative infinity can be represented by either $``-\textit{inf}\ "$ or $``-\textit{infinity}"$. 
 
 There are three methods used for validation:
 
@@ -445,7 +447,7 @@ There are three methods used for validation:
 
 \item \textbf{Exact match (applies to BFS, CDLP):} the vertex values of the system's output should be identical to the reference output. Figure~\ref{fig:definition_validation_exact} shows an example of validation with exact match.
 
-\item \textbf{Equivalence (applies to WCC):} the vertex values of the system's output should be equal to the reference output \emph{under equivalence}. This means a two-way mapping should exists that maps the system's output to be identical to reference output and the inverse of this mapping maps the reference output to be identical to the system's output. In other words, the output is considered to be valid if all vertices which have the same label in the system's output also have the same label in the reference output, and vice versa. Figure~\ref{fig:definition_validation_equivalence} shows an example of validation with equivalence.
+\item \textbf{Equivalence match (applies to WCC):} the vertex values of the system's output should be equal to the reference output \emph{under equivalence}. This means a two-way mapping should exists that maps the system's output to be identical to reference output and the inverse of this mapping maps the reference output to be identical to the system's output. In other words, the output is considered to be valid if all vertices which have the same label in the system's output also have the same label in the reference output, and vice versa. Figure~\ref{fig:definition_validation_equivalence} shows an example of validation with equivalence.
 
 \item \textbf{Epsilon match (applies to PR, LCC, SSSP):} a margin of error is allowed for some algorithms due to floating-point rounding errors. Let $r$ be the reference value of a vertex and $s$ be the system's output value of the same vertex. These values are considered to match if $s$ is within $0.01\%$ of $r$, i.e., the equation $|r-s| < \varepsilon |r|$ holds where $\varepsilon=0.0001$. The value of $\varepsilon$ was chosen such that errors that result from rounding are not penalized. Figure~\ref{fig:definition_validation_epsilon} shows an example of validation with epsilon match.
 \end{itemize}
@@ -493,8 +495,8 @@ During the \textbf{Loading} step, the input graph data can be converted into an 
 During the \textbf{Running} step, the graph-processing system carries out a series of operations to facilitate efficient algorithm execution on the pre-processed data. These operations are categorized into three types: setup, input/output, and processing operations (see \fref{fig:job}).
 \begin{itemize}
     \item \textbf{Setup operations} reserve computational resources in distributed environments, prepare the system for operation, clean up the environment after the termination of the job.
-    \item \textbf{Input/output operations} transfer graph data from storage to the memory space, and convert the data to specific formats before/after data processing, and offload the outputs back to the storage. Some platforms load/unload data from a distributed file system, other distributed platforms from share/local storage in each node.
-    \item \textbf{Processing operations} take in-memory data and process it according to an user-defined algorithm and its expression in a programming paradigm. Processing operations typically include iterative ``processing" steps.
+    \item \textbf{Input/output operations} transfer graph data from storage to the memory space, and convert the data to specific formats before/after data processing, and offload the outputs back to the storage. Some platforms load/unload data from a distributed file system, other distributed platforms from share/local storage in each node. \futureinversion{2.0}{Discuss that in-memory systems load the graph in this phase [Gabor]}
+    \item \textbf{Processing operations} take in-memory data and process it according to an user-defined algorithm and its expression in a programming paradigm. Processing operations typically include iterative ``processing'' steps.
 \end{itemize}
 
 
@@ -506,7 +508,7 @@ During the \textbf{Running} step, the graph-processing system carries out a seri
 
 \subsection{Metrics} 
 \label{sec:def:metrics}
-This section describes the metrics used in Graphalytics. The Graphalytics benchmark includes several metrics to quantify the performance and other characteristics of the system under test. The performance of graph analytics systems is measured by the time spent on several phases in the execution of the benchmark. Graphalytics reports performance, rate metrics, cost metrics, and ratio metrics, as follows.
+This section describes the metrics used in Graphalytics. The Graphalytics benchmark includes several metrics to quantify the performance and other characteristics of the system under test. The performance of graph analytics systems is measured by the time spent on several phases in the execution of the benchmark. Graphalytics reports performance, throughput metrics, cost metrics, and ratio metrics, as follows.
 
 
 
@@ -514,7 +516,7 @@ The {\bf Performance metrics} report the execution time of various platform oper
 
 \begin{itemize}
 	\item {\bf Load time} ($T_l$), in $\textit{seconds}$:  The time spent loading a particular graph into the system under test, including any preprocessing to convert the input graph to a format suitable for the system. This phase is executed once per graph before any commands are issued to execute specific algorithms.
-	\item {\bf Makespan:} ($T_m$), in $\textit{seconds}$: The time between the Graphalytics driver issuing the command to execute an algorithm on a (previously uploaded) graph and the output of the algorithm being made available to the driver. The makespan can be further divided into processing time and overhead. The makespan metric corresponds to the operation of a {\it cold graph-processing system}, which depicts the situation where the system is started up, processes a single dataset using a single algorithm, and then is shut down.
+	\item {\bf Makespan:} ($T_m$), in $\textit{seconds}$: The time between the Graphalytics driver issuing the command to execute an algorithm on a (previously uploaded) graph and the output of the algorithm being made available to the driver. The makespan can be further divided into processing time and overhead \futureinversion{2.0}{Define overhead [Gabor]}. The makespan metric corresponds to the operation of a {\it cold graph-processing system}, which depicts the situation where the system is started up, processes a single dataset using a single algorithm, and then is shut down.
 	\item {\bf Processing time} ($T_p$), in $\textit{seconds}$: Time required to execute an actual algorithm. This does not include platform-specific overhead, such as allocating resources, loading the graph from the file system, or graph partitioning. The processing time metric corresponds to the operation of an in-production, {\it warmed-up graph-processing system}, where especially loading of the graph from the file system and graph partitioning, both of which are typically done only once and are algorithm-independent, are not considered.
 \end{itemize}
 
@@ -527,7 +529,7 @@ The {\bf Throughput metrics} focus on the processing rate of the system under te
 	\item {\bf Edges and Vertices per Second} ($\textit{EVPS}$), in $\textit{units} / \textit{second}$: Graphalytics uses the ratio between the sum of the number of edges and the number of vertices (graph size) processed by the system, and the processing time ($T_p$). EVPS is closely related to the scale of a graph, as defined by Graphalytics (see \sref{sec:definition_scale}).
 \end{itemize}
 
-Graphalytics also reports {\bf Cost Metrics}:
+Graphalytics also reports {\bf Cost metrics}:
 
 \begin{itemize}
 	\item {\bf Three-year Total Cost of Ownership} ($\textit{TCO}$), in $\textit{dollars}$: reported in compliance with the LDBC rules~\cite{ldbc_byelaws}, so {\it not} computed by Graphalytics. In particular, LDBC currently adapts the TPC standard pricing model v2.0.0~\cite{tpc_pricing}.
@@ -559,7 +561,7 @@ The {\bf Ratio metrics} reported by Graphalytics are:
 
 
 
-\section{System-Under-Test} \label{sec:sut}
+\section{System Under Test} \label{sec:sut}
 
 Responding to requirement R1 (see Section~\ref{sec:requirements}), the LDBC Graphalytics framework defines the System Under Test as the combined software platform and hardware environment that is able to execute graph-processing algorithms on graph datasets. This is an inclusive definition, and indeed Graphalytics has been executed in the lab of SUTs with software ranging from community-driven prototype systems, to vendor-optimized software; and with hardware ranging from beefy single-node multi-core systems, to single-node CPU and (multi-)GPU hybrid systems, to multi-node clusters with or without GPUs present. 
 
@@ -574,9 +576,9 @@ Responding to requirement R1 (see Section~\ref{sec:requirements}), the LDBC Grap
 
 \section{Renewal Process} \label{sec:renewal}
 
-To ensure the relevance of Graphalytics as a benchmark for future graph analytics systems, a renewal process is included in Graphalytics. This renewal process updates the workload of the benchmark to keep it relevant for increasingly powerful systems and developments in the graph analytics community. This results in a benchmark which is future-proof. Renewing the benchmark means renewing the algorithms as well as the datasets. For every new version of Graphalytics, a two-stage selection process will be used by the LDBC Graph Analytics Task Force. The same selection process was used to derive the workload in the current version of the Graphalytics benchmark.
+To ensure the relevance of Graphalytics as a benchmark for future graph analytics systems, a renewal process is included in Graphalytics. This renewal process updates the workload of the benchmark to keep it relevant for increasingly powerful systems and developments in the graph analytics community. This results in a benchmark which is future-proof. Renewing the benchmark means renewing the algorithms as well as the datasets. For every new version of Graphalytics, a two-stage selection process will be used by the LDBC Graphalytics Task Force. The same selection process was used to derive the workload in the current version of the Graphalytics benchmark.
 
-To achieve both workload representativeness and workload coverage, a two-stage selection process is used. The first stage identifies classes of algorithms and datasets that are representative for real-world usage of graph analytics systems. In the second stage, algorithms and datasets are selected from the most common classes such that the resulting selection is diverse, i.e., the algorithms cover a variety of computation and communication patterns, and the datasets cover a range of sizes and a variety of graph characteristics.
+To achieve both workload representativeness and workload coverage, a two-stage selection process is used. \futureinversion{2.0}{This piece of text is repetitive [Gabor]} The first stage identifies classes of algorithms and datasets that are representative for real-world usage of graph analytics systems. In the second stage, algorithms and datasets are selected from the most common classes such that the resulting selection is diverse, i.e., the algorithms cover a variety of computation and communication patterns, and the datasets cover a range of sizes and a variety of graph characteristics.
 
-Updated versions of the Graphalytics benchmark will also include renewed definitions of the scale classes defined in Section~\ref{sec:definition_scale}. The definition of the scale classes is derived from the capabilities of state-of-the-art graph analytics systems and common-off-the-shelf machines, which are expected to be improved over time. Thus, graphs that are considered to be large as of the publication of the first edition of Graphalytics (labeled $L'16$ to indicate the $2016$ edition) may be considered medium-sized graphs in the next edition (e.g., $M'18$).
+Updated versions of the Graphalytics benchmark will also include renewed definitions of the scale classes defined in Section~\ref{sec:definition_scale}. The definition of the scale classes is derived from the capabilities of state-of-the-art graph analytics systems and common-off-the-shelf machines, which are expected to be improved over time. Thus, graphs that are considered to be large as of the publication of the first edition of Graphalytics (labeled $L'16$ to indicate the $2016$ edition) may be considered medium-sized graphs in the next edition (e.g., $M'20$).
 
