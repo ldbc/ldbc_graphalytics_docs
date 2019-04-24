@@ -3,26 +3,26 @@
 \futureinversion{1.0}{Add examples for each type of competitions.} .
 
 In this chapter, we describe how to participate in \toolname-based competitions. 
-\toolname{} defines several {\it official competitions} (Section~\ref{sec:competitions:overview}), which are open globally to everyone who satisfies the rules for participation. Each competition ranks the benchmark submission based on a competition method defined in (Section~\ref{sec:competitions}).
+\toolname{} defines several {\it official competitions} (\sref{sec:competitions:overview}), which are open globally to everyone who satisfies the rules for participation. Each competition ranks the benchmark submission based on a competition method defined in \sref{sec:competitions}.
 
 
 
 
 \section{Official \toolname{} Competitions}
 \label{sec:competitions:overview}
-Currently, \toolname{} defines two official competitions: (1)~the Global LDBC Competition, and (2)~the Global \toolname{} Competition.
+Currently, \toolname{} defines two official competitions: (1)~the Global LDBC Competition and (2)~the Global \toolname{} Competition.
 
 
 \subsection{The Global LDBC Competition} \label{sec:competitions:ldbc}
-The Global LDBC Competition is maintained by LDBC, in particular by the Graphalytics Task Forces. By the rules of the LDBC charter~\cite{ldbc_byelaws}, the competition method follows the single value-of-merit approach described in \sref{sec:competitions:single_value}, and focuses on two primary metrics: ``{\bf performance}" and ``{\bf cost-performance}".
+The Global LDBC Competition is maintained by LDBC, in particular by the Graphalytics Task Force. By the rules of the LDBC charter~\cite{ldbc_byelaws}, the competition method follows the single value-of-merit approach described in \sref{sec:competitions:single_value}, and focuses on two primary metrics: {\bf ``performance''} and {\bf ``cost-performance''}.
 
 The competition reports the following list of metrics:
 \begin{enumerate}
-    \item (informative only) Full disclosure of the ``system-under-test" (platform + environment).
-    \item (informative only) {\it Target-scale} of the benchmark.
+    \item (informative only) Full disclosure of the ``system under test'' (platform + environment).
+    \item (informative only) {\it Target scale} of the benchmark.
     \item (informative only) {\it Date} of the benchmark execution.
-	\item (flagship value-of-merit) {\it Performance metric}, as summarized from ``EVPS" of all benchmarked jobs.
-	\item (capability value-of-merit) {\it Cost-performance metric}, as summarized from ``PPP" of all benchmarked jobs.
+	\item (flagship value-of-merit) {\it Performance metric}, as summarized from ``EVPS'' of all benchmarked jobs.
+	\item (capability value-of-merit) {\it Cost-performance metric}, as summarized from ``PPP'' of all benchmarked jobs.
 	\item (informative only) Three {\it performance metrics}, as summarized from $T_l$, $T_m$, and $T_p$ respectively.
 \end{enumerate}
 
@@ -36,17 +36,17 @@ The competition reports the following list of metrics:
 
 
 \subsection{The Global \toolname{} Competition} \label{sec:competitions:graphalytics}
-The Global \toolname{} Competition is maintained by the \toolname team. The competition method follows the tournament-based approach described in \sref{sec:competitions:tournament}, and focuses on two primary scores: ``{\bf performance}" and ``{\bf cost-performance}".
+The Global \toolname{} Competition is maintained by the \toolname team. The competition method follows the tournament-based approach described in \sref{sec:competitions:tournament}, and focuses on two primary scores: {\bf ``performance''} and {\bf ``cost-performance''}.
 
 The Graphalytics consists of a number of {\it matches}, where each match represents a type of experiment that focuses on a specific performance characteristic that is common across all systems, for example, the EVPS of the BFS algorithm on a Datagen dataset. Each match consists of a set of instances, with the {\bf tournament score} being for each system the sum of {\bf instance scores} accumulated by the platform across all matches in which it participates.  Each {\it instance} is a head-to-head comparison between two systems, for example, comparing the EVPS of any algorithm-dataset for the pair (Giraph, GraphX): the winner receives 1 point, the loser 0 points, and a draw rewards each platform with 0.5 points each.
 
 
 \begin{enumerate}
-    \item (informative only) Full disclosure of the ``system-under-test" (platform + environment).
-    \item (informative only) {\it Target-scale} of the benchmark.
+    \item (informative only) Full disclosure of the ``system under test'' (platform + environment).
+    \item (informative only) {\it Target scale} of the benchmark.
     \item (informative only) {\it Date} of the benchmark execution.
-	\item (ranking) {\it Performance score}, by comparing pair-wisely ``EVPS" of all benchmarked jobs.
-	\item (ranking) {\it Cost-performance score}, by comparing pair-wisely  ``PPP" of all benchmarked jobs.
+	\item (ranking) {\it Performance score}, by comparing pair-wisely ``EVPS'' of all benchmarked jobs.
+	\item (ranking) {\it Cost-performance score}, by comparing pair-wisely  ``PPP'' of all benchmarked jobs.
 \end{enumerate}
 
 
@@ -73,13 +73,18 @@ The former requires metrics to be easy to compare and compose, that is, to be no
 
 
 \subsection{Single Value-of-merit Approach} \label{sec:competitions:single_value}
-Where metrics (see \sref{sec:def:metrics}) are collected repeatedly e.g., each combination of algorithm and dataset, a single value-of-merit can be summarized following the typical processes of benchmarking HPC systems~\cite{DBLP:conf/sc/HoeflerB15}:
+Where metrics (see \sref{sec:def:metrics}) are collected repeatedly, e.g., each combination of algorithm and dataset, a single value-of-merit can be summarized following the typical processes of benchmarking HPC systems~\cite{DBLP:conf/sc/HoeflerB15}:
 
 \begin{itemize}
-	\item For Performance metrics, the arithmetic mean across all data.
-	\item For Throughput metrics, because they are rate metrics, in two consecutive steps: (i) let $a$ be the arithmetic mean of the performance metric (e.g., processing time) and $w$ be the (constant, total) workload (e.g., count of edges plus vertices), (ii) report as throughput metric the ratio between $w$ and $a$. In other words, instead of averaging the rate per sample, that is, $\textit{EVPS}_i$ for sample i, \toolname{} first averages the performance metric and then reports the rate.
-	\item For Cost metrics, the harmonic mean across all data. This is because the denominator (e.g., EVPS for PPP) gives meaning to the ratio (TCO is constant across experiments with the same System Under Test), which indicates that the arithmetic mean would be misleading~\cite[S.3.1.1]{DBLP:conf/sc/HoeflerB15}.
-	\item For Speedup and other ratio metrics, the geometric mean across all data.
+	\item For \textbf{Performance metrics,} the \emph{arithmetic mean} across all data.
+	\item For \textbf{Throughput metrics,} because they are rate metrics, in two consecutive steps:
+		\begin{enumerate}
+			\item let $a$ be the \emph{arithmetic mean} of the performance metric (e.g., processing time) and $w$ be the (constant, total) workload (e.g., count of edges plus vertices),
+			\item report the \emph{ratio} between $w$ and $a$ as the throughput metric.
+		\end{enumerate}
+ 		In other words, instead of averaging the rate per sample, that is, $\textit{EVPS}_i$ for sample $i$, \toolname{} first averages the performance metric and then reports the rate. \futureinversion{2.0}{Maybe change ``rate'' to ``ratio'' in this sentence [Gabor]}
+	\item For \textbf{Cost metrics,} the \emph{harmonic mean} across all data. This is because the denominator (e.g., EVPS for PPP) gives meaning to the ratio (TCO is constant across experiments with the same System Under Test), which indicates that the arithmetic mean would be misleading~\cite[S.3.1.1]{DBLP:conf/sc/HoeflerB15}.
+	\item For \textbf{Ratio metrics} such as Speedup, the \emph{geometric mean} across all data.
 \end{itemize}
 
 
@@ -91,7 +96,7 @@ Where metrics (see \sref{sec:def:metrics}) are collected repeatedly e.g., each c
 
 
 \subsection{Tournament-based Approach} \label{sec:competitions:tournament}
-In a tournament-based approach, the system performance is ranked by means of competitive tournaments~\cite{Thurstone1927}.  Generally, a Round-Robin pair-wise tournament~\cite{David1960} (from hereon, {\it tournament}) of $p$ participants involves a balanced set of (pair-wise) comparisons between the results of each pair of participants; if there are $c$ criteria to compare the participants, there will be $\frac{1}{2} \times c \times p (p - 1)$ pair-wise comparisons. In a pair-wise comparison, a pre-defined amount of points (often, 1 or 3) is given to the better ({\it winner}) participant, from the pair. It is also common to give zero points to the worse ({\it loser}) participant, from the pair, and to split the points between participants with equal performance. Similar tournaments have been used for decades in chess competitions, in professional sports leagues such as (European and American) football, etc.
+In a tournament-based approach, the system performance is ranked by means of competitive tournaments~\cite{Thurstone1927}.  Generally, a Round-Robin pair-wise tournament~\cite{David1960} (from hereon, {\it tournament}) of $p$ participants involves a balanced set of (pair-wise) comparisons between the results of each pair of participants; if there are $c$ criteria to compare the participants, there will be $\frac{1}{2} \times c \times p (p - 1)$ pair-wise comparisons. In a pair-wise comparison, a pre-defined amount of points (often, 1 or 3) is given to the better ({\it winner}) participant from the pair. It is also common to give zero points to the worse ({\it loser}) participant from the pair, and to split the points between participants with equal performance. Similar tournaments have been used for decades in chess competitions, in professional sports leagues such as (European and American) football, etc.
 
 We do not consider here other pair-wise tournaments, such as replicated tournaments~\cite{David1960} and unbalanced comparisons~\cite{david1987ranking}, which have been used especially in settings where comparisons are made by human referees and are typically discretized on 5-point Likert scales, and thus are quantitatively less accurate than the \toolname{} measurements.
 

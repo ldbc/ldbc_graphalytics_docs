@@ -1,7 +1,7 @@
 \chapter{Data format for Benchmark Results}
 \label{chap:data-format}
 \futureinversion{1.0}{The information in this section will be updated according to the implementation.}
-This appendix shows an example of Graphalytics benchmark results of the reference implementation. Graphalytics benchmark defines a specific data format for the benchmark results. The result is formatted in JSON, and consists of three main component: system under test, benchmark configuration, and experimental results. Figure~\ref{fig:result-format:overview} depicts the top-level structure of the result format.
+This appendix shows an example of Graphalytics benchmark results of the reference implementation. Graphalytics benchmark defines a specific data format for the benchmark results. The result is formatted in JSON, and consists of three main components: system under test, benchmark configuration, and experimental results. Figure~\ref{fig:result-format:overview} depicts the top-level structure of the result format.
 
 \begin{figure}[h]
 	\centering
@@ -14,12 +14,12 @@ For the system under test, Graphalytics reports the detailed descriptions of the
 
 \begin{figure}[!h]
 	\centering
-	\caption{Result Format: System under Test}
+	\caption{Result Format: System Under Test}
 	\fbox{\includegraphics[width=1.0\linewidth]{figures/data-format-system.pdf}}
 	\label{fig:result-format:system}
 \end{figure}
 
-For the benchmark configuration, the targe-scale and the computation resource usage is reported. For each resource type, the baseline resource usage, and the scalablity of that resource type is reported.
+For the benchmark configuration, the target scale and the computation resource usage is reported. For each resource type, the baseline resource usage, and the scalablity of that resource type is reported.
 
 \begin{figure}[!h]
 	\centering
