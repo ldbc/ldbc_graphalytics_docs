@@ -266,7 +266,7 @@ The PageRank algorithm should continue for a fixed number of iterations. The flo
 This algorithm finds the \emph{Weakly Connected Components} of a graph and assigns each vertex a unique label that indicates which component it belongs to. Two vertices belong to the same component, and thus have the same label, if there exists a path between these vertices along the edges of the graph. For directed graphs, it is allowed to travel over the reverse direction of an edge, i.e., the graph is interpreted as if it is undirected.
 
 
-\subsection{Community Detection using Label-Propagation (CDLP)}
+\subsection{Community Detection using Label Propagation (CDLP)}
 The \emph{community detection} algorithm in Graphalytics uses \emph{label propagation} (CDLP) and is based on the algorithm proposed by Raghavan et al.~\cite{raghavan2007near}. The algorithm assigns each vertex a label, indicating its community, and these labels are iteratively updated where each vertex is assigned a new label based on the frequency of the labels of its neighbors. The original algorithm has been adapted to be both deterministic and parallel, thus enabling output validation and parallel execution.
 
 Let $L_i(v)$ be the label of vertex $v$ after iteration $i$. Initially, each vertex $v$ is assigned a unique label which matches its identifier.
