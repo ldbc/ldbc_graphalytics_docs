@@ -278,7 +278,7 @@ L_0(v) = v
 In iteration $i$, each vertex $v$ determines the frequency of the labels of its incoming and outgoing neighbors and selects the label which is most common.  If the graph is directed and a neighbor is reachable via both an incoming and outgoing edge, its label will be counted twice. In case there are multiple labels with the maximum frequency, the smallest label is chosen. In case a vertex has no neighbors, it retains its current label. This rule can be written as follows:
 %
 \begin{equation}
-L_i(v) = \underset{l}{\mathrm{arg\,max}} \Bigg[ \Big|\{ u \in N_\mathrm{in}(v)~|~L_{i-1}(v) = l \}\Big| + \Big|\{ u \in N_\mathrm{out}(v)~|~L_{i-1}(v) = l \}\Big| \Bigg]
+L_i(v) = \min \left( \underset{l}{\mathrm{arg\,max}} \Bigg[ \Big|\{ u \in N_\mathrm{in}(v)~|~L_{i-1}(u) = l \}\Big| + \Big|\{ u \in N_\mathrm{out}(v)~|~L_{i-1}(u) = l \}\Big| \Bigg] \right)
 \end{equation}
 
 \subsection{Local Clustering Coefficient (LCC)}
