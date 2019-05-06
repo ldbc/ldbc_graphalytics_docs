@@ -246,17 +246,17 @@ The benchmark execution of Graphalytics benchmark suite is illustrated in \fref{
 \label{sec:process:execution:exe_flow}
 After a benchmark is loaded, the benchmark suite analyzes the exact composition of the benchmark. Each benchmark consists of a number of benchmark runs, which will be grouped by the graph dataset used by that benchmark run. For each graph dataset, the input data of that dataset will be loaded only once, and be reused for all corresponding benchmarks runs, before finally being removed.
 
-\begin{itemize}
-    \item \textbf{[A] Verify-setup}: The benchmark suite verifies that the platform and the environment are properly set up based on the prerequisites defined in the platform driver.
+\begin{enumerate}[label=\textbf{[\Alph*]}]
+    \item \textbf{Verify-setup:} The benchmark suite verifies that the platform and the environment are properly set up based on the prerequisites defined in the platform driver.
     
-    \item \textbf{[B] Format-graph}: The benchmark suite minimizes the ``input data'' into ``formatted dataset'' (see more in \sref{sec:process:execution:run_flow}) by removing unused vertex and edge properties.
+    \item \textbf{Format-graph:} The benchmark suite minimizes the ``input data'' into ``formatted dataset'' (see more in \sref{sec:process:execution:run_flow}) by removing unused vertex and edge properties.
     
-    \item \textbf{[C] Load-graph}: The platform converts the ``formatted data'' into any platform-specific data format and loads a graph dataset into a storage system, which can be either a local file system, a share file system or a distributed file system. This step corresponds to the ``Loading'' step of a graph processing job described in \sref{sec:def:job:operation}.
+    \item \textbf{Load-graph:} The platform converts the ``formatted data'' into any platform-specific data format and loads a graph dataset into a storage system, which can be either a local file system, a share file system or a distributed file system. This step corresponds to the ``Loading'' step of a graph processing job described in \sref{sec:def:job:operation}.
     
-    \item \textbf{[D] Execute-run}: The platform executes a benchmark run with a specific algorithm and dataset (see more details in \sref{sec:process:execution:run_flow}). All benchmark runs using the same input dataset can use the prepared graph dataset during the ``load-graph'' step. 
+    \item \textbf{Execute-run:} The platform executes a benchmark run with a specific algorithm and dataset (see more details in \sref{sec:process:execution:run_flow}). All benchmark runs using the same input dataset can use the prepared graph dataset during the ``load-graph'' step. 
     
-    \item \textbf{[E] Delete-graph}: The platform unloads a graph dataset from the storage system, as part of the cleaning up process after all benchmark runs on that graph dataset have been completed.
-\end{itemize}
+    \item \textbf{Delete-graph:} The platform unloads a graph dataset from the storage system, as part of the cleaning up process after all benchmark runs on that graph dataset have been completed.
+\end{enumerate}
 
 Note that ``load-graph'' and ``delete-graph'' are platform-specific API, which can be implemented in the platform driver via the ``Platform'' interface, whereas  ``execute-run'' is a uniform step for all platforms. \futureinversion{2.0}{What about format-graph? [Gabor]}
 
@@ -264,21 +264,21 @@ Note that ``load-graph'' and ``delete-graph'' are platform-specific API, which c
 \label{sec:process:execution:run_flow}
 The execution of each benchmark run consists of seven steps in total, i.e., ``prepare'', ``startup'', ``run'', ``validate'', ``finalize'', ``terminate'', and  ``archive''. To ensure the stability, the benchmark suite only prepares for the benchmark, and terminates the benchmark run. Each benchmark run is partially executed in an isolated operating-system process, such that a timed-out job can be terminated properly.
 
-\begin{itemize}
-    \item \textbf{Prepare}: The platform requests computation resources from the cluster environment and makes the background applications ready.
+\begin{enumerate}[label=\textbf{[\arabic*]}]
+    \item \textbf{Prepare:} The platform requests computation resources from the cluster environment and makes the background applications ready.
     
-    \item \textbf{Startup}: The platform configures the benchmark run with regard to real-time cluster deployment information, e.g., input directory, output directory and log directory.
+    \item \textbf{Startup:} The platform configures the benchmark run with regard to real-time cluster deployment information, e.g., input directory, output directory and log directory.
     
-    \item \textbf{Run}: The platform runs a graph-processing job as defined in the benchmark run. The graph-processing job must complete within the time-out duration, or the benchmark run will fail. This step corresponds to the ``Running'' step of a graph processing job described in \ref{sec:def:job:operation}.
+    \item \textbf{Run:} The platform runs a graph-processing job as defined in the benchmark run. The graph-processing job must complete within the time-out duration, or the benchmark run will fail. This step corresponds to the ``Running'' step of a graph processing job described in \ref{sec:def:job:operation}.
     
-    \item \textbf{Validate}: The benchmark suite validates the platform output with the validation data. The system under test must succeed in this step, or the benchmark run will fail.
+    \item \textbf{Validate:} The benchmark suite validates the platform output with the validation data. The system under test must succeed in this step, or the benchmark run will fail.
     
-    \item \textbf{Finalize}: The platform reports the benchmark information and makes the environment ready for the next benchmark run.
+    \item \textbf{Finalize:} The platform reports the benchmark information and makes the environment ready for the next benchmark run.
     
-    \item \textbf{Terminate}: The platform forcibly stops the benchmark job and cleans up the environment, given that the time-out has been reached. 
+    \item \textbf{Terminate:} The platform forcibly stops the benchmark job and cleans up the environment, given that the time-out has been reached. 
     
-    \item \textbf{Archive}: The benchmark suite archives the benchmark results, gathering information regarding performance metrics and failure indications.
-\end{itemize}
+    \item \textbf{Archive:} The benchmark suite archives the benchmark results, gathering information regarding performance metrics and failure indications.
+\end{enumerate}
 
 Note that ``prepare'', ``startup'', ``run'', ``finalize'', ``terminate'', and ``archive'' are platform-specific API, which can be implemented in the platform driver via the ``Platform'' interface, whereas ``archive'' is a uniform step for all platforms. \futureinversion{2.0}{The ``archive'' step belongs to the Core API. What about ``validate''? [Gabor]} 
 
@@ -290,16 +290,16 @@ The graph datasets go through a series of execution steps during the benchmark e
 For each graph, the input datasets and the validation datasets are publicly available benchmark resources.
 
 \begin{itemize} 
-    \item \textbf{Input data}: The ``input data'' consists of a vertex file and edge file in EVLP format, as defined in \sref{sec:data:representation}.
-    \item \textbf{Validation data}: The ``validation data'' consists of correct outputs for all six core algorithm, as defined in \sref{sec:definitions_validation}.
+    \item \textbf{Input data:} The ``input data'' consists of a vertex file and edge file in EVLP format, as defined in \sref{sec:data:representation}.
+    \item \textbf{Validation data:} The ``validation data'' consists of correct outputs for all six core algorithm, as defined in \sref{sec:definitions_validation}.
 \end{itemize}
 
 The input dataset can be converted into the following format during the benchmark.
 
 \begin{itemize}
-    \item \textbf{Formatted data}: The ``input data'' can plausibly contain dozens of vertex and edge properties. During the ``load-graph'' step, the benchmark suite identifies for each algorithms which properties are needed and which are not, and minimizes the ``input data'' into the ``formatted data''. The ``formatted data'' is cached in the storage system for future uses. 
-    \item \textbf{Loaded data}: The minimized ``formatted data'' is loaded into a storage system during the ``load-graph'' step, which can either be a local file system, a share file system or a distributed file system.
-    \item \textbf{Output data}: The ``output data'' is the output of a graph-processing job being benchmarked during the ``process'' step. The ``output data'' is compared to the ``validation data'' to ensure the correctness of the benchmark execution.
+    \item \textbf{Formatted data:} The ``input data'' can plausibly contain dozens of vertex and edge properties. During the ``load-graph'' step, the benchmark suite identifies for each algorithms which properties are needed and which are not, and minimizes the ``input data'' into the ``formatted data''. The ``formatted data'' is cached in the storage system for future uses. 
+    \item \textbf{Loaded data:} The minimized ``formatted data'' is loaded into a storage system during the ``load-graph'' step, which can either be a local file system, a share file system or a distributed file system.
+    \item \textbf{Output data:} The ``output data'' is the output of a graph-processing job being benchmarked during the ``process'' step. The ``output data'' is compared to the ``validation data'' to ensure the correctness of the benchmark execution.
 \end{itemize}
 
 
