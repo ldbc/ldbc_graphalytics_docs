@@ -37,13 +37,13 @@ This chapter contains pseudo-code for the algorithms described in \sref{sec:defi
 \EndFor
 \For{$i=1,\ldots,\textit{max\_iterations}$}
 \State $\textit{dangling\_sum} \gets 0$
-\ForAll{$v \in V$}
-  \If{$|N_\mathrm{out}(v)| = 0$}
-    \State $\textit{dangling\_sum} \gets \textit{dangling\_sum} + \textit{rank}[v]$
+\ForAll{$w \in V$}
+  \If{$|N_\mathrm{out}(w)| = 0$}
+    \State $\textit{dangling\_sum} \gets \textit{dangling\_sum} + \textit{rank}[w]$
   \EndIf
 \EndFor
 \ForAll{$v \in V$}
-  \State $\textit{new\_rank}[v] \gets (1-d)\frac{1}{|V|} + d \Big( \sum_{u \in N_\mathrm{in}(v)} \frac{\textit{rank}[u]}{|N_\mathrm{out}(u)|} +  \frac{\textit{dangling\_sum}}{|V|} \Big)$
+  \State $\textit{new\_rank}[v] \gets \frac{1-d}{|V|} + d \cdot \sum_{u \in N_\mathrm{in}(v)} \frac{\textit{rank}[u]}{|N_\mathrm{out}(u)|} + \frac{d}{|V|} \cdot \textit{dangling\_sum} $
 \EndFor
 \State $\textit{rank} \gets \textit{new\_rank}$
 \EndFor
