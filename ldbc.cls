@@ -7,7 +7,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{epsfig}
 \RequirePackage{color}
-\RequirePackage{url}
+\RequirePackage[hyphens]{url}
 \RequirePackage{ifthen}
 \RequirePackage{amssymb}
 \RequirePackage{longtable}

@@ -1,8 +1,8 @@
 \chapter{\toolname-based Competitions} \label{chap:competitions}
 
-\futureinversion{1.0}{Add examples for each type of competitions.} .
-
 In this chapter, we describe how to participate in \toolname-based competitions. 
+For more details, check out the competition specification document~\cite{CompetitionSpecification}.
+
 \toolname{} defines several {\it official competitions} (\sref{sec:competitions:overview}), which are open globally to everyone who satisfies the rules for participation. Each competition ranks the benchmark submission based on a competition method defined in \sref{sec:competitions}.
 
 
@@ -86,12 +86,6 @@ Where metrics (see \sref{sec:def:metrics}) are collected repeatedly, e.g., each 
 	\item For \textbf{Cost metrics,} the \emph{harmonic mean} across all data. This is because the denominator (e.g., EVPS for PPP) gives meaning to the ratio (TCO is constant across experiments with the same System Under Test), which indicates that the arithmetic mean would be misleading~\cite[S.3.1.1]{DBLP:conf/sc/HoeflerB15}.
 	\item For \textbf{Ratio metrics} such as Speedup, the \emph{geometric mean} across all data.
 \end{itemize}
-
-
-\futureinversion{1.0}{In many ranking approaches, it is convenient to have each participant compared not against each other, but against a {\it baseline} (or golden standard, or reference). Among the approaches, we have in particular considered an adapted version of the method of Fractional Difference Comparison~\cite{DBLP:conf/wosp/IlyushkinAHPGEI17}. In this method, a baseline constructed analytically, by ascribing it, for each metric, the best value observed among all platforms in the competition; in other words, the baseline is possibly sub-optimal, but could presumably be achievable in practice, by combining the best features of the participating platforms.}
-
-
-
 
 
 
