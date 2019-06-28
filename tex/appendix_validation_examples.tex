@@ -1,0 +1,108 @@
+\chapter{Example Graphs for Validation}
+\label{chap:validation_examples}
+
+In this chapter, we provide example validation graphs containing the expected results for
+BFS (\autoref{fig:bfs_example}),
+CDLP (\autoref{fig:cdlp_example}),
+LCC (\autoref{fig:lcc_example}),
+SSSP (\autoref{fig:sssp_example}),
+WCC (\autoref{fig:wcc_example}),
+and a common example for all six algorithms (\autoref{fig:common_example}). Note that there is no separate example for PageRank.
+
+\newcommand{\examplescale}{0.41}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/bfs-dir.pdf}
+		\caption{Directed}
+	\end{subfigure}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/bfs-undir.pdf}
+		\caption{Undirected}
+	\end{subfigure}
+	\caption{BFS.}
+	\label{fig:bfs_example}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/cdlp-dir.pdf}
+		\caption{Directed}
+	\end{subfigure}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/cdlp-undir.pdf}
+		\caption{Undirected}
+	\end{subfigure}
+	\caption{CDLP.}
+	\label{fig:cdlp_example}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/lcc-dir.pdf}
+		\caption{Directed}
+	\end{subfigure}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/lcc-undir.pdf}
+		\caption{Undirected}
+	\end{subfigure}
+	\caption{LCC.}
+	\label{fig:lcc_example}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/sssp-dir.pdf}
+		\caption{Directed}
+	\end{subfigure}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/sssp-undir.pdf}
+		\caption{Undirected}
+	\end{subfigure}
+	\caption{SSSP.}
+	\label{fig:sssp_example}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[t]{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/wcc-dir.pdf}
+		\caption{Directed. Note that due to the semantics of the WCC algorithm, the direction of the edges is not taken into account, i.e., they are treated as undirected edges.}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/wcc-undir.pdf}
+		\caption{Undirected}
+	\end{subfigure}
+	\caption{WCC. Remark: there are 8 nodes indexed between 1 and 9 but node 5 does not exist.}
+	\label{fig:wcc_example}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/common-dir.pdf}
+		\caption{Directed.}
+	\end{subfigure}
+	\begin{subfigure}{0.496\textwidth}
+		\centering
+		\includegraphics[scale=\examplescale]{figures/examples/common-undir.pdf}
+		\caption{Undirected}
+	\end{subfigure}
+	\caption{Common example for the six core graph algorithms.}
+	\label{fig:common_example}
+\end{figure}

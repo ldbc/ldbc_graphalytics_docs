@@ -241,7 +241,7 @@ Note that for undirected graphs, each edge is bidirectional so we have $N_\mathr
 
 
 \subsection{Breadth-First Search (BFS)}
-\emph{Breadth-First Search} is a traversal algorithm that labels each vertex of a graph with the length (or \emph{depth}) of the shortest path from a given source vertex (\emph{root}) to this vertex. The root has depth $0$, its outgoing neighbors have depth $1$, their outgoing neighbors have depth $2$, etc. Unreachable vertices should be given the special value of $-1$.
+\emph{Breadth-First Search} is a traversal algorithm that labels each vertex of a graph with the length (or \emph{depth}) of the shortest path from a given source vertex (\emph{root}) to this vertex. The root has depth $0$, its outgoing neighbors have depth $1$, their outgoing neighbors have depth $2$, etc. Unreachable vertices should be given the special value of $-1$. Example graphs are shown in \autoref{fig:bfs_example}.
 
 
 \subsection{PageRank (PR)}
@@ -264,7 +264,7 @@ The PageRank algorithm should continue for a fixed number of iterations. The flo
 
 \subsection{Weakly Connected Components (WCC)}
 This algorithm finds the \emph{Weakly Connected Components} of a graph and assigns each vertex a unique label that indicates which component it belongs to. Two vertices belong to the same component, and thus have the same label, if there exists a path between these vertices along the edges of the graph. For directed graphs, it is allowed to travel over the reverse direction of an edge, i.e., the graph is interpreted as if it is undirected.
-
+Example graphs are shown in \autoref{fig:wcc_example}.
 
 \subsection{Community Detection using Label Propagation (CDLP)}
 The \emph{community detection} algorithm in Graphalytics uses \emph{label propagation} (CDLP) and is based on the algorithm proposed by Raghavan et al.~\cite{raghavan2007near}. The algorithm assigns each vertex a label, indicating its community, and these labels are iteratively updated where each vertex is assigned a new label based on the frequency of the labels of its neighbors. The original algorithm has been adapted to be both deterministic and parallel, thus enabling output validation and parallel execution.
@@ -280,6 +280,8 @@ In iteration $i$, each vertex $v$ determines the frequency of the labels of its 
 \begin{equation}
 L_i(v) = \min \left( \underset{l}{\mathrm{arg\,max}} \Bigg[ \Big|\{ u \in N_\mathrm{in}(v)~|~L_{i-1}(u) = l \}\Big| + \Big|\{ u \in N_\mathrm{out}(v)~|~L_{i-1}(u) = l \}\Big| \Bigg] \right)
 \end{equation}
+
+Example graphs are shown in \autoref{fig:cdlp_example}.
 
 \subsection{Local Clustering Coefficient (LCC)}
 The \emph{Local Clustering Coefficient} algorithm determines the local clustering coefficient for each vertex. This coefficient indicates the ratio between the number of edges between the neighbors of a vertex and the maximum number of possible edges between the neighbors of this vertex. If the number of neighbors of a vertex is less than two, its coefficient is defined as zero. The definition of LCC can be written as follows:
@@ -305,11 +307,12 @@ However, directions are enforced when determining $N_\mathrm{out}(v)$ between ne
 	\sum_{u \in N(v)} |N(v) \cap N_\mathrm{in}(u)|
 \end{equation}
 
+Example graphs are shown in \autoref{fig:lcc_example}.
 
 \subsection{Single-Source Shortest Paths (SSSP)}
 The \emph{Single-Source Shortest Paths} algorithm marks each vertex with the length of the shortest path from a given \emph{root} vertex to every other vertex in the graph. The length of a path is defined as the sum of the weights on the edges of the path. The edge weights are floating-point numbers which must be handled as 64-bit double-precision IEEE 754 floating-point numbers. The edge weights are never negative, infinity, or invalid (i.e., \emph{NaN}), but are allowed to be zero. Unreachable vertices should be given the value infinity.
 
-
+Example graphs are shown in \autoref{fig:sssp_example}.
 
 
 
@@ -451,6 +454,8 @@ There are three methods used for validation:
 
 \item \textbf{Epsilon match (applies to PR, LCC, SSSP):} a margin of error is allowed for some algorithms due to floating-point rounding errors. Let $r$ be the reference value of a vertex and $s$ be the system's output value of the same vertex. These values are considered to match if $s$ is within $0.01\%$ of $r$, i.e., the equation $|r-s| < \varepsilon |r|$ holds where $\varepsilon=0.0001$. The value of $\varepsilon$ was chosen such that errors that result from rounding are not penalized. Figure~\ref{fig:definition_validation_epsilon} shows an example of validation with epsilon match.
 \end{itemize}
+
+Small validation example graphs are available in the Graphalytics suite and are listed in \autoref{chap:validation_examples}, including a common validation graph for all six algorithms (\autoref{fig:common_example}).
 
 \futureinversion{2.0}{A future validation component of Graphalytics will focus on performance. {\it Why?} The current approach is correct, but slow. Validating XL graphs is already too time consuming and memory-intensive. {\it How?}}
 
