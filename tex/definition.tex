@@ -544,12 +544,14 @@ Graphalytics also reports {\bf Cost metrics}:
 
 
 
+\futureinversion{2.0}{
 The {\bf Ratio metrics} reported by Graphalytics are:
 
 \begin{itemize}
-	\futureinversion{2.0}{ \item {\bf Speedup}: The ratio between processing times for scaled and baseline resources. This metric is used to quantify the scalability of the system under test. %The baseline is defined as the minimum number of resources used in a particular experiment.
-	The baseline is defined as the performance achieved by a reference graph-processing platform defined by the Graphalytics team until the next revision (here, the public version of Giraph with the reference drivers), in a reference environment defined by the Graphalytics team until the next revision (here, DAS5 in the Netherlands). The renewal process of Graphalytics (see \sref{sec:renewal}) can change the baseline.}
+	\item {\bf Speedup}: The ratio between processing times for scaled and baseline resources. This metric is used to quantify the scalability of the system under test. %The baseline is defined as the minimum number of resources used in a particular experiment.
+	The baseline is defined as the performance achieved by a reference graph-processing platform defined by the Graphalytics team until the next revision (here, the public version of Giraph with the reference drivers), in a reference environment defined by the Graphalytics team until the next revision (here, DAS5 in the Netherlands). The renewal process of Graphalytics (see \sref{sec:renewal}) can change the baseline.
 \end{itemize}
+}
 
 
 
