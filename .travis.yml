@@ -2,8 +2,8 @@ dist: trusty
 sudo: required
 install:
 - sudo apt-get install -y texlive-base texlive-science texlive-fonts-recommended texlive-fonts-extra
-  texlive-generic-extra texlive-latex-extra texlive-math-extra texlive-xetex latexmk
-  lmodern pgf
+  texlive-generic-extra texlive-latex-extra texlive-math-extra texlive-xetex texlive-bibtex-extra biber
+  latexmk lmodern pgf
 script:
 - make
 - mkdir out/
