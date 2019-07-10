@@ -16,3 +16,5 @@
 article.pdf
 graphalytics_spec.pdf
 figures/example_evlp-eps-converted-to.pdf
+*.bcf
+*.run.xml

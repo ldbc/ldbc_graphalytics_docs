@@ -21,7 +21,10 @@
 \usepackage{listings}
 \usepackage{parskip} % remove indents from paragraphs
 \usepackage{enumitem}
-\usepackage[numbers]{natbib}
+\usepackage[minnames=1,maxnames=3]{biblatex}
+
+\bibliography{references}
+
 %\usepackage[scale=0.95,ttdefault=true]{AnonymousPro} % might be used for nicer TT font that also supporting bolding
 
 \sloppy
@@ -171,8 +174,7 @@ Peter Boncz (CWI).
 %\input{tex/auditing}
 \input{tex/instructions}
 
-\bibliographystyle{abbrvnat}
-\bibliography{references}
+\printbibliography
 
 \appendix
 \input{tex/appendix_algorithms}
