@@ -43,4 +43,4 @@ and WatDiv~\cite{DBLP:conf/semweb/AlucHOD14} (targeting also graph databases);
 and community efforts such as the TPC benchmarks.
 Whereas all these prior efforts are interactive database query benchmarks, Graphalytics focuses on algorithmic graph analysis and on different platforms which are not necessarily database systems, whose distributed and highly parallel aspects lead to different design trade-offs.
 
-
+The GAP Benchmark Suite~\cite{DBLP:journals/corr/BeamerAP15} targets six graph kernels: BFS, SSSP, PR, WCC, triangle count, and betweenness centrality. The first four are present in Graphalytics, while the \emph{triangle count} kernel shares many challenges with the LCC algorithm. (\emph{Betweenness centrality} was also considered for Graphalytics but it necessitates using approximation methods for large graphs, therefore automated validation of results is not possible.)
