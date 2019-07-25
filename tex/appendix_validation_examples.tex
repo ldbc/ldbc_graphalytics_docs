@@ -9,7 +9,7 @@ SSSP (\autoref{fig:sssp_example}),
 WCC (\autoref{fig:wcc_example}),
 and a common example for all six algorithms (\autoref{fig:common_example}). Note that there is no separate example for PageRank.
 
-\newcommand{\examplescale}{0.41}
+\newcommand{\examplescale}{0.48}
 
 \begin{figure}[h]
 	\centering
@@ -93,15 +93,23 @@ and a common example for all six algorithms (\autoref{fig:common_example}). Note
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}{0.496\textwidth}
+	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/common-dir.pdf}
-		\caption{Directed}
+		\caption{Directed. Algorithm parameters --
+			BFS: source vertex = 1.
+			CDLP: number of iterations = 2.
+			PR: $d = 0.85$, number of iterations = 2.
+			SSSP: source vertex = 1.}
 	\end{subfigure}
-	\begin{subfigure}{0.496\textwidth}
+	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/common-undir.pdf}
-		\caption{Undirected}
+		\caption{Undirected. Algorithm parameters --
+			BFS: source vertex = 2.
+			CDLP: number of iterations = 2.
+			PR: $d = 0.85$, number of iterations = 2.
+			SSSP: source vertex = 2.}
 	\end{subfigure}
 	\caption{Common example for the six core graph algorithms.}
 	\label{fig:common_example}
