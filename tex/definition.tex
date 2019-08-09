@@ -241,10 +241,12 @@ Note that for undirected graphs, each edge is bidirectional so we have $N_\mathr
 
 
 \subsection{Breadth-First Search (BFS)}
+\label{sec:bfs}
 \emph{Breadth-First Search} is a traversal algorithm that labels each vertex of a graph with the length (or \emph{depth}) of the shortest path from a given source vertex (\emph{root}) to this vertex. The root has depth $0$, its outgoing neighbors have depth $1$, their outgoing neighbors have depth $2$, etc. Unreachable vertices should be given the special value of $-1$. Example graphs are shown in \autoref{fig:bfs_example}.
 
 
 \subsection{PageRank (PR)}
+\label{sec:pr}
 \emph{PageRank} is an iterative algorithm that assigns to each vertex a ranking value. The algorithm was originally used by Google Search to rank websites in their search results~\cite{page1999pagerank}. Let $\textit{PR}_i(v)$ be the PageRank value of vertex $v$ after iteration $i$. Initially, each vertex $v$ is assigned the same value such that the sum of all vertex values is $1$.
 %
 \begin{equation}
@@ -263,10 +265,12 @@ The PageRank algorithm should continue for a fixed number of iterations. The flo
 
 
 \subsection{Weakly Connected Components (WCC)}
+\label{sec:wcc}
 This algorithm finds the \emph{Weakly Connected Components} of a graph and assigns each vertex a unique label that indicates which component it belongs to. Two vertices belong to the same component, and thus have the same label, if there exists a path between these vertices along the edges of the graph. For directed graphs, it is allowed to travel over the reverse direction of an edge, i.e., the graph is interpreted as if it is undirected.
 Example graphs are shown in \autoref{fig:wcc_example}.
 
 \subsection{Community Detection using Label Propagation (CDLP)}
+\label{sec:cdlp}
 The \emph{community detection} algorithm in Graphalytics uses \emph{label propagation} (CDLP) and is based on the algorithm proposed by Raghavan et al.~\cite{raghavan2007near}. The algorithm assigns each vertex a label, indicating its community, and these labels are iteratively updated where each vertex is assigned a new label based on the frequency of the labels of its neighbors. The original algorithm has been adapted to be both deterministic and parallel, thus enabling output validation and parallel execution.
 
 Let $L_i(v)$ be the label of vertex $v$ after iteration $i$. Initially, each vertex $v$ is assigned a unique label which matches its identifier.
@@ -284,6 +288,7 @@ L_i(v) = \min \left( \underset{l}{\mathrm{arg\,max}} \Bigg[ \Big|\{ u \in N_\mat
 Example graphs are shown in \autoref{fig:cdlp_example}.
 
 \subsection{Local Clustering Coefficient (LCC)}
+\label{sec:lcc}
 The \emph{Local Clustering Coefficient} algorithm determines the local clustering coefficient for each vertex. This coefficient indicates the ratio between the number of edges between the neighbors of a vertex and the maximum number of possible edges between the neighbors of this vertex. If the number of neighbors of a vertex is less than two, its coefficient is defined as zero. The definition of LCC can be written as follows:
 %
 \begin{equation}
@@ -310,6 +315,7 @@ However, directions are enforced when determining $N_\mathrm{out}(v)$ between ne
 Example graphs are shown in \autoref{fig:lcc_example} and \autoref{fig:lcc_dir_example_detailed}.
 
 \subsection{Single-Source Shortest Paths (SSSP)}
+\label{sec:sssp}
 The \emph{Single-Source Shortest Paths} algorithm marks each vertex with the length of the shortest path from a given \emph{root} vertex to every other vertex in the graph. The length of a path is defined as the sum of the weights on the edges of the path. The edge weights are floating-point numbers which must be handled as 64-bit double-precision IEEE 754 floating-point numbers. The edge weights are never negative, infinity, or invalid (i.e., \emph{NaN}), but are allowed to be zero. Unreachable vertices should be given the value infinity.
 
 Example graphs are shown in \autoref{fig:sssp_example}.
