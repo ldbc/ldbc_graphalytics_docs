@@ -8,6 +8,7 @@ script:
 - make
 - mkdir out/
 - cp *.pdf out/
+- echo "See the source GitHub repository at <https://github.com/ldbc/ldbc_graphalytics_docs>." > out/README.md
 notifications:
   slack: ldbcouncil:XUhwaix1WP50OGHxQufJBaKE
   email: false
