@@ -31,7 +31,7 @@ Vertices and edges can have properties which can be used to store meta-data such
 
 
 \subsection{Representation}\label{sec:data:representation}
-In Graphalytics, the file format used to represent the graphs is the ``Edge/Vertex-List with Properties'' (\emph{EVLP}) format for graphs. The format consists of two text files: a vertex-file containing the vertices (with optional properties) and an edge-list containing the edges (with optional properties). Both files are encoded using ASCII and consist of a sequence of lines.
+In Graphalytics, the file format used to represent the graphs is the ``Edge/Vertex-List with Properties'' (\emph{EVLP}) format for graphs. The format consists of two text files: a vertex-file containing the vertices (with optional properties) and an edge-list containing the edges (with optional properties). Both files are plain text (ASCII) and consist of a sequence of lines.
 
 For the vertex files, each line contains exactly one vertex identifier. The vertex identifiers are sorted in ascending order to facilitate easy conversion to other formats. For the edge files, each line contains two vertex identifiers separated by a space. The edges are sorted in lexicographical order based on the two vertices. For directed graphs, the source vertex is listed first. For undirected graphs, the smallest identifier of the two vertices is listed first and each edge is only listed once in one direction.
 
@@ -323,7 +323,7 @@ The output of every execution of an algorithm on a dataset must be validated for
 The validation output presents numbers either as integers or floating-point numbers, depending on the algorithm definition. Note that these numbers are stored in the file system as decimal values in plain text (ASCII). For integers, any number between $-2^{63}-1$ and $2^{63}-2$ represents its actual value, whereas the numbers ${-9\,223\,372\,036\,854\,775\,808}$ ($-2^{63}$) and $9\,223\,372\,036\,854\,775\,807$ ($2^{63}-1$) represent negative and positive infinity, respectively.
 For floating-point numbers, a scientific notation with 15~significant digits (e.g., $2.476\,533\,217\,845\,853\mathrm{e-}08$) is presented.
 
-The system's output generated during the benchmark must be stored as decimal values in plain text ASCII files, grouped into a single file directory. The formatting rules for integers must be exactly the same as the validation output. Positive infinity can be represented by either $``\textit{inf}\ "$, $``+\textit{inf}\ "$, $``\textit{infinity}"$, or $``+\textit{infinity}"$; negative infinity can be represented by either $``-\textit{inf}\ "$ or $``-\textit{infinity}"$. 
+The system's output generated during the benchmark must be stored as decimal values in plain text (ASCII) files, grouped into a single file directory. The formatting rules for integers must be exactly the same as the validation output. Positive infinity can be represented by either $``\textit{inf}\ "$, $``+\textit{inf}\ "$, $``\textit{infinity}"$, or $``+\textit{infinity}"$; negative infinity can be represented by either $``-\textit{inf}\ "$ or $``-\textit{infinity}"$.
 
 There are three methods used for validation:
 
