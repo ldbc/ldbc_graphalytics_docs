@@ -34,6 +34,37 @@ basicstyle=\small,
 commentstyle=\color{gray},
 language=Python}
 
+\definecolor{eclipseStrings}{RGB}{42,0.0,255}
+\definecolor{eclipseKeywords}{RGB}{127,0,85}
+\colorlet{numb}{magenta!60!black}
+
+% JSON definition based on https://tex.stackexchange.com/a/433961/71109
+\lstdefinelanguage{json}{
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\color{eclipseStrings}, % style of comment
+  stringstyle=\color{eclipseKeywords}, % style of strings
+  numbers=none,
+  numberstyle=\scriptsize,
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=lines,
+  string=[s]{"}{"},
+  comment=[l]{:\ "},
+  morecomment=[l]{:"},
+  literate=
+    *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+}
 
 \newcommand{\GTournament}{Tournament}%
 \newcommand{\GCompetition}{Competition}%

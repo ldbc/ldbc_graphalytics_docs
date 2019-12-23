@@ -1,0 +1,49 @@
+"system": {
+  "platform": {
+    "name": "reference",
+    "acronym": "ref",
+    "version": "1.4.0",
+    "link": "https://github.com/ldbc/ldbc_graphalytics_platforms_reference"
+  },
+  "environment": {
+    "name": "DAS Supercomputer",
+    "acronym": "das5",
+    "version": "5",
+    "link": "http://www.cs.vu.nl/das5/",
+    "machines": [
+      {
+        "quantity": 20,
+        "operating-system": "Centos",
+        "cpu": { 
+          "name": "XEON", 
+          "cores": "16"
+        },
+        "memory": {
+          "name": "?",
+          "size": "40GB"
+        },
+        "network": {
+          "name": "Infiniband",
+          "throughput": "10GB/s"
+        },
+        "storage": {
+          "name": "SSD",
+          "volume": "20TB"
+        },
+        "accel": {}
+      }
+    ]
+  },
+  "benchmark": {
+    "graphalytics-core": {
+      "name": "graphalytics-core",
+      "version": "1.1.0",
+      "link": "https://github.com/ldbc/ldbc_graphalytics"
+    },
+    "graphalytics-platforms-reference": {
+      "name": "graphalytics-platforms-reference",
+      "version": "2.1.0",
+      "link": "https://github.com/ldbc/ldbc_graphalytics_platforms_reference"
+    }
+  }
+}
