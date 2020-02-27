@@ -258,7 +258,7 @@ SSSP:   ∞<y:LabelModel>
           <y:Geometry height="46.180646507254664" width="62.80000000000004" x="306.97469271587386" y="891.9717701406919"/>
           <y:Fill color="#ABD9E9" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="node_size" bottomInset="8" fontFamily="Droid Sans Mono" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="57.90625" horizontalTextPosition="center" iconTextGap="4" leftInset="8" modelName="custom" rightInset="8" textColor="#000000" topInset="8" verticalTextPosition="bottom" visible="true" width="66.408203125" x="-1.804101562499966" y="-5.862801746372725">BFS: -1
+          <y:NodeLabel alignment="left" autoSizePolicy="node_size" bottomInset="8" fontFamily="Droid Sans Mono" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="57.90625" horizontalTextPosition="center" iconTextGap="4" leftInset="8" modelName="custom" rightInset="8" textColor="#000000" topInset="8" verticalTextPosition="bottom" visible="true" width="66.408203125" x="-1.804101562499966" y="-5.862801746372725">BFS:  ∞
 CDLP: 2
 WCC:  1<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -334,7 +334,7 @@ SSSP:   ∞<y:LabelModel>
           <y:Geometry height="46.180646507254664" width="62.80000000000004" x="646.8460073699794" y="891.9717701406919"/>
           <y:Fill color="#ABD9E9" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="node_size" bottomInset="8" fontFamily="Droid Sans Mono" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="57.90625" horizontalTextPosition="center" iconTextGap="4" leftInset="8" modelName="custom" rightInset="8" textColor="#000000" topInset="8" verticalTextPosition="bottom" visible="true" width="66.408203125" x="-1.8041015625000227" y="-5.862801746372725">BFS: -1
+          <y:NodeLabel alignment="left" autoSizePolicy="node_size" bottomInset="8" fontFamily="Droid Sans Mono" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="57.90625" horizontalTextPosition="center" iconTextGap="4" leftInset="8" modelName="custom" rightInset="8" textColor="#000000" topInset="8" verticalTextPosition="bottom" visible="true" width="66.408203125" x="-1.8041015625000227" y="-5.862801746372725">BFS:  ∞
 CDLP: 2
 WCC:  1<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -486,7 +486,7 @@ SSSP:   ∞<y:LabelModel>
           <y:Geometry height="46.180646507254664" width="62.80000000000004" x="306.9746927158739" y="481.3139336499101"/>
           <y:Fill color="#FDAE61" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="node_size" bottomInset="8" fontFamily="Droid Sans Mono" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="57.90625" horizontalTextPosition="center" iconTextGap="4" leftInset="8" modelName="custom" rightInset="8" textColor="#000000" topInset="8" verticalTextPosition="bottom" visible="true" width="66.408203125" x="-1.804101562499966" y="-5.862801746372668">BFS: -1
+          <y:NodeLabel alignment="left" autoSizePolicy="node_size" bottomInset="8" fontFamily="Droid Sans Mono" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="57.90625" horizontalTextPosition="center" iconTextGap="4" leftInset="8" modelName="custom" rightInset="8" textColor="#000000" topInset="8" verticalTextPosition="bottom" visible="true" width="66.408203125" x="-1.804101562499966" y="-5.862801746372668">BFS:  ∞
 CDLP: 2
 WCC:  1<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -562,7 +562,7 @@ SSSP:   ∞<y:LabelModel>
           <y:Geometry height="46.180646507254664" width="62.80000000000004" x="729.6460073699794" y="805.1903517139249"/>
           <y:Fill color="#FDAE61" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="node_size" bottomInset="8" fontFamily="Droid Sans Mono" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="57.90625" horizontalTextPosition="center" iconTextGap="4" leftInset="8" modelName="custom" rightInset="8" textColor="#000000" topInset="8" verticalTextPosition="bottom" visible="true" width="66.408203125" x="-1.8041015625000227" y="-5.862801746372725">BFS: -1
+          <y:NodeLabel alignment="left" autoSizePolicy="node_size" bottomInset="8" fontFamily="Droid Sans Mono" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="57.90625" horizontalTextPosition="center" iconTextGap="4" leftInset="8" modelName="custom" rightInset="8" textColor="#000000" topInset="8" verticalTextPosition="bottom" visible="true" width="66.408203125" x="-1.8041015625000227" y="-5.862801746372725">BFS:  ∞
 CDLP: 1
 WCC:  1<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
