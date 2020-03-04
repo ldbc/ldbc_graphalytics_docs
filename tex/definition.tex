@@ -251,7 +251,9 @@ After iteration $i$, each vertex pushes its PageRank over its outgoing edges to 
 \textit{PR}_i(v) = \frac{1-d}{|V|} + d \cdot \sum_{u \in N_\mathrm{in}(v)} \frac{\textit{PR}_{i - 1}(u)}{|N_\mathrm{out}(u)|} + \frac{d}{|V|} \cdot \sum_{w \in D} \textit{PR}_{i - 1}(w)
 \end{equation}
 %
-Where $d \in [0,1]$ is called the \emph{damping factor} and $D = \big\{w \in V \ \big| \ |N_\mathrm{out}(w)| = 0 \big\}$ is the set of \emph{dangling vertices}, i.e., vertices having no outgoing edges. Dangling vertices have nowhere to push their PageRank to, so the total sum of the PageRanks for the dangling vertices is evenly distributed over all vertices~\cite{DBLP:conf/www/EironMT04}. 
+Notation: $d \in [0,1]$ is the \emph{damping factor} and $D = \big\{w \in V \ \big| \ |N_\mathrm{out}(w)| = 0 \big\}$ is the set of \emph{dangling vertices}, i.e., vertices having no outgoing edges.
+Dangling vertices have nowhere to push their PageRank to, so the total sum of the PageRanks for the dangling vertices is evenly distributed over all vertices~\cite{DBLP:conf/www/EironMT04}.
+For such vertices ($|N_\mathrm{out}(u) = 0|$), we consider $\frac{\textit{PR}_{i - 1}(u)}{|N_\mathrm{out}(u)|}$ to be $0$.
 
 The PageRank algorithm should continue for a fixed number of iterations. The floating-point values must be handled as 64-bit double-precision IEEE 754 floating-point numbers. 
 
