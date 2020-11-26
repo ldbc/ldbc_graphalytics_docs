@@ -227,6 +227,14 @@
 %        \normalsize%
 %        \parbox{16cm}{\centering\bfseries 2\textsuperscript{nd} Quality Reviewer: \reviewerTwoText} \\%
         \end{tabular}%
+        \vspace{2cm}
+        {
+        \begin{center}
+        \Large
+        The specification was built on the source code available at \\
+        \url{https://github.com/ldbc/ldbc_graphalytics_docs/releases/tag/v1.0.0}
+        \end{center}
+        }
 
         \vspace{1cm}%
         \normalsize%
