@@ -202,10 +202,10 @@
     \noindent \setlength{\unitlength}{1mm}%
     \begin{center}%
         \hspace{.5mm}
-        \includegraphics[height=2.8cm]{figures/ldbc-logo} \hfill
+        \includegraphics[height=7cm]{figures/ldbc-logo.pdf} \hfill
        % \includegraphics[height=3.0cm]{figures/fp7-logo}\hspace*{6mm} \vspace{0.5cm} \\%
     \end{center}%
-    {\vspace{1.8cm}%
+    {\vspace{0.8cm}%
 %        \begin{center}%
 %          {\Huge\bfseries LDBC} \\[4mm]%
 %          {\Large\bfseries Cooperative Project}\\[3mm]%
@@ -215,10 +215,10 @@
         \newcommand\T{\rule{0pt}{4.5mm}}%
         \newcommand\B{\rule[-2.5mm]{0pt}{0pt}}%
         \LARGE
-        \begin{tabular}{c}\hspace*{16.6cm}\\[9mm]%
+        \begin{tabular}{c}\hspace*{16.6cm}\\[3mm]%
           %\hline
           \Huge\relscale{1.15}%
-          \parbox{16cm}{\vspace{3mm}\centering\bfseries \T \delIDText{} \delNameText \B} \\[30mm]%
+          \parbox{16cm}{\vspace{3mm}\centering\bfseries \T \delIDText{} \delNameText \B} \\[15mm]%
         %\hline%
         \parbox[t]{16cm}{\centering\bfseries \vspace{0mm} Coordinator: \authorText \B} \\%
         \if@contributor\parbox[t]{16cm}{\centering\bfseries \vspace{-3mm} With contributions from: \contributorText} \\\fi%
@@ -227,16 +227,16 @@
 %        \normalsize%
 %        \parbox{16cm}{\centering\bfseries 2\textsuperscript{nd} Quality Reviewer: \reviewerTwoText} \\%
         \end{tabular}%
-        \vspace{2cm}
+        \vspace{1cm}
         {
         \begin{center}
         \Large
         The specification was built on the source code available at \\
-        \url{https://github.com/ldbc/ldbc_graphalytics_docs/releases/tag/v1.0.0}
+        \url{https://github.com/ldbc/ldbc_graphalytics_docs/tree/master}
         \end{center}
         }
 
-        \vspace{1cm}%
+        \vspace{0.5cm}%
         \normalsize%
 %        \noindent\begin{tabular}{|p{4.0cm};{1pt/1pt}p{12.2cm}|}%
 %         & \\[-1.05em]% % this is here to avoid a gap caused by hdashlines
