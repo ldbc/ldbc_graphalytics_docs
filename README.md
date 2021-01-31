@@ -20,7 +20,7 @@ This repository contains a history of all public releases of the LDBC Graphalyti
 
 To release on arXiv, follow these steps:
 
-* Update the version number in the `ldbc.cls` file.
+* Update the version number in the `tex/version.tex` file.
 * Update the link on the title page in the `ldbc.cls` file to the tag of the new version number, i.e. `https://github.com/ldbc/ldbc_graphalytics_docs/releases/tag/vX.Y.Z` (to be created later).
 * Build the PDF and copy it to the `doc` directory.
 * Add link to the table in the `README.md` file.
@@ -28,5 +28,5 @@ To release on arXiv, follow these steps:
 * On GitHub, create a new release named `vX.Y.Z` (this comes with a new `tag`).
 * Run the `./arxiv.sh` script.
 * Uploade the generated `ms.zip` file to arXiv.
-* Bump the version number to the next draft in `ldbc.cls`.
+* Bump the version number to the next draft in the `tex/version.tex` file.
 * Revert the link on the title page in the `ldbc.cls` file to the `master` branch of this repository.
