@@ -284,6 +284,11 @@ L_i(v) = \min \left( \underset{l}{\mathrm{arg\,max}} \Bigg[ \Big|\{ u \in N_\mat
 
 Example graphs are shown in \autoref{fig:cdlp_example}.
 
+\emph{Note.} The CDLP algorithm in \toolname{} has two key differences from the original algorithm proposed in~\cite{raghavan2007near}.
+First, it is deterministic: if there are multiple labels with their frequency equalling the maximum, it selects the smallest one while the original algorithm selects randomly.
+Second, it is synchronous, i.e., each iteration is computed based on the labels obtained as a result of the previous iteration.
+As remarked in~\cite{raghavan2007near}, this can cause the oscillation of labels in bipartite or nearly bipartite subgraphs.
+
 \subsection{Local Clustering Coefficient (LCC)}
 \label{sec:lcc}
 The \emph{Local Clustering Coefficient} algorithm determines the local clustering coefficient for each vertex. This coefficient indicates the ratio between the number of edges between the neighbors of a vertex and the maximum number of possible edges between the neighbors of this vertex. If the number of neighbors of a vertex is less than two, its coefficient is defined as zero. The definition of LCC can be written as follows:
