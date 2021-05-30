@@ -20,5 +20,4 @@ jobs:
         with:
           branch: gh-pages
           folder: output
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
