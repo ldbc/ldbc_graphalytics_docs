@@ -1,0 +1,24 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@master
+        with:
+          root_file: graphalytics_spec.tex
+      - name: Move file to site
+        run: |
+          mkdir output/
+          mv graphalytics_spec.pdf output/
+          echo "See the source GitHub repository at <https://github.com/ldbc/ldbc_graphalytics_docs>." > output/README.md
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.3
+        with:
+          branch: gh-pages
+          folder: output
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
