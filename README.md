@@ -9,6 +9,7 @@ This repository contains a history of all public releases of the LDBC Graphalyti
 
 | Version | Date | Document | 
 |-------------|:-------------:|:-------------:|
+| 1.0.2 | 2021-Apr-23 | [Link](https://arxiv.org/pdf/2011.15028v3.pdf) |
 | 1.0.1 | 2021-Jan-31 | [Link](https://github.com/ldbc/ldbc_graphalytics_docs/raw/master/doc/LDBC-Graphalytics_tech-specs_v1.0.1.pdf) |
 | 1.0.0 | 2020-Nov-30 | [Link](https://github.com/ldbc/ldbc_graphalytics_docs/raw/master/doc/LDBC-Graphalytics_tech-specs_v1.0.0.pdf) |
 | 0.9.0 | 2017-Jun-28 | [Link](https://github.com/ldbc/ldbc_graphalytics_docs/raw/master/doc/LDBC-Graphalytics_tech-specs_v0.9.0.pdf) |
