@@ -19,3 +19,5 @@ figures/example_evlp-eps-converted-to.pdf
 *.bcf
 *.run.xml
 *.synctex*
+
+.DS_Store
