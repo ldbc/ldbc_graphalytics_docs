@@ -236,7 +236,7 @@ Note that for undirected graphs, each edge is bidirectional so we have $N_\mathr
 
 \subsection{Breadth-First Search (BFS)}
 \label{sec:bfs}
-\emph{Breadth-First Search} is a traversal algorithm that labels each vertex of a graph with the length (or \emph{depth}) of the shortest path from a given source vertex (\emph{root}) to this vertex. The root has depth $0$, its outgoing neighbors have depth $1$, their outgoing neighbors have depth $2$, etc. Unreachable vertices should be given the special value of $-1$ \todo{which actually represens infinity, see later}. Example graphs are shown in \autoref{fig:bfs_example}.
+\emph{Breadth-First Search} is a traversal algorithm that labels each vertex of a graph with the length (or \emph{depth}) of the shortest path from a given source vertex (\emph{root}) to this vertex. The root has depth $0$, its outgoing neighbors have depth $1$, their outgoing neighbors have depth $2$, etc. Unreachable vertices should be given the value infinity (represented as $9\,223\,372\,036\,854\,775\,807$). Example graphs are shown in \autoref{fig:bfs_example}.
 
 
 \subsection{PageRank (PR)}
@@ -320,7 +320,7 @@ Example graphs are shown in \autoref{fig:lcc_example} and \autoref{fig:lcc_dir_e
 
 \subsection{Single-Source Shortest Paths (SSSP)}
 \label{sec:sssp}
-The \emph{Single-Source Shortest Paths} algorithm marks each vertex with the length of the shortest path from a given \emph{root} vertex to every other vertex in the graph. The length of a path is defined as the sum of the weights on the edges of the path. The edge weights are floating-point numbers which must be handled as 64-bit double-precision IEEE 754 floating-point numbers. The edge weights are never negative, infinity, or invalid (i.e., \emph{NaN}), but are allowed to be zero. Unreachable vertices should be given the value infinity.
+The \emph{Single-Source Shortest Paths} algorithm marks each vertex with the length of the shortest path from a given \emph{root} vertex to every other vertex in the graph. The length of a path is defined as the sum of the weights on the edges of the path. The edge weights are floating-point numbers which must be handled as 64-bit double-precision IEEE 754 floating-point numbers. The edge weights are never negative, infinity, or invalid (i.e., \emph{NaN}), but are allowed to be zero. Unreachable vertices should be given the value infinity (represented as $9\,223\,372\,036\,854\,775\,807$).
 
 Example graphs are shown in \autoref{fig:sssp_example}.
 
@@ -335,9 +335,7 @@ The output of every execution of an algorithm on a dataset must be validated for
 The validation output presents numbers either as integers or floating-point numbers, depending on the algorithm definition. Note that these numbers are stored in the file system as decimal values in plain text (ASCII). For integers, any number between $-2^{63}-1$ and $2^{63}-2$ represents its actual value, whereas the numbers ${-9\,223\,372\,036\,854\,775\,808}$ ($-2^{63}$) and $9\,223\,372\,036\,854\,775\,807$ ($2^{63}-1$) represent negative and positive infinity, respectively.
 For floating-point numbers, a scientific notation with 15~significant digits (e.g., $2.476\,533\,217\,845\,853\mathrm{e-}08$) is presented.
 
-The system's output generated during the benchmark must be stored as decimal values in plain text (ASCII) files, grouped into a single file directory. The formatting rules for integers must be exactly the same as the validation output. Positive infinity can be represented by either $``\textit{inf}\ "$, $``+\textit{inf}\ "$, $``\textit{infinity}"$, or $``+\textit{infinity}"$; negative infinity can be represented by either $``-\textit{inf}\ "$ or $``-\textit{infinity}"$. \todo{the previous paragraph just suggeted to use concrete numbers for their representation}
-
-\todo{BFS uses -1 in the algorithm specification; +inf in Figure 2.4 and 9\,223\,372\,036\,854\,775\,807 in the actual data set files}
+The system's output generated during the benchmark must be stored as decimal values in plain text (ASCII) files, grouped into a single file directory. The formatting rules for integers must be exactly the same as the validation output.
 
 There are three methods used for validation:
 
@@ -426,7 +424,7 @@ There are three methods used for validation:
 2 0.3
 3 0.45
 4 0.23
-5 +inf
+5 9223372036854775807
 6 0.001
 \end{Verbatim}
 \caption{Reference output}
@@ -437,7 +435,7 @@ There are three methods used for validation:
 2 0.30002
 3 0.45
 4 0.229997
-5 +inf
+5 9223372036854775807
 6 0.001
 \end{Verbatim}
 \caption{Example of correct result}
