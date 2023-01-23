@@ -28,6 +28,9 @@
     {todonotes}%
     {inline,backgroundcolor=yellow}{}
 
+\LetLtxMacro{\oldTodo}{\todo}
+\renewcommand{\todo}[1]{\oldTodo{TODO: #1}}
+
 \bibliography{references}
 
 %\usepackage[scale=0.95,ttdefault=true]{AnonymousPro} % might be used for nicer TT font that also supports bolding
