@@ -1,7 +1,7 @@
 LDBC Graphalytics Specification
 ===============================
 
-[![Build Status](https://travis-ci.com/ldbc/ldbc_graphalytics_docs.svg?branch=main)](https://travis-ci.com/ldbc/ldbc_graphalytics_docs)
+[![Build Status](https://github.com/ldbc/ldbc_graphalytics_docs/actions/workflows/compile-specification.yml/badge.svg)](https://github.com/ldbc/ldbc_graphalytics_docs/actions)
 
 ## Version history
 
