@@ -232,7 +232,7 @@
         \begin{center}
         \Large
         The specification was built on the source code available at \\
-        \url{https://github.com/ldbc/ldbc_graphalytics_docs/releases/tag/v1.0.4}
+        \url{https://github.com/ldbc/ldbc_graphalytics_docs/tree/main}
         \end{center}
         }
 
