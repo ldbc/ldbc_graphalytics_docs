@@ -36,14 +36,14 @@ This chapter contains pseudo-code for the algorithms described in \sref{sec:defi
   \State $\textit{rank}[v] \gets \frac{1}{|V|}$
 \EndFor
 \For{$i=1,\ldots,\textit{max\_iterations}$}
-\State $\textit{dangling\_sum} \gets 0$
+\State $\textit{sink\_sum} \gets 0$
 \ForAll{$w \in V$}
   \If{$|N_\mathrm{out}(w)| = 0$}
-    \State $\textit{dangling\_sum} \gets \textit{dangling\_sum} + \textit{rank}[w]$
+    \State $\textit{sink\_sum} \gets \textit{sink\_sum} + \textit{rank}[w]$
   \EndIf
 \EndFor
 \ForAll{$v \in V$}
-  \State $\textit{new\_rank}[v] \gets \frac{1-d}{|V|} + d \cdot \sum_{u \in N_\mathrm{in}(v)} \frac{\textit{rank}[u]}{|N_\mathrm{out}(u)|} + \frac{d}{|V|} \cdot \textit{dangling\_sum} $
+  \State $\textit{new\_rank}[v] \gets \frac{1-d}{|V|} + d \cdot \sum_{u \in N_\mathrm{in}(v)} \frac{\textit{rank}[u]}{|N_\mathrm{out}(u)|} + \frac{d}{|V|} \cdot \textit{sink\_sum} $
 \EndFor
 \State $\textit{rank} \gets \textit{new\_rank}$
 \EndFor
