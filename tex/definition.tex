@@ -82,7 +82,7 @@ Vertices and edges can have optional properties. These values of these propertie
 \label{fig:definition_example_evlp}
 \end{figure}
 
-Figure~\ref{fig:definition_example_evlp} shows an example of the EVLP format for a small directed weighted graph consisting of 5 vertices and 5 directed edges.
+\autoref{fig:definition_example_evlp} shows an example of the EVLP format for a small directed weighted graph consisting of 5 vertices and 5 directed edges.
 
 
 \subsection{Size and Scale}
@@ -94,7 +94,7 @@ Graphalytics includes both graphs from real-world applications and synthetic gra
 \textit{Scale}(n, m) = \lfloor 10 \log_{10}(n + m) \rfloor / 10
 \end{equation}
 %
-The scale of a graph gives users an intuition of what the size of graph means in practice. Scales are grouped into classes spanning 0.5 \emph{scale units} and these classes are labeled using familiar system of ``T-shirt sizes'': small (S), medium (M), and large (L), with extra (X) prepended for extremes scales. The reference point is class L, which is defined by the Graphalytics team as the largest class such that the BFS algorithm completes within an hour on any graph from that scale using a state-of-the-art graph analysis platform and a single commodity machine. Table~\ref{tab:definition_scales} summarizes the classes used in Graphalytics.
+The scale of a graph gives users an intuition of what the size of graph means in practice. Scales are grouped into classes spanning 0.5 \emph{scale units} and these classes are labeled using familiar system of ``T-shirt sizes'': small (S), medium (M), and large (L), with extra (X) prepended for extremes scales. The reference point is class L, which is defined by the Graphalytics team as the largest class such that the BFS algorithm completes within an hour on any graph from that scale using a state-of-the-art graph analysis platform and a single commodity machine. \autoref{tab:definition_scales} summarizes the classes used in Graphalytics.
 
 
 \begin{table}
@@ -131,7 +131,7 @@ Graphalytics uses both graphs from real-world applications and synthetic graphs 
 
 The Graphalytics data sets are available in the SURF/CWI data repository~\cite{cwi:graphalytics} at \url{https://repository.surfsara.nl/datasets/cwi/graphalytics}.
 
-\paragraph{Real-world Datasets} By including real-world graphs from a variety of domains, Graphalytics covers users from different communities, including graphs from the knowledge, gaming, and social network domains.  Table~\ref{tab:real-datasets} lists the real-world datasets used by the Graphalytics benchmark.
+\paragraph{Real-world Datasets} By including real-world graphs from a variety of domains, Graphalytics covers users from different communities, including graphs from the knowledge, gaming, and social network domains.  \autoref{tab:real-datasets} lists the real-world datasets used by the Graphalytics benchmark.
 
 \begin{table}[h]
 \caption{Real-world datasets used by Graphalytics.}
@@ -225,7 +225,7 @@ D-10k(2XL) & Datagen-sf10k-fb & 100.2M & 9.4B & 9.9 \\ \hline
 
 The Graphalytics benchmark consists of six algorithms (also known as \emph{kernels}~\cite{DBLP:conf/hipc/BaderM05}) which need to be executed on the different datasets: five algorithms for unweighted graphs and one algorithm for weighted graphs. These algorithms have been selected based on the results of multiple surveys and expert advice from the participants of the LDBC Technical User Community (TUC) meeting.
 
-Each workload of Graphalytics consists of executing a single algorithm on a single dataset. Below, abstract descriptions are provided for the six algorithms; pseudo-code is given in Appendix~\ref{chap:algorithms}. Furthermore, a link to the reference implementation is presented in \sref{sec:instructions:drivers}. However, Graphalytics does not impose any constraint on the implementation of algorithms. Any implementation is allowed, as long as its correctness can be validated by comparing its output to correct reference output (Section~\ref{sec:definitions_validation}). 
+Each workload of Graphalytics consists of executing a single algorithm on a single dataset. Below, abstract descriptions are provided for the six algorithms; pseudo-code is given in Appendix~\ref{chap:algorithms}. Furthermore, a link to the reference implementation is presented in \sref{sec:instructions:drivers}. However, Graphalytics does not impose any constraint on the implementation of algorithms. Any implementation is allowed, as long as its correctness can be validated by comparing its output to correct reference output (\autoref{sec:definitions_validation}). 
 
 In the following sections, a graph $G$ consists of a set of vertices $V$ and a set of edges $E$. For undirected graphs, each edge is bidirectional, so if $(u,v)\in E$ then $(v,u)\in E$. Each vertex $v$ has a set of outgoing neighbors
 $N_\mathrm{out}(v) = \{u \in V | (v, u) \in E \}$, a set of incoming neighbors
@@ -461,11 +461,11 @@ There are three methods used for validation:
 
 \begin{itemize}
 
-\item \textbf{Exact match (applies to BFS, CDLP):} the vertex values of the system's output should be identical to the reference output. Figure~\ref{fig:definition_validation_exact} shows an example of validation with exact match.
+\item \textbf{Exact match (applies to BFS, CDLP):} the vertex values of the system's output should be identical to the reference output. \autoref{fig:definition_validation_exact} shows an example of validation with exact match.
 
-\item \textbf{Equivalence match (applies to WCC):} the vertex values of the system's output should be equal to the reference output \emph{under equivalence}. This means a two-way mapping should exists that maps the system's output to be identical to reference output and the inverse of this mapping maps the reference output to be identical to the system's output. In other words, the output is considered to be valid if all vertices which have the same label in the system's output also have the same label in the reference output, and vice versa. Figure~\ref{fig:definition_validation_equivalence} shows an example of validation with equivalence.
+\item \textbf{Equivalence match (applies to WCC):} the vertex values of the system's output should be equal to the reference output \emph{under equivalence}. This means a two-way mapping should exists that maps the system's output to be identical to reference output and the inverse of this mapping maps the reference output to be identical to the system's output. In other words, the output is considered to be valid if all vertices which have the same label in the system's output also have the same label in the reference output, and vice versa. \autoref{fig:definition_validation_equivalence} shows an example of validation with equivalence.
 
-\item \textbf{Epsilon match (applies to PR, LCC, SSSP):} a margin of error is allowed for some algorithms due to floating-point rounding errors. Let $r$ be the reference value of a vertex and $s$ be the system's output value of the same vertex. These values are considered to match if $s$ is within $0.01\%$ of $r$, i.e., the equation $|r-s| \leq \varepsilon |r|$ holds where $\varepsilon=0.0001$ (equality is allowed such that the case where $r = 0$ and $s = 0$ passes). The value of $\varepsilon$ was chosen such that errors that result from rounding are not penalized. Figure~\ref{fig:definition_validation_epsilon} shows an example of validation with epsilon match.
+\item \textbf{Epsilon match (applies to PR, LCC, SSSP):} a margin of error is allowed for some algorithms due to floating-point rounding errors. Let $r$ be the reference value of a vertex and $s$ be the system's output value of the same vertex. These values are considered to match if $s$ is within $0.01\%$ of $r$, i.e., the equation $|r-s| \leq \varepsilon |r|$ holds where $\varepsilon=0.0001$ (equality is allowed such that the case where $r = 0$ and $s = 0$ passes). The value of $\varepsilon$ was chosen such that errors that result from rounding are not penalized. \autoref{fig:definition_validation_epsilon} shows an example of validation with epsilon match.
 \end{itemize}
 
 Small validation example graphs are available in the Graphalytics suite and are listed in \autoref{chap:validation_examples}, including a common validation graph for all six algorithms (\autoref{fig:common_example}).
@@ -542,7 +542,7 @@ The execution time is capped by the time-out duration configured in each benchma
 
 The {\bf Throughput metrics} focus on the processing rate of the system under test. They use a notion of workload intensity, expressed in the graph-specific number of processed edges and vertices:
 \begin{itemize}
-	\item {\bf Edges Per Second} ($\textit{EPS}$), in $\textit{units} / \textit{second}$: The ratio between the number of edges processed (edge size) and the processing time ($T_p$) is used by other benchmarks (Graph500 in Table~\ref{tab:SummaryOfRelatedWorkAcronyms}) to quantify the rate of operation of the system under test. This is fine for edge-dominated algorithms, such as the BFS used in the same benchmarks, but does not explain the performance of vertex-dominated algorithms or of algorithms whose performance is a complex function of the structural properties of the dataset.
+	\item {\bf Edges Per Second} ($\textit{EPS}$), in $\textit{units} / \textit{second}$: The ratio between the number of edges processed (edge size) and the processing time ($T_p$) is used by other benchmarks (Graph500 in \autoref{tab:SummaryOfRelatedWorkAcronyms}) to quantify the rate of operation of the system under test. This is fine for edge-dominated algorithms, such as the BFS used in the same benchmarks, but does not explain the performance of vertex-dominated algorithms or of algorithms whose performance is a complex function of the structural properties of the dataset.
 	
 	\item {\bf Edges and Vertices per Second} ($\textit{EVPS}$), in $\textit{units} / \textit{second}$: Graphalytics uses the ratio between the sum of the number of edges and the number of vertices (graph size) processed by the system, and the processing time ($T_p$). EVPS is closely related to the scale of a graph, as defined by Graphalytics (see \sref{sec:definition_scale}).
 \end{itemize}
@@ -583,7 +583,7 @@ The {\bf Ratio metrics} reported by Graphalytics are:
 
 \section{System Under Test} \label{sec:sut}
 
-Responding to requirement R1 (see Section~\ref{sec:requirements}), the LDBC Graphalytics framework defines the System Under Test as the combined software platform and hardware environment that is able to execute graph-processing algorithms on graph datasets. This is an inclusive definition, and indeed Graphalytics has been executed in the lab of SUTs with software ranging from community-driven prototype systems, to vendor-optimized software; and with hardware ranging from beefy single-node multi-core systems, to single-node CPU and (multi-)GPU hybrid systems, to multi-node clusters with or without GPUs present. 
+Responding to requirement R1 (see \autoref{sec:requirements}), the LDBC Graphalytics framework defines the System Under Test as the combined software platform and hardware environment that is able to execute graph-processing algorithms on graph datasets. This is an inclusive definition, and indeed Graphalytics has been executed in the lab of SUTs with software ranging from community-driven prototype systems, to vendor-optimized software; and with hardware ranging from beefy single-node multi-core systems, to single-node CPU and (multi-)GPU hybrid systems, to multi-node clusters with or without GPUs present. 
 
 %%% POSSIBLE MODEL: from SPEC Cloud results
 % https://www.spec.org/cloud_iaas2016/results/res2016q2/cloudiaas2016-20160404-00001.html#Instance Configuration
@@ -600,5 +600,5 @@ To ensure the relevance of Graphalytics as a benchmark for future graph analytic
 
 To achieve both workload representativeness and workload coverage, a two-stage selection process is used. \futureinversion{2.0}{This piece of text is repetitive [Gabor]} The first stage identifies classes of algorithms and datasets that are representative for real-world usage of graph analytics systems. In the second stage, algorithms and datasets are selected from the most common classes such that the resulting selection is diverse, i.e., the algorithms cover a variety of computation and communication patterns, and the datasets cover a range of sizes and a variety of graph characteristics.
 
-Updated versions of the Graphalytics benchmark will also include renewed definitions of the scale classes defined in Section~\ref{sec:definition_scale}. The definition of the scale classes is derived from the capabilities of state-of-the-art graph analytics systems and common-off-the-shelf machines, which are expected to be improved over time. Thus, graphs that are considered to be large as of the publication of the first edition of Graphalytics (labeled $L'16$ to indicate the $2016$ edition) may be considered medium-sized graphs in the next edition (e.g., $M'20$).
+Updated versions of the Graphalytics benchmark will also include renewed definitions of the scale classes defined in \autoref{sec:definition_scale}. The definition of the scale classes is derived from the capabilities of state-of-the-art graph analytics systems and common-off-the-shelf machines, which are expected to be improved over time. Thus, graphs that are considered to be large as of the publication of the first edition of Graphalytics (labeled $L'16$ to indicate the $2016$ edition) may be considered medium-sized graphs in the next edition (e.g., $M'20$).
 
