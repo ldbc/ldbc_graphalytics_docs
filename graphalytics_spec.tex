@@ -99,10 +99,10 @@ language=Python}
   \newcommand{\futureinversion}[2]{{\color{red}#2 (Future in v.#1)}}
 \fi
 
-
-\newcommand{\cref}[1]{Chapter~\ref{#1}}
-\newcommand{\fref}[1]{\autoref{#1}}
-\newcommand{\eref}[1]{Equation~\ref{#1}}
+\renewcommand{\chapterautorefname}{Chapter}
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\subsectionautorefname}{Section}
+\renewcommand{\subsubsectionautorefname}{Section}
 
 % Alex Averbuch: used internally only, to make missing/erroneous sections stand out
 \newcommand{\alert}[1]{\textit{\textbf{{\color{red}#1}}}}
