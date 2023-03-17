@@ -3,7 +3,7 @@
 In this chapter, we describe how to participate in \toolname-based competitions. 
 For more details, check out the competition specification document~\cite{CompetitionSpecification}.
 
-\toolname{} defines several {\it official competitions} (\sref{sec:competitions:overview}), which are open globally to everyone who satisfies the rules for participation. Each competition ranks the benchmark submission based on a competition method defined in \sref{sec:competitions}.
+\toolname{} defines several {\it official competitions} (\autoref{sec:competitions:overview}), which are open globally to everyone who satisfies the rules for participation. Each competition ranks the benchmark submission based on a competition method defined in \autoref{sec:competitions}.
 
 
 
@@ -14,7 +14,7 @@ Currently, \toolname{} defines two official competitions: (1)~the Global LDBC Co
 
 
 \subsection{The Global LDBC Competition} \label{sec:competitions:ldbc}
-The Global LDBC Competition is maintained by LDBC, in particular by the Graphalytics Task Force. By the rules of the LDBC charter~\cite{ldbc_byelaws}, the competition method follows the single value-of-merit approach described in \sref{sec:competitions:single_value}, and focuses on two primary metrics: {\bf ``performance''} and {\bf ``cost-performance''}.
+The Global LDBC Competition is maintained by LDBC, in particular by the Graphalytics Task Force. By the rules of the LDBC charter~\cite{ldbc_byelaws}, the competition method follows the single value-of-merit approach described in \autoref{sec:competitions:single_value}, and focuses on two primary metrics: {\bf ``performance''} and {\bf ``cost-performance''}.
 
 The competition reports the following list of metrics:
 \begin{enumerate}
@@ -36,7 +36,7 @@ The competition reports the following list of metrics:
 
 
 \subsection{The Global \toolname{} Competition} \label{sec:competitions:graphalytics}
-The Global \toolname{} Competition is maintained by the \toolname team. The competition method follows the tournament-based approach described in \sref{sec:competitions:tournament}, and focuses on two primary scores: {\bf ``performance''} and {\bf ``cost-performance''}.
+The Global \toolname{} Competition is maintained by the \toolname team. The competition method follows the tournament-based approach described in \autoref{sec:competitions:tournament}, and focuses on two primary scores: {\bf ``performance''} and {\bf ``cost-performance''}.
 
 The Graphalytics consists of a number of {\it matches}, where each match represents a type of experiment that focuses on a specific performance characteristic that is common across all systems, for example, the EVPS of the BFS algorithm on a Datagen dataset. Each match consists of a set of instances, with the {\bf tournament score} being for each system the sum of {\bf instance scores} accumulated by the platform across all matches in which it participates.  Each {\it instance} is a head-to-head comparison between two systems, for example, comparing the EVPS of any algorithm-dataset for the pair (Giraph, GraphX): the winner receives 1 point, the loser 0 points, and a draw rewards each platform with 0.5 points each.
 
@@ -73,7 +73,7 @@ The former requires metrics to be easy to compare and compose, that is, to be no
 
 
 \subsection{Single Value-of-merit Approach} \label{sec:competitions:single_value}
-Where metrics (see \sref{sec:def:metrics}) are collected repeatedly, e.g., each combination of algorithm and dataset, a single value-of-merit can be summarized following the typical processes of benchmarking HPC systems~\cite{DBLP:conf/sc/HoeflerB15}:
+Where metrics (see \autoref{sec:def:metrics}) are collected repeatedly, e.g., each combination of algorithm and dataset, a single value-of-merit can be summarized following the typical processes of benchmarking HPC systems~\cite{DBLP:conf/sc/HoeflerB15}:
 
 \begin{itemize}
 	\item For \textbf{Performance metrics,} the \emph{arithmetic mean} across all data.
