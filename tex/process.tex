@@ -30,205 +30,63 @@ A benchmark is a standardized process to quantify the performance of the system 
 The Graphalytics benchmark suite supports four types of benchmark: $\textit{test}$, $\textit{standard}$, $\textit{full}$, and $\textit{custom}$. This section describes the differences and the composition of these four benchmark types.
 
 
-\subsection{Test Benchmark}
-\label{sec:process:type:test}
-Running the entire benchmark is very time-consuming. To verify that the cluster environment and all underlying software and hardware stacks are configured properly, the user can choose to first run the test benchmark before starting the actual benchmark. In addition, this can be used to debug a platform driver which is under development.
+% \subsection{Test Benchmark}
+% \label{sec:process:type:test}
+% Running the entire benchmark is very time-consuming. To verify that the cluster environment and all underlying software and hardware stacks are configured properly, the user can choose to first run the test benchmark before starting the actual benchmark. In addition, this can be used to debug a platform driver which is under development.
 
-The test benchmark consists of two experiments which run all six core algorithms on two tiny graphs: ``example-directed'' and ``example-undirected'', with only one repetition. In total, there are $6 \times 2 \times 1 =  12$ benchmark runs.
-
-
-\begin{table}[H]
-\centering
-\begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
-\hline
-{\bf Experiments}  & \\ \hline
-directed ($d$), undirected ($u$) & \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Algorithm} & {\bf Dataset} & {\bf Job} & {\bf Repetition} & {\bf Runs} & {\bf Scale} & {\bf Time-out}    \\ \hline
-6 & 2  & 12 & 1 & 12 & $ < 0.5$ & 10 min \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
-\hline
-{\bf XDIR} & $d$ & $d$ & $d$ & $d$ & $d$ & $d$ \\ \hline
-{\bf XUDIR} & $u$ & $u$ & $u$ & $u$ & $u$ & $u$ \\ \hline 
-\end{tabular*}
-\caption{The benchmark composition of the Test benchmark.}
-\label{tab:test_benchmark}
-\end{table}
+% The test benchmark consists of two experiments which run all six core algorithms on two tiny graphs: ``example-directed'' and ``example-undirected'', with only one repetition. In total, there are $6 \times 2 \times 1 =  12$ benchmark runs.
 
 
-\subsection{Standard Benchmark}
+% \begin{table}[H]
+% \centering
+% \begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
+% \hline
+% {\bf Experiments}  & \\ \hline
+% directed ($d$), undirected ($u$) & \\ \hline
+% \end{tabular*}
+% \quad 
+% \begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
+% \hline
+% {\bf Algorithm} & {\bf Dataset} & {\bf Job} & {\bf Repetition} & {\bf Runs} & {\bf Scale} & {\bf Time-out}    \\ \hline
+% 6 & 2  & 12 & 1 & 12 & $ < 0.5$ & 10 min \\ \hline
+% \end{tabular*}
+% \quad 
+% \begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
+% \hline
+% {\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
+% \hline
+% {\bf XDIR} & $d$ & $d$ & $d$ & $d$ & $d$ & $d$ \\ \hline
+% {\bf XUDIR} & $u$ & $u$ & $u$ & $u$ & $u$ & $u$ \\ \hline 
+% \end{tabular*}
+% \caption{The benchmark composition of the Test benchmark.}
+% \label{tab:test_benchmark}
+% \end{table}
+
+
+\subsection{Competition Benchmark}
 \label{sec:process:type:standard}
-Participating in the Graphalytics global competition requires the benchmark to be executed in a standardized format, which is defined as the standard benchmark. The job composition of the standard benchmark should be representative, covering the variability in algorithm complexity and dataset properties that have several impact on the performance of graph processing systems.
+Participating in the Graphalytics competition executes the benchmark for ecah data set size category.
 
-The standard benchmark evaluates the system performance with six core algorithms, BFS, WCC, PR, CDLP, LCC, SSSP (see \autoref{sec:definition_algorithms}). For each algorithm, five datasets with various of sizes and densities are selected within a target scale (see \autoref{sec:definition_datasets} \futureinversion{2.0}{Maybe this should refer to 2.2.3 ``Size and Scale'' [Gabor]}). Whenever possible, two real-world datasets, two Datagen datasets, and one Graph500 dataset will be included in the dataset selection. If such selection is not possible, e.g., there is a lack of real-world datasets in certain target scale, or an algorithm requires datasets to be accompanied with edge properties, then additional Datagen datasets will be used to make sure that at least five datasets are available per target scale.
+The competition benchmark evaluates the system performance with six core algorithms, BFS, WCC, PR, CDLP, LCC, SSSP (see \autoref{sec:definition_algorithms}). For each algorithm, the datasets within a given size category are used. A competition benchmark can fall into one of the five target scales: S, M, L, XL, and 2XL+. Each target scale focuses on processing graphs within certain range of data size, and therefore a corresponding time-out duration has been imposed as shown in \autoref{tab:competition-benchmarks}.
 
-A standard benchmark can fall into one of the four target scales, S, M, L, and XL. Each target scale focuses on processing graphs within certain range of data size, and therefore a corresponding time-out duration has been imposed.  
-
-The standard benchmark (per target scale) consists of six experiments executing six graph algorithm on five graphs, with five repetitions per job. In total, there are $6 \times 5 \times 5 = 150$ benchmark runs.
-
-
-
-\begin{table}[H]
-\centering
-\begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
-\hline
-{\bf Experiments}  & \\ \hline
-BFS ($\textit{bfs}$), WCC ($\textit{wcc}$), PR ($\textit{pr}$), CDLP ($\textit{cdlp}$), LCC ($\textit{lcc}$), SSSP ($\textit{sssp}$) & \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Algorithm} & {\bf Dataset} & {\bf Job} & {\bf Repetition} & {\bf Run}s & {\bf Scale} & {\bf Time-out}    \\ \hline
-6 & 6  & 30 & 5 & 150 & $7.5 - 7.9$ & 15 min \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
-\hline
-DOTA & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
-D7.6 &  &  &  &  &  & $\textit{sssp}$   \\ \hline
-D7.7 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
-D7.8 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
-D7.9 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
-G22 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &    \\ \hline
-\end{tabular*}
-\caption{The benchmark composition of the Standard benchmark on target scale S.}
-\label{tab:standard_benchmark_S}
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline
+		\multicolumn{1}{|c|}{\bf Size} & \multicolumn{1}{c|}{\bf Timeout} \\
+		\hline
+		S          & 15 minutes    \\
+		M          & 30 minutes    \\
+		L          & 1 hour        \\
+		XL         & 2 hours       \\
+		2XL+       & 3 hours       \\
+		\hline
+	\end{tabular}
+	\caption{Benchmarks used in the competition}
+	\label{tab:competition-benchmarks}
 \end{table}
 
-
-\begin{table}[H]
-\centering
-\begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
-\hline
-{\bf Experiments}  & \\ \hline
-BFS ($\textit{bfs}$), WCC ($\textit{wcc}$), PR ($\textit{pr}$), CDLP ($\textit{cdlp}$), LCC ($\textit{lcc}$), SSSP ($\textit{sssp}$) & \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Algorithm} & {\bf Dataset} & {\bf Job} & {\bf Repetition} & {\bf Run}s & {\bf Scale} & {\bf Time-out}    \\ \hline
-6 & 6  & 30 & 5 & 150 & $8.0 - 8.4$ & 30 min \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
-\hline
-D8.0 &  &  &  &  &  & $\textit{sssp}$  \\ \hline
-D8.1 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$  \\ \hline
-D8.2 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$  \\ \hline
-D8.3 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
-D8.4 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
-G24 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &    \\ \hline
-\end{tabular*}
-\caption{The benchmark composition of the Standard benchmark on target scale M.}
-\label{tab:standard_benchmark_M}
-\end{table}
-
-
-
-
-
-
-\begin{table}[H]
-\centering
-\begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
-\hline
-{\bf Experiments}  & \\ \hline
-BFS ($\textit{bfs}$), WCC ($\textit{wcc}$), PR ($\textit{pr}$), CDLP ($\textit{cdlp}$), LCC ($\textit{lcc}$), SSSP ($\textit{sssp}$) & \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Algorithm} & {\bf Dataset} & {\bf Job} & {\bf Repetition} & {\bf Run}s & {\bf Scale} & {\bf Time-out}    \\ \hline
-6 & 6  & 30 & 5 & 150 & $8.5 - 8.9$ & 60 min \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
-\hline
-D8.5 &  &  &  &  &  & $\textit{sssp}$    \\ \hline
-D8.6 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
-D8.7 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
-D8.8 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
-D8.9 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$    \\ \hline
-G25 & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &     \\ \hline
-\end{tabular*}
-\caption{The benchmark composition of the Standard benchmark on target scale L.}
-\label{tab:standard_benchmark_L}
-\end{table}
-
-
-\begin{table}[H]
-\centering
-\begin{tabular*}{0.8\textwidth}{| l@{\extracolsep{\fill}} l |}
-\hline
-{\bf Experiments}  & \\ \hline
-BFS ($\textit{bfs}$), WCC ($\textit{wcc}$), PR ($\textit{pr}$), CDLP ($\textit{cdlp}$), LCC ($\textit{lcc}$), SSSP ($\textit{sssp}$) & \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Algorithm} & {\bf Dataset} & {\bf Job} & {\bf Repetition} & {\bf Run}s & {\bf Scale} & {\bf Time-out}    \\ \hline
-6 & 8 & 30 & 5 & 150 & $9.0 - 9.4$ & 120 min \\ \hline
-\end{tabular*}
-\quad 
-\begin{tabular*}{0.8\textwidth}{| c@{\extracolsep{\fill}} | c | c | c | c | c | c |}
-\hline
-{\bf Job} & {\bf BFS} & {\bf WCC} & {\bf PR} & {\bf CDLP} & {\bf LCC} & {\bf SSSP}  \\ 
-\hline
-FSTER  & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &     \\ \hline
-TWIT & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &     \\\hline
-D9.0  &  &  &  &  &  & $\textit{sssp}$   \\ \hline
-D9.1  &  &  &  &  &  & $\textit{sssp}$   \\ \hline
-D9.2  & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$  \\ \hline
-D9.3 &  &  &  &  &  & $\textit{sssp}$  \\ \hline
-D9.4  & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ & $\textit{sssp}$   \\ \hline
-G26  & $\textit{bfs}$ & $\textit{wcc}$ & $\textit{pr}$ & $\textit{cdlp}$ & $\textit{lcc}$ &    \\ \hline
-\end{tabular*}
-\caption{The benchmark composition of the Standard benchmark on target scale XL.}
-\label{tab:standard_benchmark_XL}
-\end{table}
-
-
-
-
-\subsection{Full Benchmark}
-\label{sec:process:type:full}
-Full benchmark, including new experiment design on quantifying the scalability and robustness of the system under test, will be made available in Graphalytics 2.0.
-
-\futureinversion{2.0}{
-\paragraph{Scalability Experiments}
-For scalable systems, Graphalytics defines two experiments to evaluate the scalability of the system under test. Both experiments must be run with increasing amounts of hardware resources. Which resources are scaled depends on the architecture of the system under test and must be chosen and reported by the benchmark user. Typical examples include scaling the number of machines in a distributed system, scaling the number of processor cores in a parallel machine, or adding GPUs in a heterogeneous system. The system under test as used for the standard experiments is considered the baseline for the scalability experiments. This system is assumed to have N resources for the definition of the scalability experiments.
-
-The strong scalability experiment consists of running BFS and PR on the largest Datagen dataset that is no larger than the target scale using N, 2N, 4N, 8N, and 16N resources. The weak scalability experiment consists of running BFS and PR on Graph500 datasets of increasing sizes using N, 2N, 4N, 8N, and 16N resources. The largest Graph500 dataset no larger than the target scale must be used for all weak scalability benchmark jobs using N resources, while a Graph500 dataset x times larger is used for a system with xN resources. For example, target scale L requires G25(L) to be run on N resources, G26(XL) on 2N resource, G27(XL) on 4N resources, etc.
-
-For both scalability experiments, all benchmark jobs must be run three times, the makespan and processing time must be reported for each run, and the median processing time must be taken as the processing time of the benchmark job. Per experiment and algorithm the speedup in processing time over using N resources must be reported when using 2N, 4N, 8N, or 16N resources. If any run fails to meet the SLA, no results for the corresponding experiment and algorithm may be reported.
-}
-
-
-\futureinversion{2.0}{
-\paragraph{Robustness Experiments}
-The robustness of the system under test is evaluated using two experiments targeted at the system's limits through stress testing and at its variability in performance. The workload of the stress test experiments consists of running BFS on all datasets in increasing order of size. The smallest dataset for which the system under test fails the SLA must be reported. If the system under test successfully completes BFS on two synthetic graphs of consecutive scales for a particular dataset generator, successful execution on all smaller graphs for the same generator may be assumed to reduce the number of jobs required to find the system's limit. The workload of the variability experiment consists of running BFS on the largest Datagen dataset no larger than the target scale, which must be repeated ten times. The makespan and processing time must be reported for every run. The variability score of the system under test is the coefficient of variation of the processing times. If any run fails the SLA, no variability score is assigned.
-}
-
-
-\subsection{Custom Benchmark}
-\label{sec:process:type:custom}
-Custom benchmark, which allows users to define the benchmark composition themselves, will be made available in Graphalytics 2.0.
-
-
-
+Each algorithm is executed 3 times.
 
 \section{Benchmark Execution}
 \label{sec:process:execution}
