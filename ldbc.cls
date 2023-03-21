@@ -214,7 +214,7 @@
         %
         \newcommand\T{\rule{0pt}{4.5mm}}%
         \newcommand\B{\rule[-2.5mm]{0pt}{0pt}}%
-        \LARGE
+        \Large
         \begin{tabular}{c}\hspace*{16.6cm}\\[3mm]%
           %\hline
           \Huge\relscale{1.15}%
@@ -236,7 +236,15 @@
         \end{center}
         }
 
-        \vspace{0.5cm}%
+        \begin{center}
+            \vspace{1cm}
+            \Large
+            \href{https://creativecommons.org/licenses/by/4.0/}{\includegraphics[width=4cm]{figures/cc-by.pdf}}
+            \\
+            This work is licensed under a Creative Commons Attribution 4.0 License.
+        \end{center}
+
+        \vspace{1cm}%
         \normalsize%
 %        \noindent\begin{tabular}{|p{4.0cm};{1pt/1pt}p{12.2cm}|}%
 %         & \\[-1.05em]% % this is here to avoid a gap caused by hdashlines
