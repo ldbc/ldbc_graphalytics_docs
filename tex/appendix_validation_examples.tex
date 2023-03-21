@@ -1,7 +1,7 @@
 \chapter{Example Graphs for Validation}
 \label{chap:validation_examples}
 
-In this chapter, we provide example validation graphs containing the expected results for
+In this chapter, we provide test graphs containing the expected results for
 BFS (\autoref{fig:bfs_example}),
 CDLP (\autoref{fig:cdlp_example}),
 LCC (\autoref{fig:lcc_example}),
@@ -16,14 +16,14 @@ and a common example for all six algorithms (\autoref{fig:common_example}). Note
 	\begin{subfigure}{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/bfs-dir.pdf}
-		\caption{Directed}
+		\caption{Directed (\texttt{text-bfs-directed})}
 	\end{subfigure}
 	\begin{subfigure}{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/bfs-undir.pdf}
-		\caption{Undirected}
+		\caption{Undirected (\texttt{text-bfs-undirected})}
 	\end{subfigure}
-	\caption{Example validation graphs for BFS. Source vertex: 1.}
+	\caption{Test graphs for BFS. Source vertex: 1.}
 	\label{fig:bfs_example}
 \end{figure}
 
@@ -32,14 +32,14 @@ and a common example for all six algorithms (\autoref{fig:common_example}). Note
 	\begin{subfigure}{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/cdlp-dir.pdf}
-		\caption{Directed}
+		\caption{Directed (\texttt{text-cdlp-directed})}
 	\end{subfigure}
 	\begin{subfigure}{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/cdlp-undir.pdf}
-		\caption{Undirected}
+		\caption{Undirected (\texttt{text-cdlp-undirected})}
 	\end{subfigure}
-	\caption{Example validation graphs for CDLP. Maximum number of iterations: 5.}
+	\caption{Test graphs for CDLP. Maximum number of iterations: 5.}
 	\label{fig:cdlp_example}
 \end{figure}
 
@@ -48,14 +48,14 @@ and a common example for all six algorithms (\autoref{fig:common_example}). Note
 	\begin{subfigure}{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/lcc-dir.pdf}
-		\caption{Directed}
+		\caption{Directed (\texttt{text-lcc-directed})}
 	\end{subfigure}
 	\begin{subfigure}{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/lcc-undir.pdf}
-		\caption{Undirected}
+		\caption{Undirected (\texttt{text-lcc-undirected})}
 	\end{subfigure}
-	\caption{Example validation graphs for LCC.}
+	\caption{Test graphs for LCC.}
 	\label{fig:lcc_example}
 \end{figure}
 
@@ -74,14 +74,14 @@ and a common example for all six algorithms (\autoref{fig:common_example}). Note
 	\begin{subfigure}{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/sssp-dir.pdf}
-		\caption{Directed}
+		\caption{Directed (\texttt{text-sssp-directed})}
 	\end{subfigure}
 	\begin{subfigure}{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/sssp-undir.pdf}
-		\caption{Undirected}
+		\caption{Undirected (\texttt{text-sssp-undirected})}
 	\end{subfigure}
-	\caption{Example validation graphs for SSSP. Source vertex: 1.}
+	\caption{Test graphs for SSSP. Source vertex: 1.}
 	\label{fig:sssp_example}
 \end{figure}
 
@@ -90,14 +90,14 @@ and a common example for all six algorithms (\autoref{fig:common_example}). Note
 	\begin{subfigure}[t]{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/wcc-dir.pdf}
-		\caption{Directed. Note that due to the semantics of the WCC algorithm, the direction of the edges is not taken into account, i.e., they are treated as undirected edges.}
+		\caption{Directed (\texttt{text-wcc-directed}). Note that due to the semantics of the WCC algorithm, the direction of the edges is not taken into account, i.e., they are treated as undirected edges.}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.496\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/wcc-undir.pdf}
-		\caption{Undirected}
+		\caption{Undirected (\texttt{text-wcc-undirected})}
 	\end{subfigure}
-	\caption{Example validation graphs for WCC. Remark: there are 8 nodes indexed between 1 and 9 but number 5 is not assigned to any of the nodes.}
+	\caption{Test graphs for WCC. Remark: there are 8 nodes indexed between 1 and 9 but number 5 is not assigned to any of the nodes.}
 	\label{fig:wcc_example}
 \end{figure}
 
@@ -106,7 +106,8 @@ and a common example for all six algorithms (\autoref{fig:common_example}). Note
 	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/common-dir.pdf}
-		\caption{Directed. Algorithm parameters --
+		\caption{Directed (\texttt{example-directed}).
+			Algorithm parameters --
 			BFS: source vertex = 1.
 			CDLP: maximum number of iterations = 2.
 			PR: $d = 0.85$, maximum number of iterations = 2.
@@ -115,7 +116,8 @@ and a common example for all six algorithms (\autoref{fig:common_example}). Note
 	\begin{subfigure}{\textwidth}
 		\centering
 		\includegraphics[scale=\examplescale]{figures/examples/common-undir.pdf}
-		\caption{Undirected. Algorithm parameters --
+		\caption{Undirected (\texttt{example-undirected}).
+			Algorithm parameters --
 			BFS: source vertex = 2.
 			CDLP: maximum number of iterations = 2.
 			PR: $d = 0.85$, maximum number of iterations = 2.
