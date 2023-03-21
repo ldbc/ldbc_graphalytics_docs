@@ -507,7 +507,7 @@ Graph processing is data-intensive, sensitive to the data irregularity, and ofte
 \end{figure}
 
 
-During the \textbf{Loading} step, the input graph data can be converted into an optimized system-specific data format and pre-loaded into a local/share/distributed storage system. Binary formats are allowed, however, the pre-processed data must be uniformly usable for any graph algorithms. \futureinversion{2.0}{I tried to clarify this but it's still quite vague. We should also include the word ``intermediate'' in the discussion (this is how the directory in the benchmark framework is called) [Gabor]}
+During the \textbf{Loading} step, the input graph data can be converted into an optimized system-specific data format and pre-loaded into a local/share/distributed storage system. Binary formats are allowed, however, the pre-processed data must be uniformly usable for any graph algorithms targeting the same graph type (e.g., algorithms on unweighted graphs must use the same binary format).
 
 During the \textbf{Running} step, the graph-processing system carries out a series of operations to facilitate efficient algorithm execution on the pre-processed data. These operations are categorized into three types: setup, input/output, and processing operations (see \autoref{fig:job}).
 \begin{itemize}
