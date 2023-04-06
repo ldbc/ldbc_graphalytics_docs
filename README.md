@@ -11,6 +11,7 @@ Stable versions:
 
 | Version  | Date        | Document                                                                                                       |
 |----------|:-----------:|:--------------------------------------------------------------------------------------------------------------:|
+| 1.0.5    | 2023-Apr-06 | [Link](https://arxiv.org/pdf/2011.15028v6.pdf)                                                                 |
 | 1.0.4    | 2023-Feb-15 | [Link](https://arxiv.org/pdf/2011.15028v5.pdf)                                                                 |
 | 1.0.3    | 2022-Mar-31 | [Link](https://arxiv.org/pdf/2011.15028v4.pdf)                                                                 |
 | 1.0.2    | 2021-Apr-13 | [Link](https://arxiv.org/pdf/2011.15028v3.pdf)                                                                 |
